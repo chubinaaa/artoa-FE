@@ -1,9 +1,8 @@
-# Project NAME
+# Project ArtOa.io
 
-_small description about project_
+The first automated platform that connects customers and wall-artists to each other.
 
 # Getting started
-
 
 ### Prerequisites
 
