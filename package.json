@@ -28,6 +28,11 @@
         "typescript": "^5"
     },
     "lint-staged": {
-        "**.*": "prettier --write"
+        "*.{js,ts,jsx,tsx}": [
+            "prettier --write",
+            "eslint --fix"
+        ],
+        "*.css": "prettier --write",
+        "*.json": "prettier --write"
     }
 }
