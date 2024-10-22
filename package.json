@@ -6,7 +6,10 @@
         "dev": "next dev --turbo",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier .",
+        "format:write": "prettier . --write",
         "prepare": "husky"
     },
     "dependencies": {
