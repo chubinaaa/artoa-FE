@@ -6,4 +6,6 @@ export default {
             dynamic: 30,
         },
     },
+    eslint: { ignoreDuringBuilds: true },
+    typescript: { ignoreBuildErrors: true },
 } satisfies NextConfig;

@@ -8,8 +8,9 @@
         "start": "next start",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "format": "prettier .",
+        "format": "prettier --check .",
         "format:write": "prettier . --write",
+        "typecheck": "tsc --noEmit",
         "prepare": "husky"
     },
     "dependencies": {
