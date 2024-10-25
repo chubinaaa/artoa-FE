@@ -8,9 +8,9 @@ The first automated platform that connects customers and wall artists seamlessly
 
 Ensure you have the following installed on your machine:
 
--   **Git** (for version control)
--   **Node.js** (runtime environment for JavaScript)
--   **npm** (Node.js package manager)
+-   [**Git**](https://git-scm.com/) (for version control)
+-   [**Node.js**](https://nodejs.org/en) (runtime environment for JavaScript)
+-   [**pnpm**](https://pnpm.io/) (Node.js package manager)
 -   An **IDE** (such as VSCode)
 
 ### Setting Up the Codebase Locally
@@ -27,11 +27,11 @@ Follow these steps to get the project up and running on your local machine:
     ```
 3. Install project dependencies:
     ```bash
-    npm install
+    pnpm install
     ```
 4. Start the local development server:
     ```bash
-    npm run dev
+    pnpm run dev
     ```
 5. Open your browser and navigate to `http://localhost:3000` to view the app.
 6. You’re now ready to start working on your task!
@@ -53,7 +53,7 @@ To ensure smooth development and maintain consistency across the team, please fo
 2. After syncing the latest changes, install any new dependencies:
 
     ```bash
-    npm install
+    pnpm install
     ```
 
 ### Working on a New Task
