@@ -31,15 +31,15 @@ Follow these steps to get the project up and running on your local machine:
 
 3. Install project dependencies:
 
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm install
+   ```
 
 4. Start the local development server:
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
 
 5. Open your browser and navigate to `http://localhost:3000` to view the app.
 6. You’re now ready to start working on your task!
@@ -61,9 +61,9 @@ please follow these best practices:
 
 2. After syncing the latest changes, install any new dependencies:
 
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm install
+   ```
 
 ### Working on a New Task
 
