@@ -3,35 +3,33 @@ name: Code check
 on:
   pull_request:
     branches: ["*"]
-  push:
-    branches: ["main"]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: Lint
+    name: pnpm lint
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
 
-      - uses: pnpm/action-setup@v3.0.0
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 8.6.1
+          version: 9.0.6
           run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
+      - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
@@ -40,29 +38,27 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-
-      - run: cp .env.example .env.local
 
       - run: pnpm lint
 
   format:
     runs-on: ubuntu-latest
-    name: Format
+    name: pnpm format:check
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
 
-      - uses: pnpm/action-setup@v3.0.0
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 8.6.1
+          version: 9.0.6
           run_install: false
 
       - name: Get pnpm store directory
@@ -70,7 +66,7 @@ jobs:
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
@@ -80,36 +76,34 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-
-      - run: cp .env.example .env.local
 
       - run: pnpm format:check
 
   tsc:
     runs-on: ubuntu-latest
-    name: Typecheck
+    name: pnpm typecheck
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
 
-      - uses: pnpm/action-setup@v3.0.0
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 8.6.1
+          version: 9.0.6
           run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
+      - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
@@ -118,7 +112,5 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-
-      - run: cp .env.example .env.local
 
       - run: pnpm typecheck
