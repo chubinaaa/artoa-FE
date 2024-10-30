@@ -1,4 +1,7 @@
+// .src/app/pages.tsx
+
 import Header from "@/components/Header";
+import Content from "@/components/Content";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -6,7 +9,7 @@ export default function Home() {
     <div className="size-full">
       <Header />
 
-      {/* // conten */}
+      <Content />
 
       <Footer />
     </div>

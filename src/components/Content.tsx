@@ -1,3 +1,3 @@
 export default function Content() {
-  return <section>footer</section>;
+  return <section className="content-section">app content section</section>;
 }

@@ -16,6 +16,12 @@
   -ms-overflow-style: none;
 }
 
+.size-full {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
 /* ეს სტილ ელემენტები განსაზღვრულია header კომპონენტის UI ელემენტების მარტივ ჩონჩხს, რომელზეც უნდა მოხდეს დეტალური ფუნქციებისა თუ ქცევის ნორმების განსაზღვრა */
 
 header {
@@ -37,7 +43,7 @@ header {
   width: 1700px;
   height: 51px;
   max-width: 100%;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 }
 
 .menu-containet {
@@ -79,6 +85,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-right: 140px;
 }
 
 .buttons-container {
@@ -135,14 +142,239 @@ button {
   background-color: rgba(53, 55, 57, 1);
 }
 
+/* content component */
+
+.content-section {
+  min-height: 400px;
+  width: 1920px;
+  max-width: 100%;
+  background-color: brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* footer  */
 
 footer {
-  position: fixed;
-  bottom: 0px;
-  background-color: black;
-  width: 100%;
-  color: wheat;
-  font-size: 45px;
-  text-align: center;
+  width: 1920px;
+  height: 536px;
+  top: 4846px;
+  padding: 64px 110px 64px 110px;
+  gap: 72px;
+  opacity: 0px;
+  background-color: rgba(18, 18, 18, 1);
+}
+
+.footer-container {
+  width: 1700px;
+  height: 302px;
+  gap: 32px;
+}
+.footer-contant {
+  width: 1700px;
+  height: 242px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-about-cont {
+  width: 300px;
+  height: 133px;
+  gap: 5px;
+}
+
+footer p {
+  width: 320px;
+  height: 80px;
+  /* //styleName: Footnote/regular 12; */
+  color: rgba(255, 255, 255, 1);
+  font-family: FiraGO;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+}
+
+.footer-navigate-container {
+  display: flex;
+  justify-content: space-between;
+  width: 1187px;
+  height: 242px;
+  max-width: 100%;
+  gap: 100px;
+}
+
+.footer-menu {
+  width: 144px;
+  height: 242px;
+  gap: 32px;
+  opacity: 0px;
+  color: rgba(255, 255, 255, 1);
+}
+.footer-menu h1 {
+  margin-bottom: 10px;
+
+  gap: 0px;
+  opacity: 0px;
+  /* //styleName: Body/bold; */
+  font-family: FiraGO;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: left;
+}
+
+.footer-menu ul {
+  width: 114px;
+  height: 194px;
+  gap: 16px;
+}
+
+.footer-menu,
+ul li {
+  /* //styleName: Body/regular 16; */
+  font-family: FiraGO;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: left;
+}
+
+.footer-other {
+  color: rgba(255, 255, 255, 1);
+  width: 186px;
+  height: 137px;
+  gap: 32px;
+}
+
+.footer-other h1 {
+  margin-bottom: 10px;
+}
+.footer-other ul {
+  width: 170px;
+  height: 89px;
+  gap: 16px;
+}
+.footer-subscribe {
+  width: 657px;
+  height: 120px;
+  gap: 32px;
+
+  display: flex;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-subscribe p {
+  /* //styleName: Body/sembold 16; */
+  font-family: FiraGO;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: left;
+}
+
+.footer-subscribe-input-cont {
+  display: flex;
+  width: 432px;
+  height: 56px;
+  padding: 16px 24px 16px 24px;
+  gap: 0px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px rgba(182, 182, 182, 1) solid;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.footer-subscribe-input-cont input {
+  flex-grow: 3;
+  background: none;
+
+  outline: none;
+  border: none;
+  color: white;
+}
+
+.footer-subscribe-icon {
+  transform: rotate(-90deg);
+  transition: 0.3s ease-in-out;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  gap: 10px;
+  padding: 4px;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-subscribe-icon:hover {
+  transform: scale(1.18) rotate(-90deg);
+}
+
+.footer-soc-icon {
+  width: 208px;
+  height: 28px;
+  gap: 32px;
+}
+
+.footer-soc-icon ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-soc-icon ul li {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-endline {
+  width: 1700px;
+  max-width: 1000%;
+  height: 34px;
+}
+
+.footer-endline-container {
+  width: 1700px;
+  height: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.footer-endline-container ul {
+  width: 214px;
+  height: 16px;
+  gap: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-endline-container ul li {
+  /* //styleName: Footnote/regular 12; */
+  font-family: FiraGO;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 1);
+  text-align: left;
+}
+
+.creator {
+  font-family: FiraGO;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: left;
+  color: white;
+}
+
+.creator samp {
+  color: blue;
 }
