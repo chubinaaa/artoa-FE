@@ -6,6 +6,9 @@
     Hiding scrollbar for all browsers.
         to apply: use "scroll-hidden" class on the element
 */
+:root {
+  --Primary-Color: rgba(252, 163, 17, 1);
+}
 
 ::-webkit-scrollbar {
   display: none;

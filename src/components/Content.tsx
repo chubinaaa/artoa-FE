@@ -1,3 +1,7 @@
 export default function Content() {
-  return <section className="content-section">app content section</section>;
+  return (
+    <section className="flex min-h-[400px] w-[1920px] max-w-full items-center justify-center">
+      app content section
+    </section>
+  );
 }
