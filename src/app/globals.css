@@ -15,3 +15,134 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+/* ეს სტილ ელემენტები განსაზღვრულია header კომპონენტის UI ელემენტების მარტივ ჩონჩხს, რომელზეც უნდა მოხდეს დეტალური ფუნქციებისა თუ ქცევის ნორმების განსაზღვრა */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1920px;
+  max-width: 100%;
+  height: 91px;
+  top: 53px;
+  padding: 20px 110px 20px 110px;
+  background-color: rgba(18, 18, 18, 1);
+  border-bottom: 0.5px solid rgba(69, 71, 73, 1);
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  width: 1700px;
+  height: 51px;
+  max-width: 100%;
+  /* justify-content: space-between; */
+}
+
+.menu-containet {
+  width: 787px;
+  height: 48px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 110px;
+  align-items: flex-end;
+}
+
+.logo {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 459px;
+  height: 24px;
+  gap: 48px;
+}
+.menu li {
+  cursor: pointer;
+  /* styleName: Body/regular 16; */
+  font-family: FiraGO;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: left;
+}
+
+.tools {
+  width: 156px;
+  height: 56px;
+  gap: 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttons-container {
+  width: 258px;
+  height: 51px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.lang-container {
+  display: flex;
+  align-items: center;
+  width: 61px;
+  height: 17px;
+  top: 17px;
+  left: 95px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.lang-container samp {
+  font-family: SF Pro Text;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.71px;
+  text-align: center;
+}
+
+.lang-container image {
+  width: 16px;
+  height: 16px;
+}
+
+button {
+  font-family: FiraGO;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+  text-align: left;
+  border-radius: 8px;
+  padding: 16px 36px 16px 36px;
+  gap: 10px;
+  height: 51px;
+}
+
+.login-button {
+  width: 116px;
+  background: var(--Primary-Color, rgba(252, 163, 17, 1));
+}
+
+.signup-button {
+  width: 128px;
+  background-color: rgba(53, 55, 57, 1);
+}
+
+/* footer  */
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  background-color: black;
+  width: 100%;
+  color: wheat;
+  font-size: 45px;
+  text-align: center;
+}
