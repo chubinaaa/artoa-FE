@@ -13,7 +13,7 @@ const buttonVariants = cva(
         // ...other button variants
       },
       size: {
-        default: "h-10 px-4 py-2",
+        default: "h-12 px-9 py-4",
         // ...other button sizes
       },
     },
