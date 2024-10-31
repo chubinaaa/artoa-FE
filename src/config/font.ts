@@ -1,8 +1,22 @@
 import localFont from "next/font/local";
 
-// TODO: replace me with FiraGO font
-export const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+export const firaGo = localFont({
+  src: [
+    {
+      path: "./fonts/FiraGO-Regular.woff",
+      weight: "400",
+    },
+    {
+      path: "./fonts/FiraGO-Medium.woff",
+      weight: "500",
+    },
+    {
+      path: "./fonts/FiraGO-SemiBold.woff",
+      weight: "600",
+    },
+    {
+      path: "./fonts/FiraGO-Bold.woff",
+      weight: "700",
+    },
+  ],
 });
