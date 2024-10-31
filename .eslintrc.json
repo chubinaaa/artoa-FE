@@ -6,6 +6,7 @@
   ],
   "plugins": ["eslint-plugin-react-compiler"],
   "rules": {
-    "react-compiler/react-compiler": "error"
+    "react-compiler/react-compiler": "error",
+    "tailwindcss/classnames-order": "off"
   }
 }

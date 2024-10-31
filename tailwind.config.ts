@@ -8,7 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Additional custom classes goes here ...
+      fontFamily: {
+        fira: ["FiraGO", "sans-serif"],
+      },
+      colors: {
+        primary: "rgba(252, 163, 17, 1)",
+      },
+      fontSize: {
+        custom: "16px",
+      },
+      lineHeight: {
+        custom: "19.2px",
+      },
     },
   },
   plugins: [],

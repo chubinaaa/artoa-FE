@@ -1,16 +1,16 @@
 import Image from "next/image";
 
-import Logo from "../app/images/Artoa-Logo.png";
-import ArrowIcon from "../app/images/icon-arrow.png";
+import Logo from "../../images/Artoa-Logo.png";
+import ArrowIcon from "../../images/icon-arrow.png";
 
-import SocIcon1 from "../app/images/soc-icon-1.png";
-import SocIcon2 from "../app/images/soc-icon-2.png";
-import SocIcon3 from "../app/images/soc-icon-3.png";
-import SocIcon4 from "../app/images/soc-icon-4.png";
+import SocIcon1 from "../../images/soc-icon-1.png";
+import SocIcon2 from "../../images/soc-icon-2.png";
+import SocIcon3 from "../../images/soc-icon-3.png";
+import SocIcon4 from "../../images/soc-icon-4.png";
 
 export default function Footer() {
   return (
-    <footer className="flex w-full max-w-screen-2xl items-center justify-between border-b-[0.5px] border-[#454749] bg-[#121212] px-[110px] pt-[53px] text-white">
+    <footer className="flex w-full max-w-[1920px] items-center justify-between border-b-[0.5px] border-[#454749] bg-[#121212] px-[110px] pt-[53px] text-white">
       <div className="container mx-auto">
         <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
           <div className="flex items-center space-x-4">
