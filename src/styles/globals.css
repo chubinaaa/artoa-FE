@@ -15,3 +15,23 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+@layer base {
+  :root {
+    --foreground: #ffffff;
+    --background: #121212;
+    --card: #1a1a1a;
+    --card-foreground: #ffffff;
+    --primary: #fca311;
+    --primary-foreground: #000000;
+    --secondary: #212121;
+    --secondary-foreground: #9b9b9b;
+    --accent: #fabc05;
+    --muted: #afafaf;
+    --border: #393e45;
+    --input: #16171c;
+    --ring: #fabc05;
+    --destructive: #de5b65;
+    --radius: 0.5rem;
+  }
+}
