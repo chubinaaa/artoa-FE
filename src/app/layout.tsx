@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { geistSans } from "@/config/font";
+import { firaGo } from "@/config/font";
 
 export const metadata: Metadata = {
   title: "ArtOa",
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} scroll-hidden antialiased`}>
+      <body className={`${firaGo.className} scroll-hidden antialiased`}>
         {children}
       </body>
     </html>
