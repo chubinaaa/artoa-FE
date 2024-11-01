@@ -3,8 +3,8 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - main  # the branch you want to deploy from
-      - pre_deploy  # the branch you want to deploy from
+      - main # the branch you want to deploy from
+      - pre_deploy # the branch you want to deploy from
 
 jobs:
   deploy:
@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Fetch all history for all branches and tags
-      
+          fetch-depth: 0 # Fetch all history for all branches and tags
+
       - name: Deploy to Vercel
         run: |
           npm install -g vercel
