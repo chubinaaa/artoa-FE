@@ -43,6 +43,7 @@ function UserTypeCard({ type }: { type: "artist" | "customer" }) {
   const Icon = type === "artist" ? Icons.acrilicArtBrush : Icons.customer;
   return (
     <Link
+      // NOTE: this is just an idea of how we can pass the user choice to the sign up page
       href={`/sign-up?ut=${type}`}
       className="flex w-full max-w-52 flex-col items-center justify-center gap-2 rounded-3xl bg-secondary p-4 text-secondary-foreground"
     >
