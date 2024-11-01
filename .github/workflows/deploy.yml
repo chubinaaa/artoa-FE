@@ -3,6 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
+      - main  # the branch you want to deploy from
       - pre_deploy  # the branch you want to deploy from
 
 jobs:
