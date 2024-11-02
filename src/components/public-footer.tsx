@@ -1,27 +1,21 @@
-import Image from "next/image";
+import { Icons } from "./icons";
 
-import Logo from "../../images/Artoa-Logo.png";
-import ArrowIcon from "../../images/icon-arrow.png";
+export function PublicFooter() {
+  // TODO: replace me with an actual footer
 
-import SocIcon1 from "../../images/soc-icon-1.png";
-import SocIcon2 from "../../images/soc-icon-2.png";
-import SocIcon3 from "../../images/soc-icon-3.png";
-import SocIcon4 from "../../images/soc-icon-4.png";
-
-export default function Footer() {
   return (
     <footer className="flex w-full max-w-[1920px] items-center justify-between border-b-[0.5px] border-[#454749] bg-[#121212] px-[110px] pt-[53px] text-white">
       <div className="container mx-auto">
         <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
           <div className="flex items-center space-x-4">
             {/* Logo */}
-            <Image
-              src={Logo}
-              alt="logo"
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
+            {/* <Image
+                src={Logo}
+                alt="logo"
+                width={48}
+                height={48}
+                className="rounded-full"
+              /> */}
             <p className="max-w-sm text-gray-400">
               Instantly transform any space with our-powered art generator.
               Connect with artists globally for unique creations. Legal,
@@ -64,12 +58,7 @@ export default function Footer() {
                   className="rounded-l-md px-4 py-2 text-gray-800 focus:outline-none"
                 />
                 <button className="rounded-r-md bg-yellow-500 p-2">
-                  <Image
-                    src={ArrowIcon}
-                    alt="Arrow Icon"
-                    width={20}
-                    height={20}
-                  />
+                  <Icons.ArrowDown />
                 </button>
               </div>
             </div>
@@ -79,10 +68,10 @@ export default function Footer() {
         <div className="mt-8 flex items-center justify-between border-t border-gray-700 pt-4">
           {/* Social Icons */}
           <div className="flex space-x-4">
-            <Image src={SocIcon1} alt="Social Icon 1" width={20} height={20} />
-            <Image src={SocIcon2} alt="Social Icon 2" width={20} height={20} />
-            <Image src={SocIcon3} alt="Social Icon 3" width={20} height={20} />
-            <Image src={SocIcon4} alt="Social Icon 4" width={20} height={20} />
+            <Icons.facebook />
+            <Icons.instagram />
+            <Icons.youtube />
+            <Icons.pinterest />
           </div>
 
           {/* Footer Bottom Links */}

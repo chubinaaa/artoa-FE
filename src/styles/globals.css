@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+    Hiding scrollbar for all browsers.
+        to apply: use "scroll-hidden" class on the element
+*/
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@layer base {
+  :root {
+    --foreground: 0 0% 100%;
+    --background: 0 0% 7%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --primary: 37 98% 53%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 61%;
+    --accent: 45 96% 50%;
+    --muted: 0 0% 69%;
+    --border: 215 10% 25%;
+    --input: 230 12% 10%;
+    --ring: 45 96% 50%;
+    --destructive: 355 66% 61%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

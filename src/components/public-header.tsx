@@ -1,11 +1,14 @@
-import React from "react";
+import { Button } from "./ui/button";
+
+import Link from "next/link";
+
+import logo from "../../public/images/ArtOa-Logo.svg";
+import { Icons } from "./icons";
 import Image from "next/image";
 
-import Logo from "../../images/Artoa-Logo.png";
-import LangIco from "../../images/icon-globe.png";
-import ArrowIcon from "../../images/icon-arrow.png";
+export function PublicHeader() {
+  // TODO: replace me with an actual header
 
-export default function Header() {
   return (
     // Main section: Header component spans full width with a dark background and a border at the bottom
 
@@ -15,7 +18,8 @@ export default function Header() {
         {/* Logo and navigation menu */}
         <div className="flex w-full flex-col items-end gap-[110px] md:flex-row">
           {/* Logo image, also clickable */}
-          <Image src={Logo} className="h-[48px] cursor-pointer" alt="Logo" />
+          <Image src={logo} alt="logo" />
+          {/* <Image src={Logo} className="h-[48px] cursor-pointer" alt="Logo" /> */}
 
           {/* Navigation menu, aligned to the right */}
           <ul className="flex h-[24px] flex-wrap justify-between gap-4 md:gap-10">
@@ -31,21 +35,20 @@ export default function Header() {
         <div className="mt-4 flex w-full items-center justify-between gap-[14px] md:mt-0 md:w-auto">
           {/* Login and Sign Up buttons */}
           <div className="flex space-x-4">
-            <button className="h-[51px] w-[116px] rounded-[8px] bg-primary px-4 py-2 font-fira font-medium text-white hover:bg-[gray]">
-              Log in
-            </button>
-            <button className="h-[51px] w-[128px] rounded-[8px] bg-[gray] px-4 py-2 font-fira font-medium text-white hover:bg-primary">
-              Sign Up
-            </button>
+            <Link href="/sign-in">
+              <Button> Log in </Button>
+            </Link>
+
+            <Link href="/sign-up">
+              <Button>Sign Up</Button>
+            </Link>
           </div>
 
           {/* Language selector with icons */}
           <div className="flex items-center space-x-2 text-gray-700">
-            <Image src={LangIco} alt="lang" width={20} height={20} />
-
+            <Icons.globe />
             <span>en</span>
-
-            <Image src={ArrowIcon} alt="icon" width={16} height={16} />
+            <Icons.arrowRigth />
           </div>
         </div>
       </div>

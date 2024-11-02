@@ -1,27 +1,42 @@
 import type { Config } from "tailwindcss";
+import tailwindCssAnimate from "tailwindcss-animate";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        fira: ["FiraGO", "sans-serif"],
-      },
       colors: {
-        primary: "rgba(252, 163, 17, 1)",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        accent: "hsl(var(--accent))",
+        muted: "hsl(var(--muted))",
+        destructive: "hsl(var(--destructive))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
       },
-      fontSize: {
-        custom: "16px",
-      },
-      lineHeight: {
-        custom: "19.2px",
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindCssAnimate],
 };
 export default config;
