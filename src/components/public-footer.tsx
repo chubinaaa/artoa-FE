@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { Icons } from "./icons";
 
-import Logo from "../../public/images/ArtOa-Logo.svg";
+import { ReactComponent as ArtOaLogo } from "../../public/images/ArtOa-Logo.svg";
 
 export function PublicFooter() {
   // TODO: replace me with an actual footer
@@ -12,13 +11,8 @@ export function PublicFooter() {
         <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
           <div className="flex items-center space-x-4">
             {/* Logo */}
-            <Image
-              src={Logo}
-              alt="logo"
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
+            <ArtOaLogo />
+
             <p className="max-w-sm text-gray-400">
               Instantly transform any space with our-powered art generator.
               Connect with artists globally for unique creations. Legal,

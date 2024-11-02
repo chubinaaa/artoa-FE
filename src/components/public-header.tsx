@@ -2,9 +2,9 @@ import { Button } from "./ui/button";
 
 import Link from "next/link";
 
-import logo from "../../public/images/ArtOa-Logo.svg";
+import { ReactComponent as ArtOaLogo } from "../../public/images/ArtOa-Logo.svg";
+
 import { Icons } from "./icons";
-import Image from "next/image";
 
 export function PublicHeader() {
   // TODO: replace me with an actual header
@@ -18,7 +18,7 @@ export function PublicHeader() {
         {/* Logo and navigation menu */}
         <div className="flex w-full flex-col items-end gap-[110px] md:flex-row">
           {/* Logo image, also clickable */}
-          <Image src={logo} alt="logo" />
+          <ArtOaLogo />
           {/* <Image src={Logo} className="h-[48px] cursor-pointer" alt="Logo" /> */}
 
           {/* Navigation menu, aligned to the right */}
