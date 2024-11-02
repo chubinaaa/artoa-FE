@@ -106,5 +106,118 @@ export const Icons = {
       />
     </svg>
   ),
+  chevronDown: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19 8.5L12 15.5L5 8.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  chevronUp: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M5 15.5L12 8.5L19 15.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  chevronRight: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M8.5 5L15.5 12L8.5 19"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  chevronLeft: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M15.5 19L8.5 12L15.5 5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  radioChecked: (props: SvgIconProps) => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect
+        x="1"
+        y="1"
+        width="18"
+        height="18"
+        rx="9"
+        strokeWidth="2"
+        className="stroke-primary"
+      />
+      <circle cx="10" cy="10" r="5" className="fill-primary" />
+    </svg>
+  ),
+  radioUnchecked: (props: SvgIconProps) => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect
+        x="1"
+        y="1"
+        width="18"
+        height="18"
+        rx="9"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+    </svg>
+  ),
   //...rest of the icons
 };

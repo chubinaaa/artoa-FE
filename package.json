@@ -10,13 +10,15 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format:check": "prettier . --check",
-    "format:write": "prettier . --write",
+    "format:write": "prettier --write \"**/*.{ts,tsx}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx}\" --cache",
     "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
