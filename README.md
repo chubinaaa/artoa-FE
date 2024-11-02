@@ -48,8 +48,37 @@ Follow these steps to get the project up and running on your local machine:
 
 ## Development Conventions and Guidelines
 
-To ensure smooth development and maintain consistency across the team,
+By adhering to these guidelines, we ensure our code remains clean, scalable,
+and easy to maintain.
 please follow these best practices:
+
+### Styling Guidelines
+
+Please follow these guidelines to maintain consistency:
+
+1. **TailwindCSS for Styling**: All styling should be done using TailwindCSS.
+   Avoid writing custom CSS whenever possible.
+2. **Avoid Arbitrary Classnames**: Refrain from using arbitrary values for class
+   names(e.g., `className="p-[72px] max-w-screen-[1920px]"`).
+3. **Extending Tailwind Config**: When necessary, extend the default TailwindCSS
+   configuration in the `tailwind.config.ts` file.
+
+   example:
+
+   ```ts
+      spacing: {
+        "18": "4.5rem", // 72 / 4 = 18 = 4.5rem
+      },
+      screens: {
+        "3xl": "1920px",
+      },
+   ```
+
+   This helps maintain a unified design system.
+
+4. **File Naming Convention**: Use **kebab-case** for naming files and directories
+   (e.g., `use-window-size.ts`(😏), `user-dropdown.tsx`, `artist-profile/`).
+   This ensures consistency across the codebase.
 
 ### Syncing the Codebase
 
