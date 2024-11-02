@@ -18,7 +18,8 @@
       "@/*": ["./src/*"],
       "@components/*": ["src/components/*"]
     },
-    "typeRoots": ["src/types", "node_modules"],
+    "typeRoots": ["./node_modules/@types", "src/types"],
+    "types": ["eslint", "react", "react-dom"],
     "plugins": [
       {
         "name": "next"
