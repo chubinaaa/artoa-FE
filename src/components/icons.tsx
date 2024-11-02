@@ -114,7 +114,7 @@ export const Icons = {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_885_15828)">
+      <g clipPath="url(#clip0_885_15828)">
         <path
           d="M8.00031 16.18C12.2419 16.18 15.6803 12.7416 15.6803 8.50001C15.6803 4.25846 12.2419 0.820007 8.00031 0.820007C3.75877 0.820007 0.320312 4.25846 0.320312 8.50001C0.320312 12.7416 3.75877 16.18 8.00031 16.18Z"
           stroke="#C7C3C3"
@@ -156,7 +156,7 @@ export const Icons = {
       </defs>
     </svg>
   ),
-  ArrowDown: () => (
+  arrowDown: () => (
     <svg
       width="16"
       height="16"
