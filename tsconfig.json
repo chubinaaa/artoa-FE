@@ -13,25 +13,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["src/components/*"]
+      "@/*": ["./src/*"]
     },
     "typeRoots": ["./node_modules/@types", "src/types"],
-    "types": ["eslint", "react", "react-dom"],
     "plugins": [
       {
         "name": "next"
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

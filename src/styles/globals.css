@@ -27,9 +27,10 @@
     --secondary: 0 0% 13%;
     --secondary-foreground: 0 0% 61%;
     --accent: 45 96% 50%;
-    --muted: 0 0% 69%;
+    --muted-foreground: 206 8% 63%;
     --border: 215 10% 25%;
-    --input: 230 12% 10%;
+    --input: 215 10% 25;
+    --input-background: 230 12% 10%;
     --ring: 45 96% 50%;
     --destructive: 355 66% 61%;
     --radius: 0.5rem;
