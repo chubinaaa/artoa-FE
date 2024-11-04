@@ -1,4 +1,4 @@
-import { SignUpDialog } from "@/components/sign-up-dialog";
+import { SignUpDialog } from "@/components/auth/sign-up/sign-up-dialog";
 
 export default function IndexPage() {
   return (
