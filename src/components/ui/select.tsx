@@ -26,7 +26,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <Icons.chevronDown className="size-6 opacity-50 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+      <Icons.arrowDown className="size-6 opacity-50 transition-transform duration-200 group-data-[state=open]:rotate-180" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
@@ -44,7 +44,7 @@ const SelectScrollUpButton = React.forwardRef<
     )}
     {...props}
   >
-    <Icons.chevronUp className="size-4 opacity-50" />
+    <Icons.arrowUp className="size-4 opacity-50" />
   </SelectPrimitive.ScrollUpButton>
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
@@ -64,7 +64,7 @@ const SelectScrollDownButton = React.forwardRef<
       onClick={() => setOpen(!open)}
       {...props}
     >
-      <Icons.chevronDown
+      <Icons.arrowDown
         className={cn("size-4 opacity-50", {
           "rotate-180": open,
         })}

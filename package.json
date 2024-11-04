@@ -10,8 +10,8 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format:write": "prettier --write \"**/*.{ts,tsx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx}\" --cache",
+    "format:write": "prettier --write \"**/*.{ts,tsx}\" --cache",
     "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
