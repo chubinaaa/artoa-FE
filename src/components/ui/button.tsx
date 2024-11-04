@@ -11,10 +11,13 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-accent",
         link: "text-primary underline-offset-4 hover:underline",
+        outline:
+          "border border-input bg-input-background hover:bg-input hover:text-foreground",
         // ...other button variants
       },
       size: {
         default: "h-12 px-9 py-4",
+        lg: "h-16 px-9 py-6",
         // ...other button sizes
       },
     },
