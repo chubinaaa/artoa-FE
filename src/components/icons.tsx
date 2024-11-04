@@ -143,13 +143,14 @@ export const Icons = {
       />
     </svg>
   ),
-  globe: () => (
+  globe: (props: SvgIconProps) => (
     <svg
       width="16"
       height="17"
       viewBox="0 0 16 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <g clipPath="url(#clip0_885_15828)">
         <path
@@ -387,6 +388,24 @@ export const Icons = {
         rx="9"
         stroke="currentColor"
         strokeWidth="2"
+      />
+    </svg>
+  ),
+  check: (props: SvgIconProps) => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M2.66666 8L6.66666 12L13.3333 4"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),
