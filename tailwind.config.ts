@@ -24,10 +24,16 @@ const config: Config = {
           foreground: "hsl(var(--secondary-foreground))",
         },
         accent: "hsl(var(--accent))",
-        muted: "hsl(var(--muted))",
+        muted: {
+          // DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
         destructive: "hsl(var(--destructive))",
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
+        input: {
+          DEFAULT: "hsl(var(--input))",
+          background: "hsl(var(--input-background))",
+        },
         ring: "hsl(var(--ring))",
       },
       borderRadius: {
