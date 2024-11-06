@@ -10,74 +10,19 @@ import {
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Checkbox } from "../ui/checkbox";
 import { Label } from "../ui/label";
-import { WallArtistCard } from "../artists/wall-artists-card";
+import { Artist, WallArtistCard } from "../artists/wall-artists-card";
 
-interface Artist {
-  name: string;
-  handle: string;
-  rating: number;
-  tags: string[];
-  image: string;
-}
+export const artist: Artist = {
+  id: 1,
+  name: "Name Surname",
+  handle: "@Artist3",
+  rating: 4.66,
+  tags: ["3D Artist", "3D Artist", "3D Artist"],
+  image: "/wall-artists/1.png",
+  href: "/artist/1",
+};
 
-export const artists: Artist[] = [
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/1.png",
-  },
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/2.png",
-  },
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/3.png",
-  },
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/1.png",
-  },
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/1.png",
-  },
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/2.png",
-  },
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/3.png",
-  },
-  {
-    name: "Name Surname",
-    handle: "@Artist3",
-    rating: 4.66,
-    tags: ["3D Artist", "3D Artist", "3D Artist"],
-    image: "/wall-artists/1.png",
-  },
-];
+const artists = [...Array(10)].map(() => artist);
 
 export const filters = [
   "All",

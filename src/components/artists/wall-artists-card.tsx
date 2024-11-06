@@ -3,13 +3,16 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
-interface Artist {
+export interface Artist {
+  id: number;
   name: string;
   handle: string;
-  rating: number;
-  tags: string[];
   image: string;
+  tags: string[];
+  rating: number;
+  href: string;
 }
 
 export function WallArtistCard({ artist }: { artist: Artist }) {
@@ -50,7 +53,9 @@ export function WallArtistCard({ artist }: { artist: Artist }) {
         </div>
       </CardContent>
       <CardFooter className="mt-2 p-0 md:mt-4">
-        <Button className="h-10 w-full md:h-12">See More</Button>
+        <Button asChild className="h-10 w-full md:h-12">
+          <Link href={artist.href}>See More</Link>
+        </Button>
       </CardFooter>
     </Card>
   );
