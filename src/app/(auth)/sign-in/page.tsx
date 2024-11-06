@@ -79,7 +79,7 @@ export default function SignIn() {
             <div>
               <Button
                 className={cn(
-                  buttonVariants({ variant: "thirdParty" }),
+                  buttonVariants({ variant: "outline" }),
                   "mt-5 h-16 w-[740px] p-0",
                 )}
               >
@@ -88,7 +88,7 @@ export default function SignIn() {
               </Button>
               <Button
                 className={cn(
-                  buttonVariants({ variant: "thirdParty" }),
+                  buttonVariants({ variant: "outline" }),
                   "mt-5 h-16 w-[740px] p-0",
                 )}
               >
@@ -100,7 +100,7 @@ export default function SignIn() {
               </Button>
               <Button
                 className={cn(
-                  buttonVariants({ variant: "thirdParty" }),
+                  buttonVariants({ variant: "outline" }),
                   "mt-5 h-16 w-[740px] p-0",
                 )}
               >
