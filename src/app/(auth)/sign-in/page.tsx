@@ -8,10 +8,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 export default function SignIn() {
   return (
     <div className="bg-black">
-      <Icons.bgStars className="absolute left-32 top-32" />
-      <Icons.bgStars className="absolute -bottom-40 right-36" />
+      <Icons.bgStars className="absolute left-32 top-32 max-[1280px]:left-0 max-lg:top-6 max-lg:size-28 max-md:top-10 max-md:size-20" />
+      <Icons.bgStars className="absolute -bottom-40 right-36 max-[1280px]:right-0 max-lg:size-28 max-md:size-20" />
       <div className="flex items-center justify-center">
-        <div className="my-16 h-[1026px] w-[868px] rounded-3xl bg-background p-[64px]">
+        <div className="my-16 w-[868px] rounded-3xl bg-background p-[64px] max-lg:max-w-[720px] max-lg:p-6 max-md:w-[400px] max-[375px]:w-72">
           <div className="text-3xl">
             <p className="mb-3">Hello!</p>
             <p>Log in</p>
@@ -32,17 +32,20 @@ export default function SignIn() {
             <div className="">
               <div className="mb-6">
                 <label className="mb-2 flex">Enter Login</label>
-                <Input className="w-[740px]" placeholder="Email" />
+                <Input
+                  className="w-[740px] max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60"
+                  placeholder="Email"
+                />
               </div>
               <div>
                 <label className="mb-2 flex">Enter Password</label>
                 <Input
-                  className="w-[740px]"
+                  className="w-[740px] max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60"
                   placeholder="***************"
                   type="password"
                 />
                 <div className="mt-6 flex justify-between">
-                  <div className="flex">
+                  <div className="flex items-center">
                     <Checkbox className="me-2 size-5" /> Remember Me
                   </div>
                   <Link
@@ -54,18 +57,11 @@ export default function SignIn() {
                 </div>
               </div>
             </div>
-            {/* <div className="my-10 flex items-center text-xs">
-              <Checkbox className="me-3" /> By creating an account, I agree to
-              our
-              <p className="ms-2 flex cursor-pointer underline">
-                Terms and Conditions
-              </p>
-            </div> */}
             <div>
               <Button
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "mt-12 h-16 w-[740px] p-0",
+                  "mt-16 h-16 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
                 )}
               >
                 Log In
@@ -76,24 +72,24 @@ export default function SignIn() {
             <div className="mt-16 flex items-center justify-around text-xs">
               <Icons.horizontalLine /> Or <Icons.horizontalLine />
             </div>
-            <div>
+            <div className="mt-10">
               <Button
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "mt-5 h-16 w-[740px] p-0",
+                  "mt-5 h-14 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
                 )}
               >
-                <Icons.google className="size-6" />
+                <Icons.google className="ms-5 size-6" />
                 Google
               </Button>
               <Button
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "mt-5 h-16 w-[740px] p-0",
+                  "mt-5 h-14 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
                 )}
               >
                 <Icons.facebook
-                  className="text-xl"
+                  className="ms-5"
                   color="hsla(217, 5%, 51%, 1)"
                 />
                 Facebook
@@ -101,10 +97,10 @@ export default function SignIn() {
               <Button
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "mt-5 h-16 w-[740px] p-0",
+                  "mt-5 h-14 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
                 )}
               >
-                <Icons.linkedin className="size-6" />
+                <Icons.linkedin className="ms-5 size-6" />
                 {/*ar mushaobs size parametri */}
                 Linkedin
               </Button>
