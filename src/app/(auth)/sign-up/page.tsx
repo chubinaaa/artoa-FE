@@ -7,20 +7,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 export default function SignUp() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-black px-4 md:px-8">
       <Icons.bgStars className="absolute left-32 top-32" />
-      <Icons.bgStars className="absolute -bottom-40 right-36" />
+      <Icons.bgStars className="absolute -bottom-40 right-36 md:h-16 md:w-16" />
 
-      <div
-        className="my-16 h-[1026px] w-[868px] rounded-3xl bg-background p-[64px]"
-        style={{ backgroundColor: " #121212" }}
-      >
+      <div className="md:p-18 my-8 w-full max-w-md rounded-3xl bg-background p-6 md:my-16 md:h-[1026px] md:max-w-xl">
         <h2 className="text-2xl">Hello!</h2>
         <p className="text-2xl">
           Create an ArtOa account
           <br />
         </p>
-        <p className="mt-0 flex text-base">
+        <p className="mt-0 flex text-sm md:mt-0 md:text-base">
           {"Already have an account? "}
           <Link
             className={cn(
@@ -34,25 +31,29 @@ export default function SignUp() {
         </p>
 
         <form className="mt-6">
-          <label className="text-m my-2 block">Email Address</label>
+          <label className="md:text-m my-2 block text-sm">Email Address</label>
           <Input
             type="email"
             placeholder="Email Address"
-            className="placeholder:text-m"
+            className="md:placeholder:text-m placeholder:text-sm"
           />
-          <label className="text-m my-2 block">Enter Password</label>
+          <label className="md:text-m my-2 block text-sm">Enter Password</label>
           <Input type="password" placeholder="Password" />
-          <label className="text-m my-2 block">Repeat Password</label>
+          <label className="md:text-m my-2 block text-sm">
+            Repeat Password
+          </label>
           <Input type="password" placeholder="Repeat Password" />
 
           <div className="my-8 flex items-center">
-            <div className="mt-6 flex justify-between">
+            <div className="mt-6 flex justify-between md:my-8">
               <div className="flex">
-                <Checkbox className="me-2 size-5" /> By creating an account, I
-                agree to the{" "}
+                <Checkbox className="me-2 size-4 md:size-5" />
+                <span className="text-xs md:text-sm">
+                  By creating an account, I agree to the{" "}
+                </span>
                 <Link
                   href="/terms"
-                  className="ml-2 text-primary hover:underline"
+                  className="ml-2 text-xs text-primary hover:underline"
                 >
                   Terms and Conditions
                 </Link>
@@ -62,23 +63,23 @@ export default function SignUp() {
           <Button className="w-full">Create Account</Button>
         </form>
         <div>
-          <div className="mt-16 flex items-center justify-around text-xs">
+          <div className="mt-16 flex items-center justify-around text-xs md:mt-10">
             <Icons.horizontalLine /> Or <Icons.horizontalLine />
           </div>
           <div>
             <Button
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "mt-5 h-16 w-[740px] justify-start p-0 text-white",
+                "mt-4 h-12 w-full justify-start p-0 text-white md:mt-5 md:h-16",
               )}
             >
-              <Icons.google className="ml-5 size-6" />
+              <Icons.google className="ml-4 size-5 md:ml-5 md:size-6" />
               Sign up with Google
             </Button>
             <Button
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "mt-5 h-16 w-[740px] justify-start p-0 text-white",
+                "mt-4 h-12 w-full justify-start p-0 text-white md:mt-5 md:h-16",
               )}
             >
               <Icons.facebook
@@ -90,10 +91,10 @@ export default function SignUp() {
             <Button
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "mt-5 h-16 w-[740px] justify-start p-0 text-white",
+                "mt-4 h-12 w-full justify-start p-0 text-white md:mt-5 md:h-16",
               )}
             >
-              <Icons.linkedin className="\\[\\&_svg\\]\\:size-6 svg ml-5 size-6" />
+              <Icons.linkedin className="ml-5 size-6 [&_svg]:size-6" />
               Sign up with LinkedIn
             </Button>
           </div>
