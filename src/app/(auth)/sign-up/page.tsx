@@ -8,8 +8,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 export default function SignUp() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-black px-4 md:px-8">
-      <Icons.bgStars className="absolute left-32 top-32" />
-      <Icons.bgStars className="absolute -bottom-40 right-36 md:h-16 md:w-16" />
+      <Icons.bgStars className="absolute left-32 top-32 max-[1280px]:left-0 max-lg:top-6 max-lg:size-28 max-md:top-14 max-md:size-14 max-[375px]:size-10" />
+      <Icons.bgStars className="max-md:-bottom-90 absolute -bottom-40 right-36 max-[1280px]:right-0 max-lg:size-28 max-md:size-16 max-[375px]:size-14" />
 
       <div className="md:p-18 my-8 w-full max-w-md rounded-3xl bg-background p-6 md:my-16 md:h-[1026px] md:max-w-xl">
         <h2 className="text-2xl">Hello!</h2>
