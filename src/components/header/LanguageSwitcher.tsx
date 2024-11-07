@@ -1,6 +1,6 @@
 import { Icons } from "../icons";
 
-export function SwitchLanguage() {
+export function LanguageSwitcher() {
   return (
     <div className="flex cursor-pointer items-center gap-2">
       <Icons.globe />

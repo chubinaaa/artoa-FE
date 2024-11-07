@@ -1,7 +1,7 @@
 import { Icons } from "../icons";
 
 import { Menu, MenuButton } from "./menu";
-import { SwitchLanguage } from "./switch-language";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { HeaderButtons } from "./buttons";
 export function PublicHeader() {
   return (
@@ -12,10 +12,9 @@ export function PublicHeader() {
           <Icons.logo />
           <Menu />
         </div>
-
         <div className="flex items-center gap-8">
           <HeaderButtons />
-          <SwitchLanguage />
+          <LanguageSwitcher />
         </div>
       </div>
     </header>

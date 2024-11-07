@@ -10,34 +10,24 @@ export function MenuButton() {
 }
 
 export function Menu() {
+  const MenuItems = [
+    { label: "Home", url: "/" },
+    { label: "Artists", url: "/artists" },
+    { label: "Services", url: "/services" },
+    { label: "About", url: "/about" },
+    { label: "Contact Us", url: "/contact" },
+  ];
+
   return (
     <nav className="md: flex max-sm:hidden">
       <ul className="flex items-center justify-between gap-12">
-        <li>
-          <Link href={"/"} className="hover:text-primary">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link href={"/artists"} className="hover:text-primary">
-            Artists
-          </Link>
-        </li>
-        <li>
-          <Link href={"/services"} className="hover:text-primary">
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link href={"/about"} className="hover:text-primary">
-            About
-          </Link>
-        </li>
-        <li>
-          <Link href={"/contact"} className="hover:text-primary">
-            Contact Us
-          </Link>
-        </li>
+        {MenuItems.map((item) => (
+          <li key={item.label}>
+            <Link href={item.url} className="hover:text-primary">
+              {item.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

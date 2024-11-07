@@ -7,7 +7,6 @@ export function HeaderButtons() {
       <Button asChild>
         <Link href="/sign-in"> Log In </Link>
       </Button>
-
       <Button asChild>
         <Link href="/sign-up"> Sign Up </Link>
       </Button>
