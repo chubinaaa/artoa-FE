@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Menu() {
   return (
     <nav className="flex">
-      <ul className="flex items-end justify-between gap-12">
+      <ul className="flex items-center justify-between gap-12">
         <li>
           <Link href={"/"} className="hover:text-primary">
             Home
