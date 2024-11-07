@@ -1,8 +1,17 @@
 import Link from "next/link";
+import { Icons } from "../icons";
+
+export function MenuButton() {
+  return (
+    <div className="md: hidden cursor-pointer max-sm:flex">
+      <Icons.menuButton />
+    </div>
+  );
+}
 
 export function Menu() {
   return (
-    <nav className="flex">
+    <nav className="md: flex max-sm:hidden">
       <ul className="flex items-center justify-between gap-12">
         <li>
           <Link href={"/"} className="hover:text-primary">
