@@ -1,10 +1,9 @@
-import { SignUpDialog } from "@/components/auth/sign-up/sign-up-dialog";
+import { WallArtistsInAnyDirection } from "@/components/homepage/wall-artists-in-any-direction";
 
 export default function IndexPage() {
   return (
-    <div className="size-full">
-      <h1>Hello ArtOa!</h1>
-      <SignUpDialog />
-    </div>
+    <main>
+      <WallArtistsInAnyDirection />
+    </main>
   );
 }
