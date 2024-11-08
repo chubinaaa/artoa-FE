@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Icons } from "../../../components/icons";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import SocialButton from "@/components/ui/social-button";
 
 export default function SignIn() {
   return (
@@ -73,37 +74,18 @@ export default function SignIn() {
               <Icons.horizontalLine /> Or <Icons.horizontalLine />
             </div>
             <div className="mt-10">
-              <Button
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "mt-5 h-14 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
-                )}
-              >
-                <Icons.google className="ms-5 size-6" />
+              <SocialButton icon={<Icons.google />} href="#">
                 Google
-              </Button>
-              <Button
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "mt-5 h-14 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
-                )}
+              </SocialButton>
+              <SocialButton
+                icon={<Icons.facebook color="hsla(217, 5%, 51%, 1)" />}
+                href="#"
               >
-                <Icons.facebook
-                  className="ms-5"
-                  color="hsla(217, 5%, 51%, 1)"
-                />
                 Facebook
-              </Button>
-              <Button
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "mt-5 h-14 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
-                )}
-              >
-                <Icons.linkedin className="ms-5 size-6" />
-                {/*ar mushaobs size parametri */}
+              </SocialButton>
+              <SocialButton icon={<Icons.linkedin />} href="#">
                 Linkedin
-              </Button>
+              </SocialButton>
             </div>
           </div>
         </div>
