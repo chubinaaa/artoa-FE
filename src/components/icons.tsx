@@ -424,4 +424,79 @@ export const Icons = {
       />
     </svg>
   ),
+  menuButton: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        opacity="0.4"
+        d="M11 17.5H4"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 17.5C20 18.8807 18.8807 20 17.5 20C16.1193 20 15 18.8807 15 17.5C15 16.1183 16.1193 15 17.5 15C18.8807 15 20 16.1183 20 17.5Z"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M13 6.5H20"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 6.5C4 7.88174 5.11928 9 6.5 9C7.88072 9 9 7.88174 9 6.5C9 5.11928 7.88072 4 6.5 4C5.11928 4 4 5.11928 4 6.5Z"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  avatarIcon: (props: SvgIconProps) => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.99028 10.2305C5.41187 10.2305 3.20996 10.6203 3.20996 12.1816C3.20996 13.7428 5.3979 14.1467 7.99028 14.1467C10.5687 14.1467 12.77 13.7562 12.77 12.1955C12.77 10.6349 10.5827 10.2305 7.99028 10.2305Z"
+        stroke="#C7C3C3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.98993 8.00359C9.68199 8.00359 11.0534 6.63153 11.0534 4.93947C11.0534 3.24741 9.68199 1.87598 7.98993 1.87598C6.29786 1.87598 4.9258 3.24741 4.9258 4.93947C4.92008 6.62582 6.28262 7.99788 7.96834 8.00359H7.98993Z"
+        stroke="#C7C3C3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
 };
