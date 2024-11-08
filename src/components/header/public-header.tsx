@@ -9,7 +9,7 @@ export function PublicHeader() {
       <div className="flex w-full justify-between">
         <div className="flex cursor-pointer items-center gap-28 max-sm:gap-3">
           <MenuButton />
-          <Icons.logo />
+          <Icons.logo className="size-12 max-sm:size-8" />
           <Menu />
         </div>
         <div className="flex items-center gap-8">
