@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "./button";
+import { buttonVariants } from "../../ui/button";
 import Link from "next/link";
 
 interface SocialButtonProps extends React.ComponentProps<typeof Link> {

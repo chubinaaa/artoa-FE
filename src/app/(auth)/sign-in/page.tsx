@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Icons } from "../../../components/icons";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import SocialButton from "@/components/ui/social-button";
+import SocialButton from "@/components/auth/sign-in/social-button";
 
 export default function SignIn() {
   return (
