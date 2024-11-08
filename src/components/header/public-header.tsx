@@ -2,7 +2,7 @@ import { Icons } from "../icons";
 import { MenuButton } from "./menu-button";
 import { Menu } from "./menu";
 import { HeaderButtons } from "./buttons";
-import { LanguageSwitcher } from "./languageSwitcher";
+import { LanguageSwitcher } from "./language-switcher";
 
 export function PublicHeader() {
   return (
