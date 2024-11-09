@@ -7,7 +7,7 @@ type ProfileLayoutProps = {
 
 export default async function ProfileLayout({ children }: ProfileLayoutProps) {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto]">
+    <div className="grid min-h-dvh grid-rows-[auto_1fr_auto]">
       <ProfileHeader />
       {children}
       <PublicFooter />
