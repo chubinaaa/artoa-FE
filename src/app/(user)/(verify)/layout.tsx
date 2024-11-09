@@ -1,10 +1,10 @@
 import { ProfileHeader } from "@/components/header/profile-header";
 
-interface UserLayoutProps {
+interface VerifyLayoutProps {
   children: React.ReactNode;
 }
 
-export default async function UserLayout({ children }: UserLayoutProps) {
+export default async function VerifyLayout({ children }: VerifyLayoutProps) {
   return (
     <div className="grid min-h-dvh grid-rows-[auto_1fr]">
       <ProfileHeader />
