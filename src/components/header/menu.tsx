@@ -10,7 +10,7 @@ const menuItems = [
 
 export function Menu() {
   return (
-    <nav className="md: flex max-sm:hidden">
+    <nav className="hidden lg:flex">
       <ul className="flex items-center justify-between gap-12">
         {menuItems.map((item) => (
           <li key={item.label}>
