@@ -3,14 +3,15 @@ import { Icons } from "../icons";
 
 interface AuthShellProps {
   children: React.ReactNode;
-  position?: "center" | "top";
+  position: "center" | "top";
 }
 
-export function AuthShell({ children, position }: AuthShellProps) {
+export function AuthShell({ children, position = "top" }: AuthShellProps) {
   return (
     <div
-      className={cn("grid pt-14", {
-        "place-items-center pt-22": position === "center",
+      className={cn("grid", {
+        "py-14": position === "top",
+        "-mt-22 place-items-center": position === "center",
       })}
     >
       <div className="container relative mx-auto h-fit max-w-xs rounded-3xl bg-secondary px-4 py-6 sm:max-w-xl md:max-w-2xl md:p-16 lg:max-w-3xl">
