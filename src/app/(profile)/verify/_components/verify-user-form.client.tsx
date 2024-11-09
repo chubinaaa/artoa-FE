@@ -13,7 +13,7 @@ import {
 
 export function VerifyUserForm() {
   return (
-    <form className="flex flex-col gap-12">
+    <form className="flex flex-col gap-4 md:gap-12">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2.5">
           <Label htmlFor="name">Name</Label>
@@ -21,7 +21,7 @@ export function VerifyUserForm() {
         </div>
         <div className="flex flex-col gap-2.5">
           <Label htmlFor="surname">Surname</Label>
-          <Input id="surname" placeholder="Surnmae" />
+          <Input id="surname" placeholder="Surname" />
         </div>
         <div className="flex flex-col gap-2.5">
           <Label htmlFor="city">City</Label>
