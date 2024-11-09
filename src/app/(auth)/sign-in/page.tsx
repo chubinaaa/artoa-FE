@@ -1,3 +1,5 @@
+import { AuthShell } from "@/components/auth/auth-shell";
+
 export default function SignIn() {
-  return <div>Sign In Page</div>;
+  return <AuthShell>Sign In Page</AuthShell>;
 }
