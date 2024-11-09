@@ -3,7 +3,7 @@ import { Icons } from "../icons";
 
 interface AuthShellProps {
   children: React.ReactNode;
-  position: "center" | "top";
+  position?: "center" | "top";
 }
 
 export function AuthShell({ children, position = "top" }: AuthShellProps) {
