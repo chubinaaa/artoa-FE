@@ -1,4 +1,4 @@
-import { AuthHeader } from "@/components/header/auth-header";
+import { PublicHeader } from "@/components/header/public-header";
 
 export default function AuthLayout({
   children,
@@ -8,7 +8,7 @@ export default function AuthLayout({
   return (
     // grid rows auto 1fr makes sure that the children take up the remaining space
     <div className="grid min-h-dvh grid-rows-[auto_1fr]">
-      <AuthHeader />
+      <PublicHeader />
       {children}
     </div>
   );
