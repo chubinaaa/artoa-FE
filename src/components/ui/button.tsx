@@ -12,13 +12,13 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground hover:bg-accent",
         link: "text-primary underline-offset-4 hover:underline",
         outline:
-          "justify-start border border-input bg-input-background text-foreground hover:bg-input max-md:justify-center",
+          "border border-input bg-input-background text-foreground hover:bg-input",
         carousel: "bg-secondary text-foreground",
         // ...other button variants
       },
       size: {
         default: "h-12 px-9 py-4",
-        lg: "h-16 px-9 py-6",
+        lg: "h-11 px-6 py-2 md:h-16 md:px-9 md:py-6",
         icon: "size-12",
         // ...other button sizes
       },
