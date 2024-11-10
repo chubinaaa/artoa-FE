@@ -26,6 +26,8 @@ import { signUpAction } from "./sign-up.action";
 
 export function SignUpForm() {
   const formRef = useRef<HTMLFormElement>(null);
+  // NOTE: we use useActionState to return errors sent from the server
+  // and to show a loading state also supports progressive enhancement
   const [formState, formAction, isPending] = useActionState(signUpAction, {
     message: "",
   });
@@ -36,10 +38,14 @@ export function SignUpForm() {
       password: "",
       repeatPassword: "",
       isTerm: false,
+      // NOTE: override the default values with values returned from the server
+      // this way when user submits incorrect values, we will not clear the whole form
       ...(formState?.fields ?? {}),
     },
   });
 
+  // NOTE: this works, but it would be better to manually trigger form submission
+  // since we already provide formAction on the form
   function onSubmit(data: z.infer<typeof signUpFormSchema>) {
     console.log("[ON SUBMIT]", data);
 
@@ -62,6 +68,8 @@ export function SignUpForm() {
         ref={formRef}
         action={formAction}
         onSubmit={form.handleSubmit(onSubmit)}
+        // NOTE: this is not working for some reason
+        // onSubmit={form.handleSubmit(() => formRef.current?.requestSubmit())}
         className="flex flex-col gap-6"
       >
         <FormField
@@ -148,6 +156,7 @@ export function SignUpForm() {
           )}
         />
         <Button type="submit" size="lg">
+          {/* FIXME: add a loading spinner*/}
           <Icons.logo className={isPending ? "animate-spin" : ""} /> Create
           Account
         </Button>

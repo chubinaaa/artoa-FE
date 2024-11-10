@@ -6,7 +6,6 @@ export const env = createEnv({
     API_URL: z.string().min(1),
   },
   client: {},
-  // If you're using Next.js < 13.4.4, you'll need to specify the runtimeEnv manually
   runtimeEnv: {
     API_URL: process.env.API_URL,
   },
@@ -15,3 +14,5 @@ export const env = createEnv({
   //   NEXT_PUBLIC_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_PUBLISHABLE_KEY,
   // }
 });
+
+// NOTE: docs: https://env.t3.gg/docs/nextjs

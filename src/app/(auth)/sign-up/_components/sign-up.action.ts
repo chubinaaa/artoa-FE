@@ -1,6 +1,7 @@
 "server-only";
 "use server";
 
+import { redirect } from "next/navigation";
 import { env } from "@/env";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 
@@ -40,6 +41,7 @@ export async function signUpAction(_: FormState, formData: FormData) {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
+    // NOTE: backend accepts and returns snake_case keys 🥲
     body: JSON.stringify({
       email: parsed.data.email,
       password: parsed.data.password,
@@ -52,6 +54,7 @@ export async function signUpAction(_: FormState, formData: FormData) {
 
   if (responseData.status === "error") {
     if (responseData.message === "Validation failed") {
+      // NOTE: frontend expects camelCase keys
       const camelCasedErrors = {
         email: responseData.errors.email,
         password: responseData.errors.password,
@@ -73,6 +76,9 @@ export async function signUpAction(_: FormState, formData: FormData) {
           isTerm: ["You must agree to the terms and conditions."],
         },
       };
+    } else {
+      // FIXME: handle rest of the errors better
+      redirect("/sign-up");
     }
   }
 
