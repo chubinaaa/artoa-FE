@@ -1,8 +1,15 @@
 "use client";
 
+import { startTransition, useActionState, useRef } from "react";
+import Link from "next/link";
+import { signUpFormSchema } from "@/validation/sign-up-form-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -12,38 +19,16 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { EMAIL_REGEX } from "@/lib/constants";
+import { Input } from "@/components/ui/input";
+import { Icons } from "@/components/icons";
 
-const passwordSchema = z.string().regex(EMAIL_REGEX, {
-  message:
-    "Password must be at least 8 characters long and contain at least one letter, one number, and one special character.",
-});
-
-const signUpFormSchema = z
-  .object({
-    email: z.string().email(),
-    password: passwordSchema,
-    repeatPassword: passwordSchema,
-    isTerm: z.boolean().refine((value) => value === true, {
-      message: "You must agree to the terms and conditions.",
-    }),
-  })
-  .refine(
-    ({ password, repeatPassword }) => {
-      return password === repeatPassword;
-    },
-    {
-      message: "Passwords must match!",
-      path: ["repeatPassword"],
-    },
-  );
+import { signUpAction } from "./sign-up.action";
 
 export function SignUpForm() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [formState, formAction, isPending] = useActionState(signUpAction, {
+    message: "",
+  });
   const form = useForm<z.infer<typeof signUpFormSchema>>({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
@@ -51,16 +36,31 @@ export function SignUpForm() {
       password: "",
       repeatPassword: "",
       isTerm: false,
+      ...(formState?.fields ?? {}),
     },
   });
 
-  function onSubmit(values: z.infer<typeof signUpFormSchema>) {
-    console.log(values);
+  function onSubmit(data: z.infer<typeof signUpFormSchema>) {
+    console.log("[ON SUBMIT]", data);
+
+    const formData = new FormData();
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+    formData.append("repeatPassword", data.repeatPassword);
+    formData.append("isTerm", data.isTerm.toString());
+
+    startTransition(async () => {
+      await signUpAction({ message: "" }, formData);
+    });
+
     form.reset();
   }
+
   return (
     <Form {...form}>
       <form
+        ref={formRef}
+        action={formAction}
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-6"
       >
@@ -148,7 +148,8 @@ export function SignUpForm() {
           )}
         />
         <Button type="submit" size="lg">
-          Create Account
+          <Icons.logo className={isPending ? "animate-spin" : ""} /> Create
+          Account
         </Button>
       </form>
     </Form>
