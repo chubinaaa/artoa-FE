@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import {
   Card,
   CardContent,
@@ -7,9 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import Image from "next/image";
 import { Icons } from "../icons";
-import Link from "next/link";
 import { Button } from "../ui/button";
 
 type WallArtistCardProps = {

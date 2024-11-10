@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { Artist, FeaturedArtistCard } from "../artists/featured-artist-card";
 import { Button } from "../ui/button";
 import {

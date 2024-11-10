@@ -1,7 +1,8 @@
+import Image from "next/image";
+
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
-import Image from "next/image";
 
 export interface Artist {
   id: number;
