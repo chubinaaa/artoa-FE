@@ -18,9 +18,9 @@ export default function SignUp() {
               Already have an account?{" "}
               <Link
                 className={cn(buttonVariants({ variant: "link" }), "h-fit p-0")}
-                href="/sign-up"
+                href="/sign-in"
               >
-                Log in.
+                Sign in
               </Link>
             </p>
           </div>
