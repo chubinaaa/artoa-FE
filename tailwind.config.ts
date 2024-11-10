@@ -44,6 +44,9 @@ const config: Config = {
       spacing: {
         22: "5.5rem",
       },
+      fontSize: {
+        "2xs": "0.625rem",
+      },
     },
   },
   plugins: [tailwindCssAnimate],

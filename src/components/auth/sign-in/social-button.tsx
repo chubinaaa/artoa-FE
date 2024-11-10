@@ -23,8 +23,8 @@ export function SocialButton({
       )}
       {...props}
     >
-      <Icon className="mr-1 size-4 text-muted-foreground md:size-6" />
-      <span className="text-muted-foreground">{children}</span>
+      <Icon className="mr-1 text-muted-foreground" />
+      <span className="text-xs text-muted-foreground">{children}</span>
     </Link>
   );
 }
