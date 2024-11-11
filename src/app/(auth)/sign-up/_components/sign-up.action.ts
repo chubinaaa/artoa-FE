@@ -1,13 +1,16 @@
 "server-only";
 "use server";
 
-import { redirect } from "next/navigation";
 import { env } from "@/env";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 
-import { FormState, SendEmailVerifyResponse } from "@/types/sign-up";
+import { BackendSendEmailVerifyResponse, FormState } from "@/types/sign-up";
+import {
+  convertBackendValidationErrorErrorsFieldToCamelCase as convertBackendValidationErrorErrorsFieldArrayToCamelCase,
+  convertCamelCaseBackendValidationErrorErrorsFieldArrayToZodFieldErrors,
+} from "@/lib/utils";
 
-export async function signUpAction(_: FormState, formData: FormData) {
+export async function signUpAction(formState: FormState, formData: FormData) {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
   const repeatPassword = formData.get("repeatPassword")?.toString();
@@ -15,14 +18,14 @@ export async function signUpAction(_: FormState, formData: FormData) {
 
   console.log("[FORMDATA]", { email, password, repeatPassword, isTerm });
 
-  const data = {
+  const fields = {
     email,
     password,
     repeatPassword,
     isTerm,
   };
 
-  const parsed = signUpFormSchema.safeParse(data);
+  const parsed = signUpFormSchema.safeParse(fields);
 
   console.log("[PARSED]", parsed);
 
@@ -30,60 +33,87 @@ export async function signUpAction(_: FormState, formData: FormData) {
     console.error(parsed.error);
     return {
       message: "error",
-      fields: data,
+      fields: fields,
       errors: parsed.error.flatten().fieldErrors,
     };
   }
 
-  const response = await fetch(`${env.API_URL}/send-verify-email`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    // NOTE: backend accepts and returns snake_case keys 🥲
-    body: JSON.stringify({
-      email: parsed.data.email,
-      password: parsed.data.password,
-      repeat_password: parsed.data.repeatPassword,
-      is_term: parsed.data.isTerm,
-    }),
-  });
+  // NOTE: backend accepts and returns snake_case keys 🥲
+  const snakeCaseParsedData = {
+    email: parsed.data.email,
+    password: parsed.data.password,
+    repeat_password: parsed.data.repeatPassword,
+    is_term: parsed.data.isTerm,
+  };
 
-  const responseData = (await response.json()) as SendEmailVerifyResponse;
+  try {
+    const response = await fetch(`${env.API_URL}/send-verify-email`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(snakeCaseParsedData),
+    });
 
-  if (responseData.status === "error") {
-    if (responseData.message === "Validation failed") {
-      // NOTE: frontend expects camelCase keys
-      const camelCasedErrors = {
-        email: responseData.errors.email,
-        password: responseData.errors.password,
-        repeatPassword: responseData.errors.repeat_password,
-        isTerm: responseData.errors.is_term,
-      };
+    const responseData =
+      (await response.json()) as BackendSendEmailVerifyResponse;
+
+    if ("message" in responseData) {
+      // TODO: handle validation errors
+      const camelCaseBackendValidationErrorErrorsFieldArray =
+        convertBackendValidationErrorErrorsFieldArrayToCamelCase(
+          responseData.errors,
+        );
+      console.log(
+        "[VALIDATION CAMELCASE ERRORS]",
+        camelCaseBackendValidationErrorErrorsFieldArray,
+      );
+
+      // NOTE: we convert the backend validation errors to zod fieldErrors format
+      const zodFieldErrors =
+        convertCamelCaseBackendValidationErrorErrorsFieldArrayToZodFieldErrors(
+          camelCaseBackendValidationErrorErrorsFieldArray,
+        );
       return {
         message: "error",
-        fields: data,
-        errors: camelCasedErrors,
-      };
-    } else if (
-      responseData.message === "You must agree to the terms and conditions."
-    ) {
-      return {
-        message: "error",
-        data: data,
+        fields: fields,
         errors: {
-          isTerm: ["You must agree to the terms and conditions."],
+          email: zodFieldErrors?.email,
+          password: zodFieldErrors?.password,
+          repeatPassword: zodFieldErrors?.repeatPassword,
+          isTerm: zodFieldErrors?.isTerm,
         },
       };
     } else {
-      // FIXME: handle rest of the errors better
-      redirect("/sign-up");
+      if (responseData.status === "error") {
+        // TODO: handle sign up errors
+        console.log("[SIGN UP ERROR]", responseData.error_message);
+        return {
+          message: "error",
+          field: fields,
+          errors: {
+            email: undefined,
+            password: undefined,
+            repeatPassword: undefined,
+            isTerm: [
+              responseData.error_message ??
+                "Something went wrong. Please try again.",
+            ],
+          },
+        };
+      } else {
+        // TODO: handle success
+        console.log("[SIGN UP SUCCESS]", parsed.data);
+        return {
+          message: "success",
+        };
+      }
     }
+  } catch (error) {
+    console.error(error);
+    return {
+      message: "error",
+    };
   }
-
-  console.log("[SIGN UP ACTION SUCCESS]", parsed.data);
-  return {
-    message: "success",
-  };
 }

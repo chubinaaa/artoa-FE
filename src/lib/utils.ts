@@ -1,23 +1,49 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { CamelCase, SnakeCase } from "@/types/helpers";
+import {
+  BackendValidationError,
+  CamelCaseBackendValidationErrorErrorsObject,
+  FormState,
+} from "@/types/sign-up";
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// FIXME: find these a better place
-type SnakeCase<S extends string> = S extends `${infer T}${infer U}`
-  ? `${T extends Capitalize<T> ? "_" : ""}${Lowercase<T>}${SnakeCase<U>}`
-  : S;
+function toCamelCase<T extends SnakeCase<string>>(str: T): CamelCase<T> {
+  return str
+    .toLowerCase()
+    .replace(/_[a-z]/g, (group) =>
+      group.toUpperCase().replace("_", ""),
+    ) as CamelCase<T>;
+}
 
-export type ConvertToSnakeCase<T> = {
-  [K in keyof T as SnakeCase<Extract<K, string>>]: T[K];
-};
+export function convertBackendValidationErrorErrorsFieldToCamelCase(
+  errors: BackendValidationError["errors"],
+): Array<CamelCaseBackendValidationErrorErrorsObject> {
+  return errors.map((error) => ({
+    ...error,
+    field: toCamelCase(error.field),
+  }));
+}
 
-type CamelCase<S extends string> = S extends `${infer T}_${infer U}`
-  ? `${T}${Capitalize<CamelCase<U>>}`
-  : S;
+export function convertCamelCaseBackendValidationErrorErrorsFieldArrayToZodFieldErrors(
+  camelCaseBackendValidationErrorErrorsFieldArray: CamelCaseBackendValidationErrorErrorsObject[],
+): FormState["errors"] {
+  const errors: FormState["errors"] = {};
 
-export type ConvertToCamelCase<T> = {
-  [K in keyof T as CamelCase<Extract<K, string>>]: T[K];
-};
+  for (const error of camelCaseBackendValidationErrorErrorsFieldArray) {
+    if (!errors[error.field]) {
+      errors[error.field] = [error.message];
+    } else {
+      errors[error.field] = [
+        // NOTE: have to cast to string[]
+        ...(errors[error.field] as string[]),
+        error.message,
+      ];
+    }
+  }
+  return errors;
+}

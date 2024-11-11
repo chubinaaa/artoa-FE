@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useActionState, useRef } from "react";
+import { startTransition, useActionState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,6 +31,11 @@ export function SignUpForm() {
   const [formState, formAction, isPending] = useActionState(signUpAction, {
     message: "",
   });
+
+  useEffect(() => {
+    console.log("[ISPENDING]", isPending);
+  }, [isPending]);
+
   const form = useForm<z.infer<typeof signUpFormSchema>>({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
@@ -47,19 +52,19 @@ export function SignUpForm() {
   // NOTE: this works, but it would be better to manually trigger form submission
   // since we already provide formAction on the form
   function onSubmit(data: z.infer<typeof signUpFormSchema>) {
-    console.log("[ON SUBMIT]", data);
-
-    const formData = new FormData();
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-    formData.append("repeatPassword", data.repeatPassword);
-    formData.append("isTerm", data.isTerm.toString());
-
     startTransition(async () => {
-      await signUpAction({ message: "" }, formData);
-    });
+      console.log("[ON SUBMIT]", data);
 
-    form.reset();
+      const formData = new FormData();
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      formData.append("repeatPassword", data.repeatPassword);
+      formData.append("isTerm", data.isTerm.toString());
+
+      await signUpAction({ message: "" }, formData);
+
+      form.reset();
+    });
   }
 
   return (
@@ -81,6 +86,9 @@ export function SignUpForm() {
               <FormControl>
                 <Input type="email" placeholder="Email Address" {...field} />
               </FormControl>
+              <p className="text-2xs font-medium text-destructive">
+                {formState?.errors?.email}
+              </p>
               <FormMessage />
             </FormItem>
           )}
@@ -101,6 +109,9 @@ export function SignUpForm() {
               <FormDescription className="text-end">
                 Use 8 or more characters with mix of letters, numbers & symbols
               </FormDescription>
+              <p className="text-2xs font-medium text-destructive">
+                {formState?.errors?.password}
+              </p>
               <FormMessage />
             </FormItem>
           )}
@@ -121,6 +132,9 @@ export function SignUpForm() {
               <FormDescription className="text-end">
                 Use 8 or more characters with mix of letters, numbers & symbols
               </FormDescription>
+              <p className="text-2xs font-medium text-destructive">
+                {formState?.errors?.repeatPassword}
+              </p>
               <FormMessage />
             </FormItem>
           )}
@@ -151,10 +165,18 @@ export function SignUpForm() {
                   </Link>
                 </FormLabel>
               </div>
+              <p className="text-2xs font-medium text-destructive">
+                {formState?.errors?.isTerm}
+              </p>
               <FormMessage />
             </FormItem>
           )}
         />
+        <noscript>
+          <p className="text-center font-medium text-destructive">
+            Please enable JavaScript to continue.
+          </p>
+        </noscript>
         <Button type="submit" size="lg">
           {/* FIXME: add a loading spinner*/}
           <Icons.logo className={isPending ? "animate-spin" : ""} /> Create
