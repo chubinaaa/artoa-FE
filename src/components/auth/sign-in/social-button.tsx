@@ -1,31 +1,30 @@
-import * as React from "react";
+import { Icons } from "@/components/icons";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../../ui/button";
 import Link from "next/link";
 
 interface SocialButtonProps extends React.ComponentProps<typeof Link> {
-  children: React.ReactNode;
-  href: string;
-  className?: string;
-  icon: React.ReactNode;
+  icon: keyof typeof Icons;
 }
 
-function SocialButton({ children, href, className, icon }: SocialButtonProps) {
+export function SocialButton({
+  icon,
+  className,
+  children,
+  ...props
+}: SocialButtonProps) {
+  const Icon = Icons[icon];
   return (
     <Link
-      href={href}
-      passHref
       className={cn(
         buttonVariants({ variant: "outline" }),
-        "mt-5 h-14 w-[740px] p-0 max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60",
+        "px-4 md:h-14 md:justify-start",
         className,
       )}
+      {...props}
     >
-      <span className="ms-5 flex items-center max-md:ms-0">
-        {icon}
-        <span className="ps-3">{children}</span>
-      </span>
+      <Icon className="mr-1 text-muted-foreground" />
+      <span className="text-xs text-muted-foreground">{children}</span>
     </Link>
   );
 }
-export default SocialButton;

@@ -5,12 +5,12 @@ const menuItems = [
   { label: "Artists", url: "/artists" },
   { label: "Services", url: "/services" },
   { label: "About", url: "/about" },
-  { label: "Contact Us", url: "/contact" },
+  { label: "Contact Us", url: "/contact-us" },
 ];
 
-export function Menu() {
+export function Navigation() {
   return (
-    <nav className="md: flex max-sm:hidden">
+    <nav className="hidden lg:flex">
       <ul className="flex items-center justify-between gap-12">
         {menuItems.map((item) => (
           <li key={item.label}>

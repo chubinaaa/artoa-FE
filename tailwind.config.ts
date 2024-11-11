@@ -41,6 +41,12 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      spacing: {
+        22: "5.5rem",
+      },
+      fontSize: {
+        "2xs": "0.625rem",
+      },
     },
   },
   plugins: [tailwindCssAnimate],
