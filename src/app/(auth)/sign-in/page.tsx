@@ -51,7 +51,7 @@ export default function SignIn() {
                   </div>
                   <Link
                     className="flex items-center p-0 text-xs text-[#AFAFAF]"
-                    href="#"
+                    href="/forget-pass"
                   >
                     Forget Password
                   </Link>
