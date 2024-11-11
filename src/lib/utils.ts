@@ -20,7 +20,7 @@ function toCamelCase<T extends SnakeCase<string>>(str: T): CamelCase<T> {
     ) as CamelCase<T>;
 }
 
-export function convertBackendValidationErrorErrorsFieldToCamelCase(
+export function convertBackendValidationErrorErrorsFieldArrayToCamelCase(
   errors: BackendValidationError["errors"],
 ): Array<CamelCaseBackendValidationErrorErrorsObject> {
   return errors.map((error) => ({
