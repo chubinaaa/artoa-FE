@@ -1,4 +1,3 @@
-"server-only";
 "use server";
 
 import { env } from "@/env";
