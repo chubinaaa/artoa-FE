@@ -61,7 +61,7 @@ export async function signUpAction(formState: FormState, formData: FormData) {
       (await response.json()) as BackendSendEmailVerifyResponse;
 
     if ("message" in responseData) {
-      // TODO: handle validation errors
+      // NOTE: handle validation errors
       const camelCaseBackendValidationErrorErrorsFieldArray =
         convertBackendValidationErrorErrorsFieldArrayToCamelCase(
           responseData.errors,
@@ -88,7 +88,7 @@ export async function signUpAction(formState: FormState, formData: FormData) {
       };
     } else {
       if (responseData.status === "error") {
-        // TODO: handle sign up errors
+        // NOTE: handle sign up errors
         console.log("[SIGN UP ERROR]", responseData.error_message);
         return {
           message: "error",
@@ -104,7 +104,7 @@ export async function signUpAction(formState: FormState, formData: FormData) {
           },
         };
       } else {
-        // TODO: handle success
+        // NOTE: handle success
         console.log("[SIGN UP SUCCESS]", parsed.data);
         return {
           message: "success",
