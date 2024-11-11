@@ -118,31 +118,3 @@ export async function signUpAction(formState: FormState, formData: FormData) {
     };
   }
 }
-
-// const correctFieldsIsTermFalse = {
-//   email: "test@gmail.com",
-//   password: "asdASD123#",
-//   repeat_password: "asdASD123#",
-//   is_term: false,
-// };
-//
-// const correctFieldsIsTermTrue = {
-//   email: "test@gmail.com",
-//   password: "asdASD123#",
-//   repeat_password: "asdASD123#",
-//   is_term: true,
-// };
-//
-// const incorrectFieldsIsTermFalse = {
-//   email: "test",
-//   password: "asdASD",
-//   repeat_password: "asdASD",
-//   is_term: false,
-// };
-//
-// const incorrectFieldsIsTermTrue = {
-//   email: "test",
-//   password: "asdASD",
-//   repeat_password: "asdASD",
-//   is_term: true,
-// };
