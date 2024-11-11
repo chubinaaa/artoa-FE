@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useActionState, useEffect, useRef } from "react";
+import { startTransition, useActionState } from "react";
 import Link from "next/link";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,21 +20,16 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Icons } from "@/components/icons";
+import { LoadingSpinner } from "@/components/loading-spinner";
 
 import { signUpAction } from "./sign-up.action";
 
 export function SignUpForm() {
-  const formRef = useRef<HTMLFormElement>(null);
   // NOTE: we use useActionState to return errors sent from the server
   // and to show a loading state also supports progressive enhancement
-  const [formState, formAction, isPending] = useActionState(signUpAction, {
+  const [formState, formAction, pending] = useActionState(signUpAction, {
     message: "",
   });
-
-  useEffect(() => {
-    console.log("[ISPENDING]", isPending);
-  }, [isPending]);
 
   const form = useForm<z.infer<typeof signUpFormSchema>>({
     resolver: zodResolver(signUpFormSchema),
@@ -61,7 +56,7 @@ export function SignUpForm() {
       formData.append("repeatPassword", data.repeatPassword);
       formData.append("isTerm", data.isTerm.toString());
 
-      await signUpAction({ message: "" }, formData);
+      formAction(formData);
 
       form.reset();
     });
@@ -70,7 +65,6 @@ export function SignUpForm() {
   return (
     <Form {...form}>
       <form
-        ref={formRef}
         action={formAction}
         onSubmit={form.handleSubmit(onSubmit)}
         // NOTE: this is not working for some reason
@@ -177,10 +171,11 @@ export function SignUpForm() {
             Please enable JavaScript to continue.
           </p>
         </noscript>
-        <Button type="submit" size="lg">
-          {/* FIXME: add a loading spinner*/}
-          <Icons.logo className={isPending ? "animate-spin" : ""} /> Create
-          Account
+        <Button type="submit" size="lg" disabled={pending}>
+          <span className="relative">
+            Create Account
+            <LoadingSpinner pending={pending} />
+          </span>
         </Button>
       </form>
     </Form>
