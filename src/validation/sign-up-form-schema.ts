@@ -13,7 +13,7 @@ export const signUpFormSchema = z
     password: passwordSchema,
     repeatPassword: passwordSchema,
     isTerm: z.boolean().refine((value) => value === true, {
-      message: "You must agree to the terms and conditions.",
+      message: "You must accept the terms and conditions.",
     }),
   })
   .refine(
