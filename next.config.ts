@@ -1,11 +1,9 @@
 import { NextConfig } from "next";
 
 export default {
-  experimental: {
-    staleTimes: {
-      dynamic: 30,
-    },
-  },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+  compiler: {
+    removeConsole: true,
+  },
 } satisfies NextConfig;
