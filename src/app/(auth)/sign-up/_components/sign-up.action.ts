@@ -4,7 +4,8 @@
 import { env } from "@/env";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 
-import { BackendSendEmailVerifyResponse, FormState } from "@/types/sign-up";
+import { BackendSendEmailVerifyResponse } from "@/types/sign-up/backend";
+import { FormState } from "@/types/sign-up/frontend";
 import {
   convertBackendValidationErrorErrorsFieldToCamelCase as convertBackendValidationErrorErrorsFieldArrayToCamelCase,
   convertCamelCaseBackendValidationErrorErrorsFieldArrayToZodFieldErrors,
