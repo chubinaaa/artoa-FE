@@ -5,8 +5,8 @@ import { CamelCase, SnakeCase } from "@/types/helpers";
 import {
   BackendValidationError,
   CamelCaseBackendValidationErrorErrorsObject,
-  FormState,
-} from "@/types/sign-up";
+} from "@/types/sign-up/backend";
+import { FormState } from "@/types/sign-up/frontend";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

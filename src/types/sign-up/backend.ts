@@ -19,7 +19,7 @@ type BackendValidationErrorErrorsObjectField = Partial<
   SnakeCase<keyof SignUpFormData>
 >;
 
-type BackendValidationError = Prettify<{
+export type BackendValidationError = Prettify<{
   message: "Validation failed";
   errors: {
     field: BackendValidationErrorErrorsObjectField;
