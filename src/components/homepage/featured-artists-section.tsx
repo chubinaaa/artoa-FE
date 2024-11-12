@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Artist, FeaturedArtistCard } from "../artists/featured-artist-card";
+import { FeaturedArtistCard } from "../artists/featured-artist-card";
 import { Button } from "../ui/button";
 import {
   Carousel,
@@ -8,8 +8,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
+import { Artist } from "@/types/artist";
 
-export function FeaturedArtistsSection({ artists }: { artists: Artist[] }) {
+export function FeaturedArtistsSection({
+  artists,
+}: {
+  artists: Array<Artist>;
+}) {
   return (
     <section className="w-full bg-secondary">
       <div className="container mx-auto flex w-full flex-col gap-6 py-28">

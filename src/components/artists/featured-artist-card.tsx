@@ -1,17 +1,9 @@
+import { Artist } from "@/types/artist";
+
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import Image from "next/image";
-
-export interface Artist {
-  id: number;
-  name: string;
-  handle: string;
-  image: string;
-  tags: string[];
-  rating: number;
-  href: string;
-}
 
 export function FeaturedArtistCard({ artist }: { artist: Artist }) {
   return (
@@ -42,10 +34,7 @@ export function FeaturedArtistCard({ artist }: { artist: Artist }) {
                 {artist.handle}
               </p>
             </div>
-            <p className="mt-1 hidden md:block">
-              lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatem, voluptate.
-            </p>
+            <p className="mt-1 hidden md:block">{artist.description}</p>
             <div className="flex gap-3">
               {artist.tags.map((tag, i) => (
                 <span key={i} className="rounded-lg border p-2 font-medium">
