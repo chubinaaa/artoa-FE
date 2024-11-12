@@ -80,9 +80,7 @@ export function SignUpForm() {
               <FormControl>
                 <Input type="email" placeholder="Email Address" {...field} />
               </FormControl>
-              <p className="text-2xs font-medium text-destructive">
-                {formState?.errors?.email}
-              </p>
+              <FormFieldServerErrors errors={formState?.errors?.email} />
               <FormMessage />
             </FormItem>
           )}
@@ -103,9 +101,7 @@ export function SignUpForm() {
               <FormDescription className="text-end">
                 Use 8 or more characters with mix of letters, numbers & symbols
               </FormDescription>
-              <p className="text-2xs font-medium text-destructive">
-                {formState?.errors?.password}
-              </p>
+              <FormFieldServerErrors errors={formState?.errors?.password} />
               <FormMessage />
             </FormItem>
           )}
@@ -126,9 +122,9 @@ export function SignUpForm() {
               <FormDescription className="text-end">
                 Use 8 or more characters with mix of letters, numbers & symbols
               </FormDescription>
-              <p className="text-2xs font-medium text-destructive">
-                {formState?.errors?.repeatPassword}
-              </p>
+              <FormFieldServerErrors
+                errors={formState?.errors?.repeatPassword}
+              />
               <FormMessage />
             </FormItem>
           )}
@@ -159,9 +155,7 @@ export function SignUpForm() {
                   </Link>
                 </FormLabel>
               </div>
-              <p className="text-2xs font-medium text-destructive">
-                {formState?.errors?.isTerm}
-              </p>
+              <FormFieldServerErrors errors={formState?.errors?.isTerm} />
               <FormMessage />
             </FormItem>
           )}
@@ -180,4 +174,22 @@ export function SignUpForm() {
       </form>
     </Form>
   );
+}
+
+function FormFieldServerErrors({
+  errors,
+}: {
+  errors: Array<string> | undefined;
+}) {
+  return errors?.length ? (
+    <ul className="flex flex-col gap-1">
+      {errors.map((e) => {
+        return (
+          <li key={e} className="text-2xs font-medium text-destructive">
+            {e}
+          </li>
+        );
+      })}
+    </ul>
+  ) : null;
 }
