@@ -1,8 +1,8 @@
 import { SignUpFormData } from "./shared";
 
-type FormStateErrors = Partial<Record<keyof SignUpFormData, string[]>>;
+export type FormStateErrors = Partial<Record<keyof SignUpFormData, string[]>>;
 
-type FormStateFields = Partial<SignUpFormData>;
+export type FormStateFields = Partial<SignUpFormData>;
 
 export type FormState = {
   message: string;
