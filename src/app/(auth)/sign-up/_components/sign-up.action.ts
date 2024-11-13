@@ -5,10 +5,7 @@ import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 
 import { BackendSendEmailVerifyResponse } from "@/types/sign-up/backend";
 import { FormState } from "@/types/sign-up/frontend";
-import {
-  convertBackendValidationErrorErrorsFieldArrayToCamelCase,
-  convertCamelCaseBackendValidationErrorErrorsFieldArrayToZodFieldErrors,
-} from "@/lib/utils";
+import { convertToCamelCaseErrors, convertToZodFieldErrors } from "@/lib/utils";
 
 export async function signUpAction(formState: FormState, formData: FormData) {
   const email = formData.get("email")?.toString();
@@ -61,20 +58,18 @@ export async function signUpAction(formState: FormState, formData: FormData) {
 
     if ("message" in responseData) {
       // NOTE: handle validation errors
-      const camelCaseBackendValidationErrorErrorsFieldArray =
-        convertBackendValidationErrorErrorsFieldArrayToCamelCase(
-          responseData.errors,
-        );
+      const camelCaseBackendValidationErrors = convertToCamelCaseErrors(
+        responseData.errors,
+      );
       console.log(
         "[VALIDATION CAMELCASE ERRORS]",
-        camelCaseBackendValidationErrorErrorsFieldArray,
+        camelCaseBackendValidationErrors,
       );
 
       // NOTE: we convert the backend validation errors to zod fieldErrors format
-      const zodFieldErrors =
-        convertCamelCaseBackendValidationErrorErrorsFieldArrayToZodFieldErrors(
-          camelCaseBackendValidationErrorErrorsFieldArray,
-        );
+      const zodFieldErrors = convertToZodFieldErrors(
+        camelCaseBackendValidationErrors,
+      );
       return {
         message: "error",
         fields: fields,

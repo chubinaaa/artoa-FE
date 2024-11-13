@@ -3,8 +3,8 @@ import { twMerge } from "tailwind-merge";
 
 import { CamelCase, SnakeCase } from "@/types/helpers";
 import {
-  BackendValidationError,
-  CamelCaseBackendValidationErrorErrorsObject,
+  BackendValidationErrorResponse,
+  CamelCaseBackendValidationError,
 } from "@/types/sign-up/backend";
 import { FormState } from "@/types/sign-up/frontend";
 
@@ -20,21 +20,21 @@ function toCamelCase<T extends SnakeCase<string>>(str: T): CamelCase<T> {
     ) as CamelCase<T>;
 }
 
-export function convertBackendValidationErrorErrorsFieldArrayToCamelCase(
-  errors: BackendValidationError["errors"],
-): Array<CamelCaseBackendValidationErrorErrorsObject> {
+export function convertToCamelCaseErrors(
+  errors: BackendValidationErrorResponse["errors"],
+): Array<CamelCaseBackendValidationError> {
   return errors.map((error) => ({
     ...error,
     field: toCamelCase(error.field),
   }));
 }
 
-export function convertCamelCaseBackendValidationErrorErrorsFieldArrayToZodFieldErrors(
-  camelCaseBackendValidationErrorErrorsFieldArray: CamelCaseBackendValidationErrorErrorsObject[],
+export function convertToZodFieldErrors(
+  camelCaseBackendValidationErrors: CamelCaseBackendValidationError[],
 ): FormState["errors"] {
   const errors: FormState["errors"] = {};
 
-  for (const error of camelCaseBackendValidationErrorErrorsFieldArray) {
+  for (const error of camelCaseBackendValidationErrors) {
     if (!errors[error.field]) {
       errors[error.field] = [error.message];
     } else {

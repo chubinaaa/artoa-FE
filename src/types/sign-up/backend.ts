@@ -1,37 +1,28 @@
-import { CamelCase, Prettify, SnakeCase } from "@/types/helpers";
+import { CamelCase, ConvertToSnakeCase, Prettify } from "@/types/helpers";
 
 import { SignUpFormData } from "./shared";
 
-type BackendSignUpResponseData = {
-  email: string;
-  is_term: boolean;
-  is_email_verified: boolean;
-  is_user_verified: boolean;
-} | null;
-
 type BackendSignUpResponse = Prettify<{
   status: "error" | "success";
-  data: BackendSignUpResponseData;
+  data: ConvertToSnakeCase<SignUpFormData>;
   error_message?: string;
 }>;
 
-type BackendValidationErrorErrorsObjectField = Partial<
-  SnakeCase<keyof SignUpFormData>
->;
+type BackendValidationErrorKeys = keyof BackendSignUpResponse["data"];
 
-export type BackendValidationError = Prettify<{
+export type BackendValidationErrorResponse = Prettify<{
   message: "Validation failed";
   errors: {
-    field: BackendValidationErrorErrorsObjectField;
+    field: BackendValidationErrorKeys;
     message: string;
   }[];
 }>;
 
-export type CamelCaseBackendValidationErrorErrorsObject = {
-  field: CamelCase<BackendValidationErrorErrorsObjectField>;
+export type CamelCaseBackendValidationError = {
+  field: CamelCase<BackendValidationErrorKeys>;
   message: string;
 };
 
 export type BackendSendEmailVerifyResponse = Prettify<
-  BackendSignUpResponse | BackendValidationError
+  BackendSignUpResponse | BackendValidationErrorResponse
 >;
