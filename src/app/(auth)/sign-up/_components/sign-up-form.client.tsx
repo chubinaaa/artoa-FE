@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useActionState } from "react";
+import { useActionState, useRef } from "react";
 import Link from "next/link";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -44,31 +44,16 @@ export function SignUpForm() {
     },
   });
 
-  // NOTE: this works, but it would be better to manually trigger form submission
-  // since we already provide formAction on the form
-  function onSubmit(data: z.infer<typeof signUpFormSchema>) {
-    startTransition(async () => {
-      console.log("[ON SUBMIT]", data);
-
-      const formData = new FormData();
-      formData.append("email", data.email);
-      formData.append("password", data.password);
-      formData.append("repeatPassword", data.repeatPassword);
-      formData.append("isTerm", data.isTerm.toString());
-
-      formAction(formData);
-
-      form.reset();
-    });
-  }
+  const formRef = useRef<HTMLFormElement>(null);
 
   return (
     <Form {...form}>
       <form
+        ref={formRef}
         action={formAction}
-        onSubmit={form.handleSubmit(onSubmit)}
-        // NOTE: this is not working for some reason
-        // onSubmit={form.handleSubmit(() => formRef.current?.requestSubmit())}
+        // NOTE: we already provide formAction prop on the form, so we can just request submit
+        // eslint-disable-next-line react-compiler/react-compiler
+        onSubmit={form.handleSubmit(() => formRef.current?.requestSubmit())}
         className="flex flex-col gap-6"
       >
         <FormField
