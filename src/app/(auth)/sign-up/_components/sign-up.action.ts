@@ -1,13 +1,17 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { env } from "@/env";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 
 import { BackendSendEmailVerifyResponse } from "@/types/sign-up/backend";
 import { FormState } from "@/types/sign-up/frontend";
-import { convertToCamelCaseErrors, convertToZodFieldErrors } from "@/lib/utils";
+import {
+  convertErrorValuesToCamelCase,
+  convertToZodFieldErrors,
+} from "@/lib/utils";
 
-export async function signUpAction(formState: FormState, formData: FormData) {
+export async function signUpAction(prevState: FormState, formData: FormData) {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
   const repeatPassword = formData.get("repeatPassword")?.toString();
@@ -27,7 +31,7 @@ export async function signUpAction(formState: FormState, formData: FormData) {
   console.log("[PARSED]", parsed);
 
   if (!parsed.success) {
-    console.error(parsed.error);
+    console.error("[PARSE ERROR]", parsed.error);
     return {
       message: "error",
       fields: fields,
@@ -58,27 +62,18 @@ export async function signUpAction(formState: FormState, formData: FormData) {
 
     if ("message" in responseData) {
       // NOTE: handle validation errors
-      const camelCaseBackendValidationErrors = convertToCamelCaseErrors(
+      // we convert the backend snake_case validation errors to camelCase format
+      const camelCaseErrors = convertErrorValuesToCamelCase(
         responseData.errors,
       );
-      console.log(
-        "[VALIDATION CAMELCASE ERRORS]",
-        camelCaseBackendValidationErrors,
-      );
+      console.log("[VALIDATION CAMELCASE ERRORS]", camelCaseErrors);
 
       // NOTE: we convert the backend validation errors to zod fieldErrors format
-      const zodFieldErrors = convertToZodFieldErrors(
-        camelCaseBackendValidationErrors,
-      );
+      const zodFieldErrors = convertToZodFieldErrors(camelCaseErrors);
       return {
         message: "error",
         fields: fields,
-        errors: {
-          email: zodFieldErrors?.email,
-          password: zodFieldErrors?.password,
-          repeatPassword: zodFieldErrors?.repeatPassword,
-          isTerm: zodFieldErrors?.isTerm,
-        },
+        errors: zodFieldErrors,
       };
     } else {
       if (responseData.status === "error") {
@@ -100,13 +95,11 @@ export async function signUpAction(formState: FormState, formData: FormData) {
       } else {
         // NOTE: handle success
         console.log("[SIGN UP SUCCESS]", parsed.data);
-        return {
-          message: "success",
-        };
+        redirect(`/verify-email?email=${responseData.data.email}`);
       }
     }
   } catch (error) {
-    console.error(error);
+    console.error("[FETCH ERROR]", error);
     return {
       message: "error",
     };

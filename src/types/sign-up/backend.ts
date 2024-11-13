@@ -1,14 +1,30 @@
-import { CamelCase, ConvertToSnakeCase, Prettify } from "@/types/helpers";
+import { signUpFormSchema } from "@/validation/sign-up-form-schema";
+import { z } from "zod";
 
-import { SignUpFormData } from "./shared";
+import { CamelCase, Prettify, SnakeCase } from "@/types/helpers";
 
-type BackendSignUpResponse = Prettify<{
-  status: "error" | "success";
-  data: ConvertToSnakeCase<SignUpFormData>;
-  error_message?: string;
-}>;
+type BackendSignUpSuccessResponse = {
+  email: string;
+  is_term: boolean;
+  is_email_verified: boolean;
+  is_user_verified: boolean;
+};
 
-type BackendValidationErrorKeys = keyof BackendSignUpResponse["data"];
+type BackendSignUpResponse = Prettify<
+  | {
+      status: "success";
+      data: BackendSignUpSuccessResponse;
+    }
+  | {
+      status: "error";
+      data: null;
+      error_message: string;
+    }
+>;
+
+type BackendValidationErrorKeys = SnakeCase<
+  keyof z.infer<typeof signUpFormSchema>
+>;
 
 export type BackendValidationErrorResponse = Prettify<{
   message: "Validation failed";
