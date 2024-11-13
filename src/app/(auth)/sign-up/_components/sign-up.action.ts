@@ -82,6 +82,7 @@ export async function signUpAction(prevState: FormState, formData: FormData) {
     // NOTE: handle success
     redirect(`/verify-email?email=${responseData.data.email}`);
   } catch (error) {
+    // NOTE: nextjs redirect function throws a 307 temp redirect error, so we catch and rethrow it
     if (isRedirectError(error)) {
       throw error;
     }
