@@ -1,4 +1,7 @@
 import Link from "next/link";
+
+import { Artist } from "@/types/artist";
+
 import { FeaturedArtistCard } from "../artists/featured-artist-card";
 import { Button } from "../ui/button";
 import {
@@ -8,7 +11,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { Artist } from "@/types/artist";
 
 export function FeaturedArtistsSection({
   artists,

@@ -1,4 +1,5 @@
 import { firaGo } from "@/config/font";
+
 export function FooterDescription() {
   return (
     <p className={firaGo.className}>

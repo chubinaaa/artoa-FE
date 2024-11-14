@@ -1,5 +1,6 @@
-import { Icons } from "../icons";
 import Image from "next/image";
+
+import { Icons } from "../icons";
 import { LanguageSwitcher } from "./language-switcher";
 
 export function ProfileHeader() {
