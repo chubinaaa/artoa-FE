@@ -1,12 +1,13 @@
 "use client";
 
-import { useActionState, useRef } from "react";
+import { startTransition, useActionState } from "react";
 import Link from "next/link";
 import { signUpFormSchema } from "@/validation/sign-up-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { FormState } from "@/types/sign-up/frontend";
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -27,9 +28,12 @@ import { signUpAction } from "./sign-up.action";
 export function SignUpForm() {
   // NOTE: we use useActionState to return errors sent from the server
   // and to show a loading state also supports progressive enhancement
-  const [formState, formAction, pending] = useActionState(signUpAction, {
-    message: "",
-  });
+  const [formState, formAction, pending] = useActionState<FormState, FormData>(
+    signUpAction,
+    {
+      message: "",
+    },
+  );
 
   const form = useForm<z.infer<typeof signUpFormSchema>>({
     resolver: zodResolver(signUpFormSchema),
@@ -39,21 +43,26 @@ export function SignUpForm() {
       repeatPassword: "",
       isTerm: false,
       // NOTE: override the default values with values returned from the server
-      // this way when user submits incorrect values, we will not clear the whole form
+      // this way when user submits invalid values, we will not clear the whole form
       ...(formState?.fields ?? {}),
     },
   });
-
-  const formRef = useRef<HTMLFormElement>(null);
+  function onSubmit(data: z.infer<typeof signUpFormSchema>) {
+    const fd = new FormData();
+    fd.append("email", data.email);
+    fd.append("password", data.password);
+    fd.append("repeatPassword", data.repeatPassword);
+    fd.append("isTerm", data.isTerm.toString());
+    startTransition(() => {
+      formAction(fd);
+    });
+  }
 
   return (
     <Form {...form}>
       <form
-        ref={formRef}
         action={formAction}
-        // NOTE: we already provide formAction prop on the form, so we can just request submit
-        // eslint-disable-next-line react-compiler/react-compiler
-        onSubmit={form.handleSubmit(() => formRef.current?.requestSubmit())}
+        onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-6"
       >
         <FormField
