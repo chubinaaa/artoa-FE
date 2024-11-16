@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 export function HeaderButtons() {
   return (
-    <div className="md: flex gap-3.5 max-sm:hidden">
+    <div className="hidden gap-3.5 lg:flex">
       <Button asChild>
         <Link href="/sign-in"> Log In </Link>
       </Button>
