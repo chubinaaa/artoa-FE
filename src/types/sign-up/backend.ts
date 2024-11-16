@@ -1,4 +1,4 @@
-import { Prettify, SnakeCase } from "@/types/helpers";
+import { CamelCase, Prettify, SnakeCase } from "@/types/helpers";
 
 import { SignUpFormData } from "./shared";
 
@@ -18,14 +18,17 @@ type BackendSignUpResponse =
       error_message: string;
     };
 
-export type BackendValidationErrorResponse = Prettify<{
-  message: "Validation failed";
-  errors: Array<{
-    field: SnakeCase<keyof SignUpFormData>;
-    message: string;
+export type BackendValidationError<TField extends SnakeCase<string>> = {
+  field: TField;
+  message: string;
+};
+
+export type BackendValidationErrorResponse<TField extends CamelCase<string>> =
+  Prettify<{
+    message: "Validation failed";
+    errors: Array<BackendValidationError<SnakeCase<TField>>>;
   }>;
-}>;
 
 export type BackendSendEmailVerifyResponse = Prettify<
-  BackendSignUpResponse | BackendValidationErrorResponse
+  BackendSignUpResponse | BackendValidationErrorResponse<keyof SignUpFormData>
 >;
