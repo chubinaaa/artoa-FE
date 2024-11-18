@@ -18,7 +18,7 @@ export function SignInForm() {
         <Input placeholder="***************" type="password" />
         <Link
           className="-mt-0.5 self-end text-xs text-muted-foreground"
-          href="#"
+          href="/forget-pass"
         >
           Forget Password
         </Link>
