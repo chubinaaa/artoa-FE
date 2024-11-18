@@ -101,7 +101,7 @@ export function FooterLinks({ label }: FooterLinksProps) {
         className={`${section.label === "bottom" ? "flex flex-row gap-6" : ""}`}
       >
         {section.links.map((link) => (
-          <li key={link.label} className="gap-8">
+          <li key={link.label} className="gap-8 hover:underline">
             <Link
               href={link.url}
               className={link.className}
