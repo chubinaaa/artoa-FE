@@ -24,7 +24,7 @@ export default function IndexPage() {
   return (
     <main>
       <HeroSection />
-      <WallArtistsSection />
+      <WallArtistsSection artists={mockArtists} />
       <ServiceSection />
       <AiGeneratedArtsSection />
       <FeaturedArtistsSection artists={mockArtists} />
