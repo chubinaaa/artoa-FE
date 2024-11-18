@@ -9,7 +9,7 @@ export function PublicFooter() {
   return (
     <footer className="flex flex-col gap-12 border-b border-border bg-background p-16 text-foreground">
       {/* Top Section */}
-      <div className="flex flex-col gap-8 md:flex-row md:justify-between">
+      <div className="flex flex-col gap-8 sm:flex-row sm:justify-center md:justify-between lg:gap-12">
         <div className="ms:w-max flex max-w-xs flex-col gap-1">
           <Icons.logo className="size-16" />
           <FooterDescription />
@@ -24,8 +24,8 @@ export function PublicFooter() {
         <SocialIcons />
       </div>
       {/* Bottom Section */}
-      <div className="flex flex-col items-center gap-5 border-t border-border md:flex-row md:justify-between">
-        <div className="flex gap-4 text-sm text-secondary-foreground">
+      <div className="flex flex-row items-center justify-between gap-5 border-t border-border">
+        <div className="flex justify-between gap-4 text-sm text-secondary-foreground">
           <FooterLinks label="bottom" />
         </div>
         <div className="text-sm font-semibold">
