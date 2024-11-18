@@ -12,9 +12,7 @@ const config: Config = {
         "2xl": "1440px",
       },
       container: {
-        center: true,
         padding: {
-          DEFAULT: "1rem",
           "2xl": "4rem",
         },
       },
