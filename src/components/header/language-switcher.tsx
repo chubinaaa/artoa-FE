@@ -18,7 +18,7 @@ export function LanguageSwitcher() {
             Ge
           </option>
         </select>
-        <Icons.arrowDown className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2" />
+        <Icons.arrowDown className="pointer-events-none absolute right-2 top-1/2 size-3 -translate-y-1/2" />
       </div>
     </div>
   );
