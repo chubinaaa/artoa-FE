@@ -4,9 +4,9 @@ import { Input } from "@/components/ui/input";
 
 export default function WriteEmail() {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 text-center">
       <div className="flex flex-col items-center gap-2">
-        <Icons.emailEditOutline className="gap-6" />
+        <Icons.emailEditOutline />
         <h2 className="text-xl font-semibold md:text-3xl">
           Write us your Email Address
         </h2>
