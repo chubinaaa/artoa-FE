@@ -22,13 +22,13 @@ const mockArtists: Array<Artist> = Array.from({ length: 10 }).map(
 
 export default function IndexPage() {
   return (
-    <div className="size-full">
+    <main>
       <HeroSection />
       <WallArtistsSection />
       <ServiceSection />
       <AiGeneratedArtsSection />
       <FeaturedArtistsSection artists={mockArtists} />
       <ArtoaTeamSection />
-    </div>
+    </main>
   );
 }
