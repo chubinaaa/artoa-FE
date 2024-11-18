@@ -2,7 +2,7 @@ import { Icons } from "../icons";
 
 export function Subscribe() {
   return (
-    <div className="flex flex-col items-start gap-8 bg-inherit">
+    <div className="mx-auto flex flex-col items-start gap-8 bg-inherit lg:w-1/3">
       <p className="text-left text-foreground">
         Be the first to hear about new arrivals, promotions, style inspiration,
         and exclusive sneak peeks.
@@ -10,7 +10,7 @@ export function Subscribe() {
       <form className="flex w-full max-w-md items-center gap-4 rounded-lg border border-solid px-6 py-4">
         <input
           type="email"
-          placeholder="Your email"
+          placeholder="E-mail"
           className="grow bg-inherit outline-none"
           aria-label="Email Address"
         />
