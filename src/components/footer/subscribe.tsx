@@ -11,7 +11,7 @@ export function Subscribe() {
         <input
           type="email"
           placeholder="E-mail"
-          className="grow bg-inherit outline-none"
+          className="w-full bg-inherit outline-none max-sm:w-max"
           aria-label="Email Address"
         />
         <button
