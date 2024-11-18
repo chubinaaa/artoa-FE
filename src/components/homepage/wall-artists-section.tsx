@@ -24,7 +24,7 @@ export const filters = [
 
 export function WallArtistsSection({ artists }: { artists: Artist[] }) {
   return (
-    <div className="w-full p-8 md:p-16">
+    <section className="container mx-auto py-28">
       <div className="flex items-center justify-between pb-4 md:pb-8">
         <h2 className="font-bold text-primary md:text-4xl">
           Wall Artists In Any Direction
@@ -34,14 +34,17 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-[200px_1fr] md:gap-8">
-        <ScrollArea className="w-full md:w-auto">
+      <div className="flex w-full flex-col gap-4 md:flex-row md:gap-8">
+        <ScrollArea className="md:min-w-52">
           <div className="flex gap-2 pb-4 md:flex-col md:pb-0">
             {filters.map((filter) => (
-              <div key={filter} className="relative">
+              <div
+                key={filter}
+                className="relative rounded-lg border bg-secondary"
+              >
                 <Checkbox
                   id={filter}
-                  className="peer absolute left-2.5 top-1/2 mr-2.5 size-4 -translate-y-1/2 bg-secondary [&_svg]:size-2.5"
+                  className="peer absolute left-2.5 top-1/2 mr-2.5 -translate-y-1/2 md:size-4 [&_svg]:size-2.5"
                 />
                 <Label
                   htmlFor={filter}
@@ -60,13 +63,13 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
           opts={{
             align: "start",
           }}
-          className="w-full max-w-5xl md:ml-10 xl:max-w-6xl"
+          className="ml-12 max-w-5xl"
         >
           <CarouselContent className="-ml-4">
             {artists.map((artist, index) => (
               <CarouselItem
                 key={artist.handle + index}
-                className="basis-1/2 pl-4 md:basis-1/3 lg:basis-[calc(30%-1rem)]"
+                className="basis-[32%] pl-4"
               >
                 <WallArtistCard artist={artist} />
               </CarouselItem>
@@ -76,6 +79,6 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
           <CarouselNext />
         </Carousel>
       </div>
-    </div>
+    </section>
   );
 }

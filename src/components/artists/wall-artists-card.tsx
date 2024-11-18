@@ -15,11 +15,17 @@ import Link from "next/link";
 
 export function WallArtistCard({ artist }: { artist: Artist }) {
   return (
-    <Card className="flex w-80 flex-col gap-2 bg-background">
-      <CardHeader className="p-0">
-        <Image src={artist.image} alt={artist.name} width={320} height={320} />
+    <Card className="bg-background">
+      <CardHeader className="relative aspect-square overflow-hidden p-0">
+        <Image
+          src={artist.image}
+          alt={artist.name}
+          className="size-full object-cover"
+          width={310}
+          height={310}
+        />
       </CardHeader>
-      <CardContent className="p-0">
+      <CardContent className="p-0 py-2">
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
