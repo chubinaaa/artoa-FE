@@ -1,3 +1,3 @@
 export function HeroSection() {
-  return <section>hero-section</section>;
+  return <section className="container mx-auto">hero-section</section>;
 }

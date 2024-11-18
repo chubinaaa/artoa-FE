@@ -44,7 +44,7 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
               >
                 <Checkbox
                   id={filter}
-                  className="peer absolute left-2.5 top-1/2 mr-2.5 -translate-y-1/2 md:size-4 [&_svg]:size-2.5"
+                  className="peer absolute left-2.5 top-1/2 mr-2.5 -translate-y-1/2 data-[state=unchecked]:border-muted-foreground md:size-4 [&_svg]:size-2.5"
                 />
                 <Label
                   htmlFor={filter}

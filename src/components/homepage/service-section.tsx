@@ -1,3 +1,3 @@
 export function ServiceSection() {
-  return <section>service-section</section>;
+  return <section className="container mx-auto">service-section</section>;
 }

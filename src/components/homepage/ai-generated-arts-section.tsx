@@ -1,3 +1,5 @@
 export function AiGeneratedArtsSection() {
-  return <section>ai-generated-arts-section</section>;
+  return (
+    <section className="container mx-auto">ai-generated-arts-section</section>
+  );
 }

@@ -1,3 +1,3 @@
 export function ArtoaTeamSection() {
-  return <section>artoa-team-section</section>;
+  return <section className="container mx-auto">artoa-team-section</section>;
 }
