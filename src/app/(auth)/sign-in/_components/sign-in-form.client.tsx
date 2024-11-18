@@ -16,17 +16,21 @@ export function SignInForm() {
       <div className="flex flex-col gap-2.5">
         <Label>Enter Password</Label>
         <Input placeholder="***************" type="password" />
-        <Link
-          className="-mt-0.5 self-end text-xs text-muted-foreground"
-          href="/forget-pass"
-        >
-          Forget Password
-        </Link>
+        <div className="mt-1 flex justify-between">
+          <div className="flex items-center">
+            <Checkbox className="me-2 size-5" /> Remember Me
+          </div>
+          <Link
+            className="flex items-center text-xs text-muted-foreground"
+            href="/forget-pass"
+          >
+            Forget Password
+          </Link>
+        </div>
       </div>
-      <div className="flex items-center space-x-2 text-xs md:mt-6 md:text-base">
-        <Checkbox /> <Label>Remember Me</Label>
-      </div>
-      <Button size="lg">Log In</Button>
+      <Button className="mt-5" size="lg">
+        Log In
+      </Button>
     </form>
   );
 }

@@ -1,21 +1,25 @@
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { AuthShell } from "../auth-shell";
 
 export default function WriteEmail() {
   return (
-    <AuthShell>
-      <div className="flex flex-col">
-        <div>icon</div>
-        <p>asd</p>
-        <p>asd</p>
-        <Input
-          className="w-[610px] max-lg:w-[670px] max-md:w-[340px] max-[375px]:w-60"
-          placeholder="Email Address"
-          type="email"
-        />
-        <Button size="lg">Log In</Button>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col items-center gap-2">
+        <Icons.emailEditOutline className="gap-6" />
+        <h2 className="text-xl font-semibold md:text-3xl">
+          Write us your Email Address
+        </h2>
+        <p className="text-sm md:text-base">
+          To reset your password, please enter your email address below.
+        </p>
       </div>
-    </AuthShell>
+      <Input
+        className="mx-auto w-11/12"
+        placeholder="Email Address"
+        type="email"
+      />
+      <Button size="lg">Send Link</Button>
+    </div>
   );
 }
