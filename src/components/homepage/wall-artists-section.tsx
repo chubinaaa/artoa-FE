@@ -26,7 +26,7 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
   return (
     <section className="container mx-auto py-28">
       <div className="flex items-center justify-between pb-4 md:pb-8">
-        <h2 className="font-bold text-primary md:text-4xl">
+        <h2 className="font-semibold text-primary md:text-4xl">
           Wall Artists In Any Direction
         </h2>
         <Button variant="link" className="p-0 text-sm text-primary">
@@ -63,13 +63,13 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
           opts={{
             align: "start",
           }}
-          className="ml-12 max-w-5xl"
+          className="md:ml-12 md:max-w-5xl"
         >
           <CarouselContent className="-ml-4">
             {artists.map((artist, index) => (
               <CarouselItem
                 key={artist.handle + index}
-                className="basis-[32%] pl-4"
+                className="basis-1/2 pl-4 2xl:basis-[31.635%]"
               >
                 <WallArtistCard artist={artist} />
               </CarouselItem>

@@ -17,12 +17,12 @@ export function FeaturedArtistCard({ artist }: { artist: Artist }) {
           height={310}
         />
       </CardHeader>
-      <CardContent className="p-0">
+      <CardContent className="p-0 pt-2">
         <div className="p-4">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-primary">{artist.tags[0]}ist</span>
+                <span className="text-accent">{artist.tags[0]}ist</span>
                 <div className="ml-auto flex items-center gap-1">
                   <Icons.star className="text-accent" />
                   <span>{artist.rating}(69)</span>
@@ -34,10 +34,15 @@ export function FeaturedArtistCard({ artist }: { artist: Artist }) {
                 {artist.handle}
               </p>
             </div>
-            <p className="mt-1 hidden md:block">{artist.description}</p>
-            <div className="flex gap-3">
-              {artist.tags.map((tag, i) => (
-                <span key={i} className="rounded-lg border p-2 font-medium">
+            <p className="mt-1 hidden leading-5 md:block">
+              {artist.description}
+            </p>
+            <div className="flex gap-3 overflow-x-scroll">
+              {artist.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="whitespace-nowrap rounded-lg border p-2 font-medium leading-none"
+                >
                   {tag}
                 </span>
               ))}
@@ -46,7 +51,7 @@ export function FeaturedArtistCard({ artist }: { artist: Artist }) {
         </div>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button className="h-10 md:h-12">See More</Button>
+        <Button className="h-10 leading-5 md:h-12">See More</Button>
       </CardFooter>
     </Card>
   );

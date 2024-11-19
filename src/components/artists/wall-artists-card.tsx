@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export function WallArtistCard({ artist }: { artist: Artist }) {
   return (
@@ -30,8 +31,16 @@ export function WallArtistCard({ artist }: { artist: Artist }) {
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <ul className="flex items-center gap-2">
-                {artist.tags.map((tag) => (
-                  <li key={tag} className="text-sm font-semibold text-primary">
+                {artist.tags.map((tag, i) => (
+                  <li
+                    key={tag}
+                    className={cn(
+                      "hidden text-sm font-semibold text-primary md:block",
+                      {
+                        block: i === 0,
+                      },
+                    )}
+                  >
                     {tag}
                   </li>
                 ))}
@@ -40,14 +49,14 @@ export function WallArtistCard({ artist }: { artist: Artist }) {
                 <Icons.star className="text-primary" /> {artist.rating}
               </div>
             </div>
-            <CardTitle>
-              {artist.name}{" "}
+            <CardTitle className="flex flex-col gap-1 md:flex-row md:items-center">
+              <span>{artist.name}</span>
               <Link href={artist.href}>
                 <span className="text-sm font-normal">{artist.handle}</span>
               </Link>
             </CardTitle>
           </div>
-          <CardDescription className="text-foreground">
+          <CardDescription className="hidden md:text-foreground">
             {artist.description}
           </CardDescription>
         </div>
