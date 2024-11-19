@@ -1,8 +1,8 @@
 import { Icons } from "../icons";
 import { FooterDescription } from "./description";
-import { Subscribe } from "./subscribe";
-import { SocialIcons } from "./social-icons";
 import { FooterLinks } from "./links";
+import { SocialIcons } from "./social-icons";
+import { Subscribe } from "./subscribe";
 
 export function PublicFooter() {
   return (

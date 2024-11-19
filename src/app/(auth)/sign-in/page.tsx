@@ -1,9 +1,11 @@
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Icons } from "@/components/icons";
+
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { SocialButton } from "@/components/auth/sign-in/social-button";
+import { Icons } from "@/components/icons";
+
 import { SignInForm } from "./_components/sign-in-form.client";
 
 export default function SignIn() {

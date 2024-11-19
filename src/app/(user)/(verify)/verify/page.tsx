@@ -1,4 +1,5 @@
 import { AuthShell } from "@/components/auth/auth-shell";
+
 import { VerifyUserForm } from "./_components/verify-user-form.client";
 
 export default function VerifyPage() {

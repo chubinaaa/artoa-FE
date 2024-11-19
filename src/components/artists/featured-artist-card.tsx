@@ -1,9 +1,10 @@
+import Image from "next/image";
+
 import { Artist } from "@/types/artist";
 
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
-import Image from "next/image";
 
 export function FeaturedArtistCard({ artist }: { artist: Artist }) {
   return (

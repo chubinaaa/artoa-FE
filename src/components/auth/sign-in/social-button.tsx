@@ -1,7 +1,8 @@
-import { Icons } from "@/components/icons";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { Icons } from "@/components/icons";
 
 interface SocialButtonProps extends React.ComponentProps<typeof Link> {
   icon: keyof typeof Icons;
