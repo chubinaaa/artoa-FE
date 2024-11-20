@@ -7,8 +7,8 @@ import Link from "next/link";
 
 export function PublicHeader() {
   return (
-    <header className="flex w-full justify-between border-b border-border px-6 py-4 md:px-16 md:py-5">
-      <div className="flex w-full justify-between">
+    <header className="flex w-full justify-between border-b py-4 md:py-5">
+      <div className="container mx-auto flex justify-between">
         <div className="flex items-center gap-6 md:gap-16 lg:gap-28">
           <MenuButton />
           <Link href={"/"}>

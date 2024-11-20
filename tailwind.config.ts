@@ -8,6 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xl: "1440px",
+        "2xl": "1536px",
+        "3xl": "1700px",
+        "4xl": "1920px",
+      },
+      container: {
+        padding: {
+          DEFAULT: "1.5rem",
+          xl: "4rem",
+          "2xl": "5rem",
+          "3xl": "6rem",
+          "4xl": "7rem",
+        },
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
