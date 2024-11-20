@@ -13,7 +13,7 @@ export function PublicFooter() {
           <Icons.logo className="size-16" aria-label="Artoa Logo" />
           <FooterDescription />
         </div>
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:gap-24">
+        <div className="gap-25 flex flex-col justify-between lg:flex-row">
           <FooterLinks label="about" />
           <FooterLinks label="other" />
           <Subscribe />

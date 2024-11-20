@@ -95,7 +95,9 @@ export function FooterLinks({ label }: FooterLinksProps) {
   return (
     <div className="flex flex-col gap-8">
       {section.label != "bottom" && (
-        <h4 className="font-bold capitalize">{section.label}</h4>
+        <h4 className="font-bold capitalize text-foreground">
+          {section.label}
+        </h4>
       )}
       <ul
         className={`flex gap-4 ${section.label === "bottom" ? "flex-row" : "flex-col"}`}
