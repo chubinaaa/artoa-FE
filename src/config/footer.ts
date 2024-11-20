@@ -15,7 +15,7 @@ export const footerConfig = {
       { label: "Service concept", href: "/service-concept" },
       { label: "Contact", href: "/contact" },
       { label: "Career", href: "/career" },
-      { label: "FAQ&apos;s", href: "/faq" },
+      { label: "FAQ's", href: "/faq" },
     ],
   },
   bottomItems: [
@@ -39,14 +39,14 @@ export const footerConfig = {
       ariaLabel: "Visit our Facebook page",
     },
     {
-      icon: Icons.instagram,
-      href: "https://www.instagram.com/",
-      ariaLabel: "Visit our Instagram page",
-    },
-    {
       icon: Icons.youtube,
       href: "https://www.youtube.com/",
       ariaLabel: "Visit our YouTube channel",
+    },
+    {
+      icon: Icons.instagram,
+      href: "https://www.instagram.com/",
+      ariaLabel: "Visit our Instagram page",
     },
     {
       icon: Icons.pinterest,
