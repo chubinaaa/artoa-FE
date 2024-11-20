@@ -1,18 +1,15 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { label: "Home", url: "/" },
-  { label: "Artists", url: "/artists" },
-  { label: "Services", url: "/services" },
-  { label: "About", url: "/about" },
-  { label: "Contact Us", url: "/contact-us" },
+  { label: "Home", href: "/" },
+  { label: "Artists", href: "/artists" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
-
-function isActiveMenuItem(cuurentPath: string, itemUrl: string): boolean {
-  return cuurentPath === itemUrl;
-}
 
 export function Navigation() {
   // need add logic when user is authoriser  isStaf = true;
@@ -28,12 +25,10 @@ export function Navigation() {
             <Link
               aria-label={`Navigate to ${item.label}`}
               tabIndex={0}
-              href={item.url}
-              className={`hover:text-primary ${
-                isActiveMenuItem(pathname, item.url)
-                  ? "font-bold text-primary"
-                  : ""
-              }`}
+              href={item.href}
+              className={cn("hover:text-primary", {
+                "font-bold text-primary": pathname === item.href,
+              })}
             >
               {item.label}
             </Link>
