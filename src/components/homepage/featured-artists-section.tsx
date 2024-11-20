@@ -16,7 +16,7 @@ export function FeaturedArtistsSection({
   artists: Array<Artist>;
 }) {
   return (
-    <section className="w-full bg-secondary">
+    <section className="bg-secondary">
       <div className="container mx-auto flex w-full flex-col gap-6 py-28">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl text-primary">Featured Artists</h1>
