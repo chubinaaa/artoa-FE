@@ -17,7 +17,7 @@ export function PublicFooter() {
               <FooterTopMenuGroup items={footerConfig.topItems.other} />
             </div>
           </div>
-          <SocialIcons />
+          <SocialIcons items={footerConfig.socials} />
         </div>
         <Subscribe />
       </div>

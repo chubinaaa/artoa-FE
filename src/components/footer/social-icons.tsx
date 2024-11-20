@@ -9,8 +9,8 @@ export function SocialIcons({ items }: { items: FooterConfig["socials"] }) {
         return (
           <Link
             key={social.href}
-            href="https://www.facebook.com/artoa.io/"
-            aria-label="Visit our Facebook page"
+            href={social.href}
+            aria-label={social.ariaLabel}
           >
             <Icon />
           </Link>
