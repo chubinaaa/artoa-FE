@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface FooterLink {
   label: string;
-  url: string;
+  href: string;
   className?: string;
   ariaLabel?: string;
 }
@@ -16,26 +16,26 @@ const footerLinks: FooterSection[] = [
   {
     label: "about",
     links: [
-      { label: "Projects", url: "projects", ariaLabel: "View our projects" },
+      { label: "Projects", href: "projects", ariaLabel: "View our projects" },
       {
         label: "Portfolios",
-        url: "portfolios",
+        href: "portfolios",
         ariaLabel: "Explore our portfolios",
       },
       {
         label: "Service Concept",
-        url: "service-concept",
+        href: "service-concept",
         ariaLabel: "Learn about our service concept",
       },
-      { label: "Contact", url: "contact", ariaLabel: "Get in touch with us" },
+      { label: "Contact", href: "contact", ariaLabel: "Get in touch with us" },
       {
         label: "Career",
-        url: "career",
+        href: "career",
         ariaLabel: "Discover career opportunities",
       },
       {
         label: "FAQs",
-        url: "faqs",
+        href: "faqs",
         ariaLabel: "Read frequently asked questions",
       },
     ],
@@ -45,18 +45,18 @@ const footerLinks: FooterSection[] = [
     links: [
       {
         label: "Service | Corrections",
-        url: "service-corrections",
+        href: "service-corrections",
         ariaLabel: "Learn more about our correction services",
       },
       {
         label: "Our Team",
-        url: "our-team",
+        href: "our-team",
         className: "text-primary",
         ariaLabel: "Meet our team",
       },
       {
         label: "AI/AR Order Generators",
-        url: "ai-ar-order-generators",
+        href: "ai-ar-order-generators",
         ariaLabel: "Explore AI and AR order generators",
       },
     ],
@@ -66,17 +66,17 @@ const footerLinks: FooterSection[] = [
     links: [
       {
         label: "Site Notice",
-        url: "site-notice",
+        href: "site-notice",
         ariaLabel: "View our site notice",
       },
       {
         label: "Data Privacy",
-        url: "data-privacy",
+        href: "data-privacy",
         ariaLabel: "Read our data privacy policy",
       },
       {
         label: "Imprint",
-        url: "imprint",
+        href: "imprint",
         ariaLabel: "See our imprint information",
       },
     ],
@@ -93,17 +93,17 @@ export function FooterLinks({ label }: FooterLinksProps) {
   if (!section) return null;
 
   return (
-    <div>
+    <div className="flex flex-col gap-8">
       {section.label != "bottom" && (
         <h4 className="font-bold capitalize">{section.label}</h4>
       )}
       <ul
-        className={`${section.label === "bottom" ? "flex flex-row gap-6" : ""}`}
+        className={`flex gap-4 ${section.label === "bottom" ? "flex-row" : "flex-col"}`}
       >
         {section.links.map((link) => (
-          <li key={link.label} className="gap-8 hover:underline">
+          <li key={link.label} className="hover:underline">
             <Link
-              href={link.url}
+              href={link.href}
               className={link.className}
               aria-label={link.ariaLabel}
             >

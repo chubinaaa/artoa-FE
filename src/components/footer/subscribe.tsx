@@ -2,16 +2,16 @@ import { Icons } from "../icons";
 
 export function Subscribe() {
   return (
-    <div className="mx-auto flex flex-col items-start gap-8 bg-inherit lg:w-1/3">
-      <p className="text-left text-foreground">
+    <div className="flex max-w-sm flex-col gap-8 bg-inherit">
+      <p className="p-1 text-foreground">
         Be the first to hear about new arrivals, promotions, style inspiration,
         and exclusive sneak peeks.
       </p>
-      <form className="flex w-full max-w-md items-center gap-4 rounded-lg border border-solid px-6 py-4">
+      <form className="flex max-w-sm items-center gap-4 rounded-lg border border-solid px-6 py-4">
         <input
           type="email"
           placeholder="E-mail"
-          className="w-full bg-inherit outline-none max-sm:w-max"
+          className="w-full justify-between bg-inherit outline-none max-sm:w-max"
           aria-label="Email Address"
         />
         <button
@@ -19,7 +19,7 @@ export function Subscribe() {
           className="flex size-6 items-center gap-2.5 rounded-xl bg-foreground p-2"
           aria-label="Subscribe"
         >
-          <Icons.arrowRight className="text-secondary-foreground" />
+          <Icons.arrowRight className="size-6 text-secondary-foreground" />
         </button>
       </form>
     </div>
