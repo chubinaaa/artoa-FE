@@ -19,15 +19,11 @@ export function FeaturedArtistsSection({
     <section className="bg-secondary">
       <div className="container mx-auto flex w-full flex-col gap-6 py-6 sm:py-12 md:py-28">
         <div className="flex items-center justify-between md:px-0">
-          <h1 className="font-semibold text-primary sm:text-2xl md:text-3xl">
+          <h1 className="text-sm font-semibold text-primary sm:text-2xl md:text-3xl">
             Featured Artists
           </h1>
-          <Button
-            asChild
-            variant="link"
-            className="h-fit p-0 text-xs md:text-sm"
-          >
-            <Link href="/featured-artists">See All</Link>
+          <Button asChild variant="link" className="h-fit p-0 text-sm">
+            <Link href="/featured-artists">See All Artists</Link>
           </Button>
         </div>
         <Carousel
@@ -46,10 +42,8 @@ export function FeaturedArtistsSection({
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="hidden md:block">
-            <CarouselPrevious />
-            <CarouselNext />
-          </div>
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
       </div>
     </section>
