@@ -1,12 +1,21 @@
-import { Icons } from "../icons";
+import Link from "next/link";
+import { FooterConfig } from "@/config/footer";
 
-export function SocialIcons() {
+export function SocialIcons({ items }: { items: FooterConfig["socials"] }) {
   return (
-    <div className="flex gap-8">
-      <Icons.facebook />
-      <Icons.instagram />
-      <Icons.youtube />
-      <Icons.pinterest />
+    <div className="flex justify-center gap-12 md:justify-start 2xl:gap-8">
+      {items.map((social) => {
+        const Icon = social.icon;
+        return (
+          <Link
+            key={social.href}
+            href={social.href}
+            aria-label={social.ariaLabel}
+          >
+            <Icon />
+          </Link>
+        );
+      })}
     </div>
   );
 }

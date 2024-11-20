@@ -1,22 +1,30 @@
 import { Icons } from "../icons";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
 export function Subscribe() {
   return (
-    <div className="max-w-80 gap-8">
-      <p className="text-foreground">
+    <div className="flex max-w-[432px] shrink-[2] grow-0 flex-col justify-center gap-4 bg-inherit 2xl:gap-8">
+      <p className="text-xs leading-5 text-foreground md:text-base">
         Be the first to hear about new arrivals, promotions, style inspiration,
         and exclusive sneak peeks.
       </p>
-      <div className="flex items-center justify-between rounded-lg border border-solid px-6 py-4">
-        <input
+      <form className="relative">
+        <Input
           type="email"
-          placeholder="Your email"
-          className="bg-inherit focus:outline-none"
+          placeholder="E-mail"
+          aria-label="Email Address"
+          className="bg-background text-sm"
         />
-        <button className="flex items-center gap-3 rounded-xl bg-secondary-foreground p-1">
+        <Button
+          size="icon"
+          type="submit"
+          aria-label="Subscribe"
+          className="absolute right-6 top-1/2 size-6 -translate-y-1/2 rounded-full bg-foreground text-input md:[&_svg]:size-4"
+        >
           <Icons.arrowRight />
-        </button>
-      </div>
+        </Button>
+      </form>
     </div>
   );
 }

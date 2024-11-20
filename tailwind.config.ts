@@ -13,6 +13,7 @@ const config: Config = {
       },
       container: {
         padding: {
+          DEFAULT: "1.5rem",
           "2xl": "4rem",
         },
       },
