@@ -1,3 +1,9 @@
+import Banner from "@/app/banner/page";
+
 export function HeroSection() {
-  return <section className="container mx-auto">hero-section</section>;
+  return (
+    <section className="w-full">
+      <Banner />
+    </section>
+  );
 }
