@@ -17,13 +17,17 @@ export function FeaturedArtistsSection({
 }) {
   return (
     <section className="bg-secondary">
-      <div className="container mx-auto flex w-full flex-col gap-6 py-28">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-semibold text-primary">
+      <div className="container mx-auto flex w-full flex-col gap-6 py-6 sm:py-12 md:py-28">
+        <div className="flex items-center justify-between md:px-0">
+          <h1 className="font-semibold text-primary sm:text-2xl md:text-3xl">
             Featured Artists
           </h1>
-          <Button asChild variant="link" className="p-0 text-sm">
-            <Link href="/featured-artists">See All Featured Artists</Link>
+          <Button
+            asChild
+            variant="link"
+            className="h-fit p-0 text-xs md:text-sm"
+          >
+            <Link href="/featured-artists">See All</Link>
           </Button>
         </div>
         <Carousel
@@ -32,18 +36,20 @@ export function FeaturedArtistsSection({
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml-5">
+          <CarouselContent className="-ml-4 md:-ml-5">
             {artists.map((artist, index) => (
               <CarouselItem
                 key={artist.handle + index}
-                className="basis-1/4 pl-5"
+                className="basis-1/2 pl-4 sm:basis-[45%] md:basis-1/3 md:pl-5 2xl:basis-1/4"
               >
                 <FeaturedArtistCard artist={artist} />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <div className="hidden md:block">
+            <CarouselPrevious />
+            <CarouselNext />
+          </div>
         </Carousel>
       </div>
     </section>
