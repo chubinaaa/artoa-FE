@@ -1,5 +1,6 @@
-import { FooterConfig } from "@/config/footer";
 import Link from "next/link";
+
+import { FooterConfig } from "@/config/footer";
 
 export function BottomLinkGroup({
   items,

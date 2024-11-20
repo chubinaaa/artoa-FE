@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import { FooterConfig } from "@/config/footer";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 export function FooterTopMenuGroup({
   items,

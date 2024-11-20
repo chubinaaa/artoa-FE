@@ -1,6 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
 
 export default function VerifyEmailPage() {
   return (

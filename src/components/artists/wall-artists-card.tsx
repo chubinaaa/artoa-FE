@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { Artist } from "@/types/artist";
 import {
   Card,
@@ -8,10 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import Image from "next/image";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
-import Link from "next/link";
 
 export function WallArtistCard({ artist }: { artist: Artist }) {
   return (
