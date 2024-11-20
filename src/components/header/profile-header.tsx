@@ -6,7 +6,7 @@ export function ProfileHeader() {
   return (
     <header className="border-b bg-secondary">
       <div className="container mx-auto flex h-22 items-center justify-between">
-        <Icons.logo aria-label="Logo Artoa.io" />
+        <Icons.logo />
         <div className="flex items-center gap-3">
           <Image
             src="/placeholder.svg"
