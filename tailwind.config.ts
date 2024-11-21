@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "2xl": "1440px",
+      },
+      container: {
+        padding: {
+          DEFAULT: "1.5rem",
+          "2xl": "4rem",
+        },
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
