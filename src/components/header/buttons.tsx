@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 
+const buttons = [
+  { label: "Log In", href: "/sign-in" },
+  { label: "Sign Up", href: "/sign-up" },
+];
+
 export function HeaderButtons() {
   return (
     <div className="hidden gap-3.5 lg:flex">
-      <Button asChild>
-        <Link href="/sign-in"> Log In </Link>
-      </Button>
-      <Button asChild>
-        <Link href="/sign-up"> Sign Up </Link>
-      </Button>
+      {buttons.map(({ label, href }) => (
+        <Button asChild key={href}>
+          <Link href={href}>{label}</Link>
+        </Button>
+      ))}
     </div>
   );
 }
