@@ -12,6 +12,8 @@ import Image from "next/image";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 export function WallArtistCard({ artist }: { artist: Artist }) {
   return (
@@ -29,25 +31,36 @@ export function WallArtistCard({ artist }: { artist: Artist }) {
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
-              <ul className="flex items-center gap-2">
-                {artist.tags.map((tag) => (
-                  <li key={tag} className="text-sm font-semibold text-primary">
-                    {tag}
-                  </li>
-                ))}
-              </ul>
+              <ScrollArea>
+                <ul className="flex items-center gap-2">
+                  {artist.tags.map((tag, i) => (
+                    <li
+                      key={tag}
+                      className={cn(
+                        "hidden text-sm font-semibold text-primary lg:block",
+                        {
+                          block: i === 0,
+                        },
+                      )}
+                    >
+                      {tag}ist
+                    </li>
+                  ))}
+                </ul>
+                <ScrollBar orientation="horizontal" className="md:hidden" />
+              </ScrollArea>
               <div className="flex items-center gap-1 text-sm">
                 <Icons.star className="text-primary" /> {artist.rating}
               </div>
             </div>
-            <CardTitle>
-              {artist.name}{" "}
-              <Link href={artist.href}>
-                <span className="text-sm font-normal">{artist.handle}</span>
+            <CardTitle className="flex flex-col gap-1">
+              <p>{artist.name}</p>
+              <Link className="text-sm font-normal" href={artist.href}>
+                {artist.handle}
               </Link>
             </CardTitle>
           </div>
-          <CardDescription className="text-foreground">
+          <CardDescription className="hidden md:block md:text-foreground">
             {artist.description}
           </CardDescription>
         </div>
