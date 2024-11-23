@@ -11,8 +11,8 @@ export function ArtoaTeamSection() {
           Find Your Team Of The Digital Future
         </h1>
         <div className="mt-11 flex justify-between">
-          {teamMembers.map((member, index) => (
-            <TeamItemCard key={index} employee={member} />
+          {teamMembers.map((employee, index) => (
+            <TeamItemCard key={index} employee={employee} />
           ))}
         </div>
       </div>
