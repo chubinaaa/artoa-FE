@@ -1,6 +1,6 @@
-import teamImage1 from "@/../public/team1.png";
-import teamImage2 from "@/../public/team2.png";
-import teamImage3 from "@/../public/team3.png";
+import teamImage1 from "@/../public/team1.svg";
+import teamImage2 from "@/../public/team2.svg";
+import teamImage3 from "@/../public/team3.svg";
 
 export const TeamConfig = [
   {
