@@ -1,3 +1,21 @@
+import { TeamConfig } from "@/config/team";
+import { TeamItemCard } from "../team/team-card";
+
 export function ArtoaTeamSection() {
-  return <section className="container mx-auto">artoa-team-section</section>;
+  const teamMembers = Object.values(TeamConfig);
+
+  return (
+    <section className="container mx-auto">
+      <div>
+        <h1 className="text-center font-sans text-7xl font-bold leading-[7px]">
+          Find Your Team Of The Digital Future
+        </h1>
+        <div className="mt-11 flex justify-between">
+          {teamMembers.map((member, index) => (
+            <TeamItemCard key={index} employee={member} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
