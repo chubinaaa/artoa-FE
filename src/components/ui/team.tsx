@@ -13,7 +13,11 @@ export const TeamItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex flex-row gap-6", className)} {...props} />
+  <div
+    ref={ref}
+    className={cn("flex flex-col items-center gap-6", className)}
+    {...props}
+  />
 ));
 TeamItem.displayName = "TeamItem";
 
