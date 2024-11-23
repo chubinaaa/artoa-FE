@@ -17,13 +17,17 @@ export function TeamItemCard({ employee }: { employee: Employee }) {
             alt={`${employee.name} ${employee.surname}`}
             className="size-full object-cover"
           />
-          <TeamContent className="p-0">
-            <div className="flex flex-col">
-              <div>{`${employee.name} ${employee.surname}`}</div>
-              <div>{employee.role}</div>
-            </div>
-          </TeamContent>
         </TeamItemImage>
+        <TeamContent className="p-0">
+          <div className="flex flex-col">
+            <h5 className="text-2xl font-semibold">
+              {`${employee.name} ${employee.surname}`}
+            </h5>
+            <h6 className="text-center text-sm font-semibold text-primary">
+              {employee.role}
+            </h6>
+          </div>
+        </TeamContent>
       </TeamItem>
     </TeamContainer>
   );
