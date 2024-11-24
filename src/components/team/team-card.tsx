@@ -1,4 +1,5 @@
-import { Employee } from "@/types/employee";
+import { TeamConfig } from "@/config/team";
+
 import {
   TeamContent,
   TeamItem,
@@ -7,14 +8,16 @@ import {
 } from "../ui/team";
 import Image from "next/image";
 
-export function TeamItemCard({ employee }: { employee: Employee }) {
+export function TeamItemCard({ employee }: { employee: TeamConfig[0] }) {
   return (
     <TeamContainer>
       <TeamItem>
         <TeamItemImage>
           <Image
-            src={employee.image}
+            src={employee.href}
             alt={`${employee.name} ${employee.surname}`}
+            width={310}
+            height={310}
             className="size-full object-cover"
           />
         </TeamItemImage>
