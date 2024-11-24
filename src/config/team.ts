@@ -1,25 +1,21 @@
-import teamImage1 from "@/../public/team1.svg";
-import teamImage2 from "@/../public/team2.svg";
-import teamImage3 from "@/../public/team3.svg";
-
 export const TeamConfig = [
   {
     name: "Name",
     surname: "Surname",
     role: "Founder & CEO",
-    image: teamImage1,
+    href: "/team1.svg",
   },
   {
     name: "Name",
     surname: "Surname",
     role: "Co-Founder & CEO",
-    image: teamImage2,
+    href: "/team2.svg",
   },
   {
     name: "Name",
     surname: "Surname",
     role: "Co-Founder & CEO",
-    image: teamImage3,
+    href: "/team3.svg",
   },
 ];
 export type TeamConfig = typeof TeamConfig;
