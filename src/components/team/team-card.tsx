@@ -5,7 +5,7 @@ import {
   TeamItem,
   TeamContainer,
   TeamItemImage,
-} from "../ui/team";
+} from "./team-layout";
 import Image from "next/image";
 
 export function TeamItemCard({ employee }: { employee: TeamConfig[0] }) {

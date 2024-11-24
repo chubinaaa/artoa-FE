@@ -2,8 +2,6 @@ import { TeamConfig } from "@/config/team";
 import { TeamItemCard } from "../team/team-card";
 
 export function ArtoaTeamSection() {
-  const teamMembers = Object.values(TeamConfig);
-
   return (
     <section className="container mx-auto">
       <div>
@@ -11,7 +9,7 @@ export function ArtoaTeamSection() {
           Find Your Team Of The Digital Future
         </h1>
         <div className="mt-11 flex justify-between">
-          {teamMembers.map((employee, index) => (
+          {TeamConfig.map((employee, index) => (
             <TeamItemCard key={index} employee={employee} />
           ))}
         </div>

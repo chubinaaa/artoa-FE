@@ -28,7 +28,7 @@ export const TeamItemImage = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex h-[414px] w-[424px] flex-col gap-2.5 rounded-tl-full rounded-tr-full bg-primary px-[131px] text-foreground",
+      "flex h-96 w-96 flex-col gap-2.5 rounded-tl-full rounded-tr-full bg-primary px-32 text-foreground",
       className,
     )}
     {...props}
@@ -40,6 +40,6 @@ export const TeamContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-4 pt-0", className)} {...props} />
+  <div ref={ref} className={cn(className)} {...props} />
 ));
 TeamContent.displayName = "TeamContent";
