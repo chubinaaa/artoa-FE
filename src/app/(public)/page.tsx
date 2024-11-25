@@ -11,10 +11,11 @@ const mockArtists: Array<Artist> = Array.from({ length: 10 }).map(
     id: index,
     name: `Mock Artist ${index}`,
     handle: `@artst-${index}`,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    description:
+      "I complete drawings of any complexity, you can check my portfolio",
     image: "/placeholder.svg",
-    tags: ["3D Art", "Digital Art"],
-    rating: Math.floor(Math.random() * 5) + 1,
+    tags: ["3D Art", "Illustration", "Graffiti"],
+    rating: Number.parseFloat((Math.random() * 5 + 1).toFixed(2)),
     href: `/artists/${index}`,
   }),
 );

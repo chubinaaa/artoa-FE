@@ -36,7 +36,7 @@ export function FeaturedArtistsSection({
             {artists.map((artist, index) => (
               <CarouselItem
                 key={artist.handle + index}
-                className="basis-1/2 pl-4 sm:basis-[45%] md:basis-1/3 md:pl-5 2xl:basis-1/4"
+                className="basis-[83%] pl-4 sm:basis-1/2 md:basis-2/5 md:pl-5 lg:basis-1/3 xl:basis-1/4"
               >
                 <FeaturedArtistCard artist={artist} />
               </CarouselItem>
