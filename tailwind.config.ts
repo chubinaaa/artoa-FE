@@ -9,10 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
+        "2xs": "375px",
+        xs: "480px",
         "2xl": "1440px",
       },
       container: {
         padding: {
+          DEFAULT: "1.5rem",
           "2xl": "4rem",
         },
       },
@@ -45,6 +48,7 @@ const config: Config = {
         ring: "hsl(var(--ring))",
       },
       borderRadius: {
+        xl: "calc(var(--radius) + 22px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -54,6 +58,10 @@ const config: Config = {
       },
       fontSize: {
         "2xs": "0.625rem",
+      },
+      backgroundImage: {
+        "services-pattern":
+          "linear-gradient(to right, hsla(0, 0%, 0%, 0.55), hsla(0, 0%, 0%, 0.25)), url('/services-bg.jpeg')",
       },
     },
   },
