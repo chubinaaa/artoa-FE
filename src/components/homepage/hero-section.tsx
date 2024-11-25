@@ -22,8 +22,8 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="bg-secondary py-10">
-        <div className="container mx-auto flex flex-row justify-between gap-6">
+      <div className="bg-secondary py-6 md:py-10">
+        <div className="container mx-auto grid grid-cols-2 place-items-center gap-6 sm:grid-cols-4">
           {highligts.map((highlight) => (
             <div key={highlight.title} className="text-center">
               <p className="mb-4 text-3xl font-bold md:text-6xl">
