@@ -62,6 +62,8 @@ const config: Config = {
       backgroundImage: {
         "services-pattern":
           "linear-gradient(to right, hsla(0, 0%, 0%, 0.55), hsla(0, 0%, 0%, 0.25)), url('/services-bg.jpeg')",
+        "hero-pattern":
+          "linear-gradient(to right, hsla(0, 0%, 0%, 0.72), hsla(0, 0%, 0%, 0.32)), url('/hero-bg.jpeg')",
       },
     },
   },
