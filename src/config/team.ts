@@ -1,21 +1,20 @@
-export const TeamConfig = [
+export const teamMembers = [
   {
     name: "Name",
     surname: "Surname",
     role: "Founder & CEO",
-    href: "/team1.svg",
+    imageUrl: "/team1.svg",
   },
   {
     name: "Name",
     surname: "Surname",
     role: "Co-Founder & CEO",
-    href: "/team2.svg",
+    imageUrl: "/team2.svg",
   },
   {
     name: "Name",
     surname: "Surname",
     role: "Co-Founder & CEO",
-    href: "/team3.svg",
+    imageUrl: "/team3.svg",
   },
 ];
-export type TeamConfig = typeof TeamConfig;
