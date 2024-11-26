@@ -10,38 +10,51 @@ import {
 
 import Image from "next/image";
 import { Icons } from "../icons";
-import Link from "next/link";
 import { Button } from "../ui/button";
+import Link from "next/link";
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 export function WallArtistCard({ artist }: { artist: Artist }) {
   return (
-    <Card className="flex w-80 flex-col gap-2 bg-background">
-      <CardHeader className="p-0">
-        <Image src={artist.image} alt={artist.name} width={320} height={320} />
+    <Card className="bg-background">
+      <CardHeader className="relative overflow-hidden p-0">
+        <Image
+          src={artist.image}
+          alt={artist.name}
+          className="size-full h-[310px] object-cover"
+          width={310}
+          height={310}
+        />
       </CardHeader>
-      <CardContent className="p-0">
+      <CardContent className="p-0 py-2">
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
-              <ul className="flex items-center gap-2">
-                {artist.tags.map((tag) => (
-                  <li key={tag} className="text-sm font-semibold text-primary">
-                    {tag}
-                  </li>
-                ))}
-              </ul>
+              <ScrollArea>
+                <ul className="flex items-center gap-2">
+                  {artist.tags.map((tag, i) => (
+                    <li
+                      key={tag + i}
+                      className="text-sm font-semibold text-primary"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+                <ScrollBar orientation="horizontal" className="md:hidden" />
+              </ScrollArea>
               <div className="flex items-center gap-1 text-sm">
                 <Icons.star className="text-primary" /> {artist.rating}
               </div>
             </div>
-            <CardTitle>
-              {artist.name}{" "}
-              <Link href={artist.href}>
-                <span className="text-sm font-normal">{artist.handle}</span>
+            <CardTitle className="flex items-center gap-1">
+              <p className="font-semibold">{artist.name}</p>
+              <Link className="text-sm font-normal" href={artist.href}>
+                {artist.handle}
               </Link>
             </CardTitle>
           </div>
-          <CardDescription className="text-foreground">
+          <CardDescription className="leading-5">
             {artist.description}
           </CardDescription>
         </div>
