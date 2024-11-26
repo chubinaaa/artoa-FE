@@ -1,24 +1,48 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { label: "Home", url: "/" },
-  { label: "Artists", url: "/artists" },
-  { label: "Services", url: "/services" },
-  { label: "About", url: "/about" },
-  { label: "Contact Us", url: "/contact-us" },
+  { label: "Home", href: "/" },
+  { label: "Artists", href: "/artists" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 export function Navigation() {
+  // need add logic when user is authoriser  isStaf = true;
+  const isStaf = false;
+
+  const pathname = usePathname();
+
   return (
     <nav className="hidden lg:flex">
-      <ul className="flex items-center justify-between gap-12">
+      <ul className="flex items-center justify-between gap-4 text-sm lg:gap-8">
         {menuItems.map((item) => (
           <li key={item.label}>
-            <Link href={item.url} className="hover:text-primary">
+            <Link
+              aria-label={`Navigate to ${item.label}`}
+              tabIndex={0}
+              href={item.href}
+              className={cn("hover:text-primary", {
+                "font-bold text-primary": pathname === item.href,
+              })}
+            >
               {item.label}
             </Link>
           </li>
         ))}
+        {isStaf && (
+          <li>
+            <Link href="/monitoring" className="hover:text-primary">
+              Monitoring (CTA)
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

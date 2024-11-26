@@ -2,8 +2,8 @@ import { Icons } from "../icons";
 
 export function MenuButton() {
   return (
-    <div className="md: hidden cursor-pointer max-sm:flex">
-      <Icons.menuButton />
+    <div className="flex cursor-pointer items-center lg:hidden">
+      <Icons.menuButton className="md:size-6" />
     </div>
   );
 }
