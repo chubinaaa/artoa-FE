@@ -22,7 +22,7 @@ export const filters = [
   "Mural",
 ];
 
-export function WallArtistsSection({ artists }: { artists: Artist[] }) {
+export function WallArtistsSection({ artists }: { artists: Array<Artist> }) {
   return (
     <section>
       <div className="container mx-auto flex w-full flex-col gap-6 py-6 sm:py-12 md:py-28">
@@ -78,8 +78,8 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
           </Carousel>
         </div>
       </div>
