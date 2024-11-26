@@ -72,7 +72,7 @@ export function WallArtistsSection({ artists }: { artists: Artist[] }) {
               {artists.map((artist, index) => (
                 <CarouselItem
                   key={artist.handle + index}
-                  className="basis-1/2 pl-4 sm:basis-[45%] lg:basis-1/3 2xl:basis-[31.635%]"
+                  className="basis-[83%] pl-4 sm:basis-1/2 md:pl-5 lg:basis-1/3 xl:basis-[31.635%]"
                 >
                   <WallArtistCard artist={artist} />
                 </CarouselItem>
