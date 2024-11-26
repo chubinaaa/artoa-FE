@@ -22,9 +22,9 @@ export function SignInForm() {
           </div>
           <Link
             className="flex items-center text-xs text-muted-foreground"
-            href="/forget-pass"
+            href="/forgot-password"
           >
-            Forget Password
+            Forgot Password
           </Link>
         </div>
       </div>
