@@ -27,10 +27,12 @@ export function HeroSection() {
         <div className="container mx-auto grid grid-cols-2 place-items-center gap-5 sm:grid-cols-4 sm:gap-0">
           {highligts.map((highlight) => (
             <div key={highlight.title} className="text-center">
-              <p className="mb-4 text-3xl font-bold md:text-6xl">
+              <p className="mb-1 text-3xl font-bold md:text-5xl xl:mb-3.5 xl:text-6xl">
                 {highlight.title}
               </p>
-              <p className="text-lg md:text-4xl">{highlight.description}</p>
+              <p className="text-lg md:text-2xl xl:text-2xl">
+                {highlight.description}
+              </p>
             </div>
           ))}
         </div>
