@@ -1,7 +1,8 @@
 import { AuthShell } from "@/components/auth/auth-shell";
-import NewPassword from "@/components/auth/forget-pass/new-password";
-// import WriteEmail from "@/components/auth/forget-pass/write-email";
-// import CheckEmail from "@/components/auth/forget-pass/check-email";
+// import CheckEmail from "@/components/auth/forgot-password/check-email";
+import NewPassword from "@/components/auth/forgot-password/new-password";
+
+// import WriteEmail from "@/components/auth/forgot-password/write-email";
 
 export default function ForgotPassword() {
   return (
