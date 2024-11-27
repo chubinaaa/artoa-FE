@@ -5,7 +5,7 @@ import Image from "next/image";
 export function ServiceSection() {
   return (
     <section className="bg-secondary max-sm:bg-services-pattern max-sm:bg-cover max-sm:bg-center">
-      <div className="container mx-auto flex gap-2.5 pb-36 pt-6 lg:pt-12 xl:pt-28">
+      <div className="container mx-auto flex gap-2.5 py-6 max-sm:pb-36 lg:py-12 xl:py-28">
         <div className="flex flex-col gap-12 sm:basis-1/2 xl:gap-16">
           <Separator className="hidden h-1.5 w-10/12 sm:block" />
           <div className="flex flex-col gap-6">
