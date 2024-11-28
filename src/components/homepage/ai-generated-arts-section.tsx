@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Icons } from "../icons";
+// import { Button } from "@/components/ui/button";
+// import { Icons } from "../icons";
 
 const cards = [
   { id: 1, title: "Card 1", content: "Content for Card 1" },
@@ -23,6 +23,40 @@ const cardVariants = {
 
 export function AiGeneratedArtsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isGrabbing, setIsGrabbing] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const startX = useRef(0);
+  const isDragging = useRef(false);
+
+  const handleSwipeStart = (event: React.MouseEvent | React.TouchEvent) => {
+    const clientX =
+      "touches" in event ? event.touches[0].clientX : event.clientX;
+    startX.current = clientX;
+    isDragging.current = true;
+    setIsGrabbing(true);
+    event.preventDefault();
+  };
+
+  const handleSwipeMove = (event: React.MouseEvent) => {
+    if (isDragging.current) {
+      event.preventDefault();
+    }
+  };
+
+  const handleSwipeEnd = (event: React.MouseEvent | React.TouchEvent) => {
+    const clientX =
+      "touches" in event ? event.changedTouches[0].clientX : event.clientX;
+    const diff = clientX - startX.current;
+
+    if (isDragging.current) {
+      if (diff > 50)
+        handlePrev(); // Swipe right
+      else if (diff < -50) handleNext(); // Swipe left
+    }
+    isDragging.current = false;
+    setIsGrabbing(false);
+  };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
@@ -44,14 +78,47 @@ export function AiGeneratedArtsSection() {
   );
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    const startInterval = () => {
+      intervalRef.current = setInterval(() => {
+        if (!isHovered) {
+          handleNext();
+        }
+      }, 3000);
+    };
+    startInterval();
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+    // const interval = setInterval(() => {
+    //   handleNext();
+    // }, 3000);
+    // return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const handleHovered = () => {
+    setIsHovered(true);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  const handleUnhovered = () => {
+    setIsHovered(false);
+  };
 
   return (
-    <div className="relative min-h-[400px] w-full rounded-lg md:min-h-[900px]">
+    <div
+      className="relative min-h-[400px] w-full rounded-lg md:min-h-[900px]"
+      onMouseDown={handleSwipeStart}
+      onMouseMove={handleSwipeMove}
+      onMouseUp={handleSwipeEnd}
+      onTouchStart={handleSwipeStart}
+      onTouchEnd={handleSwipeEnd}
+      onMouseEnter={handleHovered}
+      onMouseLeave={handleUnhovered}
+    >
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         {cards.map((card, index) => {
           const position = ["left2", "left1", "center", "right1", "right2"][
@@ -60,13 +127,19 @@ export function AiGeneratedArtsSection() {
           return (
             <motion.div
               key={card.id}
-              className="absolute left-1/2 top-1/2 aspect-[9/12] w-[134px] cursor-pointer rounded-lg p-6 shadow-lg sm:w-[246px] md:w-[295px] lg:w-[400px] 2xl:w-[550px]"
+              className={`absolute left-1/2 top-1/2 aspect-[9/12] w-[134px] rounded-lg p-6 shadow-lg sm:w-[246px] md:w-[295px] lg:w-[400px] 2xl:w-[550px] ${
+                isGrabbing ? "cursor-grabbing" : "cursor-grab"
+                // "cursor-pointer"
+              }`}
               initial={false}
               animate={position}
               variants={cardVariants}
               transition={{ duration: 0.35 }}
               style={{
                 backgroundColor: fiveRandomColors[index % 5],
+              }}
+              onClick={() => {
+                setCurrentIndex(index);
               }}
             >
               <h2 className="mb-4 text-2xl font-bold">{card.title}</h2>
@@ -75,7 +148,7 @@ export function AiGeneratedArtsSection() {
           );
         })}
       </div>
-      <Button
+      {/* <Button
         variant="outline"
         size="icon"
         className="absolute left-4 top-1/2 -translate-y-1/2"
@@ -92,7 +165,7 @@ export function AiGeneratedArtsSection() {
         aria-label="Next card"
       >
         <Icons.arrowRight />
-      </Button>
+      </Button> */}
     </div>
   );
 }
