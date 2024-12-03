@@ -2,6 +2,9 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "../ui/button";
 // import { Button } from "@/components/ui/button";
 // import { Icons } from "../icons";
 
@@ -109,66 +112,76 @@ export function AiGeneratedArtsSection() {
   };
 
   return (
-    <div
-      className="relative min-h-[400px] w-full rounded-lg md:min-h-[900px]"
-      onMouseDown={handleSwipeStart}
-      onMouseMove={handleSwipeMove}
-      onMouseUp={handleSwipeEnd}
-      onTouchStart={handleSwipeStart}
-      onTouchEnd={handleSwipeEnd}
-      onMouseEnter={handleHovered}
-      onMouseLeave={handleUnhovered}
-    >
-      <p className="mt-28 flex justify-center text-4xl font-bold md:text-6xl">
-        ArtOa AI-Generated Arts
-      </p>
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        {cards.map((card, index) => {
-          const position = ["left2", "left1", "center", "right1", "right2"][
-            (index - currentIndex + cards.length + 2) % cards.length
-          ];
-          return (
-            <motion.div
-              key={card.id}
-              className={`absolute left-1/2 top-1/2 aspect-[9/12] w-[134px] rounded-lg p-6 shadow-lg sm:w-[246px] md:w-[295px] lg:w-[400px] 2xl:w-[550px] ${
-                isGrabbing ? "cursor-grabbing" : "cursor-grab"
-                // "cursor-pointer"
-              } mt-5`}
-              initial={false}
-              animate={position}
-              variants={cardVariants}
-              transition={{ duration: 0.35 }}
-              style={{
-                backgroundColor: fiveRandomColors[index % 5],
-              }}
-              onClick={() => {
-                setCurrentIndex(index);
-              }}
-            >
-              <h2 className="mb-4 text-2xl font-bold">{card.title}</h2>
-              <p>{card.content}</p>
-            </motion.div>
-          );
-        })}
+    <div>
+      <div
+        className="relative min-h-[400px] w-full rounded-lg md:min-h-[900px]"
+        onMouseDown={handleSwipeStart}
+        onMouseMove={handleSwipeMove}
+        onMouseUp={handleSwipeEnd}
+        onTouchStart={handleSwipeStart}
+        onTouchEnd={handleSwipeEnd}
+        onMouseEnter={handleHovered}
+        onMouseLeave={handleUnhovered}
+      >
+        <p className="mt-28 flex justify-center text-4xl font-bold md:text-6xl">
+          ArtOa AI-Generated Arts
+        </p>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          {cards.map((card, index) => {
+            const position = ["left2", "left1", "center", "right1", "right2"][
+              (index - currentIndex + cards.length + 2) % cards.length
+            ];
+            return (
+              <motion.div
+                key={card.id}
+                className={`absolute left-1/2 top-1/2 aspect-[9/12] w-[134px] rounded-lg p-6 shadow-lg sm:w-[246px] md:w-[295px] lg:w-[400px] 2xl:w-[550px] ${
+                  isGrabbing ? "cursor-grabbing" : "cursor-grab"
+                  // "cursor-pointer"
+                } mt-5`}
+                initial={false}
+                animate={position}
+                variants={cardVariants}
+                transition={{ duration: 0.35 }}
+                style={{
+                  backgroundColor: fiveRandomColors[index % 5],
+                }}
+                onClick={() => {
+                  setCurrentIndex(index);
+                }}
+              >
+                <h2 className="mb-4 text-2xl font-bold">{card.title}</h2>
+                <p>{card.content}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+        {/* <Button
+          variant="outline"
+          size="icon"
+          className="absolute left-4 top-1/2 -translate-y-1/2"
+          onClick={handlePrev}
+          aria-label="Previous card"
+        >
+          <Icons.arrowLeft />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          className="absolute right-4 top-1/2 -translate-y-1/2"
+          onClick={handleNext}
+          aria-label="Next card"
+        >
+          <Icons.arrowRight />
+        </Button> */}
       </div>
-      {/* <Button
-        variant="outline"
-        size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2"
-        onClick={handlePrev}
-        aria-label="Previous card"
-      >
-        <Icons.arrowLeft />
-      </Button>
-      <Button
-        variant="outline"
-        size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2"
-        onClick={handleNext}
-        aria-label="Next card"
-      >
-        <Icons.arrowRight />
-      </Button> */}
+      <div className="mb-28 flex justify-center">
+        <Link
+          href="#"
+          className={cn(buttonVariants(), "h-10 leading-5 md:h-12")}
+        >
+          Try ArtOa AI
+        </Link>
+      </div>
     </div>
   );
 }
