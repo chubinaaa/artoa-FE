@@ -11,7 +11,7 @@ export function PublicHeader() {
       <div className="flex w-full justify-between">
         <div className="flex items-center md:gap-8 lg:gap-28">
           <Link href={"/"} aria-label="Logo ArtOa">
-            <Icons.logo className="size-12 cursor-pointer md:size-8" />
+            <Icons.logo className="size-8 cursor-pointer lg:size-16" />
           </Link>
           <Navigation />
         </div>
