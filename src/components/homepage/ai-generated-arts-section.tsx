@@ -119,6 +119,9 @@ export function AiGeneratedArtsSection() {
       onMouseEnter={handleHovered}
       onMouseLeave={handleUnhovered}
     >
+      <p className="mt-28 flex justify-center text-4xl font-bold md:text-6xl">
+        ArtOa AI-Generated Arts
+      </p>
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         {cards.map((card, index) => {
           const position = ["left2", "left1", "center", "right1", "right2"][
@@ -130,7 +133,7 @@ export function AiGeneratedArtsSection() {
               className={`absolute left-1/2 top-1/2 aspect-[9/12] w-[134px] rounded-lg p-6 shadow-lg sm:w-[246px] md:w-[295px] lg:w-[400px] 2xl:w-[550px] ${
                 isGrabbing ? "cursor-grabbing" : "cursor-grab"
                 // "cursor-pointer"
-              }`}
+              } mt-5`}
               initial={false}
               animate={position}
               variants={cardVariants}
