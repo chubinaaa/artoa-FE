@@ -20,7 +20,7 @@ export function HeroSection() {
               Speak.
             </span>
           </div>
-          <Button className="mt-4 w-fit">Join As</Button>
+          <Button className="mt-4 w-fit">Learn More</Button>
         </div>
       </div>
       <div className="bg-secondary py-6 md:py-10">
