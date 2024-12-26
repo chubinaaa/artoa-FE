@@ -68,7 +68,7 @@ export function WallArtistsSection({ artists }: { artists: Array<Artist> }) {
             }}
             className="md:ml-12 md:max-w-[calc(100%-14rem)] 2xl:max-w-5xl"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 md:-ml-5">
               {artists.map((artist, index) => (
                 <CarouselItem
                   key={artist.handle + index}

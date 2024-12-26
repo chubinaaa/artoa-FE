@@ -1,5 +1,3 @@
-"use client";
-import { useState, useEffect } from "react";
 import { Icons } from "../icons";
 import { MenuButton } from "./menu-button";
 import { Navigation } from "./navigation";
@@ -8,32 +6,9 @@ import { LanguageSwitcher } from "./language-switcher";
 import Link from "next/link";
 
 export function PublicHeader() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
-    <header
-      className={`${
-        isScrolled
-          ? "fixed left-0 top-0 z-50 bg-black transition-all duration-500 ease-in-out"
-          : "relative"
-      } flex w-full justify-between border-b border-border px-6 py-4 lg:px-14 lg:py-5`}
-    >
-      <div className="flex w-full justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto flex h-22 w-full items-center justify-between">
         <div className="flex items-center md:gap-8 lg:gap-28">
           <Link href={"/"} aria-label="Logo ArtOa">
             <Icons.logo className="size-8 cursor-pointer lg:size-16" />

@@ -10,11 +10,9 @@ export const footerConfig = {
     ],
     about: [
       { label: "About ArtOa", href: "/about", isTitle: true },
-      { label: "Projects", href: "/projects" },
       { label: "Portfolios", href: "/portfolios" },
       { label: "Service concept", href: "/service-concept" },
       { label: "Contact", href: "/contact" },
-      { label: "Career", href: "/career" },
       { label: "FAQ's", href: "/faq" },
     ],
   },
