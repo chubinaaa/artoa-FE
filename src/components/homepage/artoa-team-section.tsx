@@ -34,7 +34,7 @@ export function ArtoaTeamSection() {
             className="w-full"
           >
             <div className="mt-8 flex flex-col gap-12 lg:mt-28 lg:gap-4">
-              <CarouselContent className="ml-4 overflow-y-visible md:-ml-5">
+              <CarouselContent className="ml-4 justify-evenly overflow-y-visible md:-ml-5">
                 {teamMembers.map((member, index) => (
                   <CarouselItem
                     key={index}
