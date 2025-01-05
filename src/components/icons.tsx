@@ -448,32 +448,37 @@ export const Icons = {
   ),
   avatarIcon: (props: SvgIconProps) => (
     <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M7.99028 10.2305C5.41187 10.2305 3.20996 10.6203 3.20996 12.1816C3.20996 13.7428 5.3979 14.1467 7.99028 14.1467C10.5687 14.1467 12.77 13.7562 12.77 12.1955C12.77 10.6349 10.5827 10.2305 7.99028 10.2305Z"
-        stroke="#C7C3C3"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        opacity="0.4"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M7.98993 8.00359C9.68199 8.00359 11.0534 6.63153 11.0534 4.93947C11.0534 3.24741 9.68199 1.87598 7.98993 1.87598C6.29786 1.87598 4.9258 3.24741 4.9258 4.93947C4.92008 6.62582 6.28262 7.99788 7.96834 8.00359H7.98993Z"
-        stroke="#C7C3C3"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <g id="Variant=Light, Icon=Profile">
+        <g id="Profile">
+          <path
+            id="Stroke 1"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.9847 15.3462C8.11707 15.3462 4.81421 15.931 4.81421 18.2729C4.81421 20.6148 8.09611 21.2205 11.9847 21.2205C15.8523 21.2205 19.1542 20.6348 19.1542 18.2938C19.1542 15.9529 15.8733 15.3462 11.9847 15.3462Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Stroke 3"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.9846 12.0059C14.5227 12.0059 16.5799 9.94779 16.5799 7.40969C16.5799 4.8716 14.5227 2.81445 11.9846 2.81445C9.44655 2.81445 7.38845 4.8716 7.38845 7.40969C7.37988 9.93922 9.42369 11.9973 11.9523 12.0059H11.9846Z"
+            stroke="currentColor"
+            strokeWidth="1.42857"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </g>
     </svg>
   ),
   bgStars: (props: SvgIconProps) => (
@@ -625,6 +630,180 @@ export const Icons = {
         d="M42.9075 31.23L29.25 44.865V49.5H33.885L47.52 35.8425M51.075 30.555L48.195 27.675C47.97 27.4275 47.655 27.2925 47.34 27.2925C47.0025 27.315 46.6875 27.4275 46.4625 27.675L44.2125 29.925L48.825 34.425L51.075 32.175C51.5025 31.725 51.5025 31.005 51.075 30.555ZM24.75 40.5H9V18L27 29.25L45 18V22.5H49.5V13.5C49.5 11.025 47.475 9 45 9H9C6.525 9 4.5 11.025 4.5 13.5V40.5C4.5 42.975 6.525 45 9 45H24.75V40.5ZM45 13.5L27 24.75L9 13.5H45Z"
         fill="white"
       />
+    </svg>
+  ),
+  editSquare: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g id="Variant=Light, Icon=Edit Square">
+        <g id="Edit Square">
+          <path
+            id="Stroke 1"
+            d="M11.4922 2.78894H7.75324C4.67824 2.78894 2.75024 4.96594 2.75024 8.04794V16.3619C2.75024 19.4439 4.66924 21.6209 7.75324 21.6209H16.5772C19.6622 21.6209 21.5812 19.4439 21.5812 16.3619V12.3339"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Stroke 3"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M8.82763 10.9209L16.3006 3.44787C17.2316 2.51787 18.7406 2.51787 19.6716 3.44787L20.8886 4.66487C21.8196 5.59587 21.8196 7.10587 20.8886 8.03587L13.3796 15.5449C12.9726 15.9519 12.4206 16.1809 11.8446 16.1809H8.09863L8.19263 12.4009C8.20663 11.8449 8.43363 11.3149 8.82763 10.9209Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Stroke 5"
+            d="M15.165 4.60242L19.731 9.16842"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </g>
+    </svg>
+  ),
+  shieldDone: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g id="Variant=Light, Icon=Shield Done">
+        <g id="Shield Done">
+          <path
+            id="Stroke 1"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.9846 21.606C11.9846 21.606 19.6566 19.283 19.6566 12.879C19.6566 6.474 19.9346 5.974 19.3196 5.358C18.7036 4.742 12.9906 2.75 11.9846 2.75C10.9786 2.75 5.26557 4.742 4.65057 5.358C4.03457 5.974 4.31257 6.474 4.31257 12.879C4.31257 19.283 11.9846 21.606 11.9846 21.606Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Stroke 3"
+            d="M9.38599 11.8746L11.278 13.7696L15.176 9.86963"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </g>
+    </svg>
+  ),
+  wallet: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g id="Variant=Light, Icon=Wallet">
+        <g id="Wallet">
+          <path
+            id="Stroke 1"
+            d="M21.6389 14.3957H17.5906C16.1042 14.3948 14.8993 13.1909 14.8984 11.7045C14.8984 10.218 16.1042 9.01409 17.5906 9.01318H21.6389"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Stroke 3"
+            d="M18.0485 11.6429H17.7369"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Stroke 5"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M7.74766 3H16.3911C19.2892 3 21.6388 5.34951 21.6388 8.24766V15.4247C21.6388 18.3229 19.2892 20.6724 16.3911 20.6724H7.74766C4.84951 20.6724 2.5 18.3229 2.5 15.4247V8.24766C2.5 5.34951 4.84951 3 7.74766 3Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Stroke 7"
+            d="M7.03564 7.5382H12.4346"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </g>
+    </svg>
+  ),
+  work: (props: SvgIconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g id="Variant=Light, Icon=Work">
+        <g id="Work">
+          <path
+            id="Stroke 1"
+            d="M11.9951 16.6768V14.1398"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <g id="Group 8">
+            <path
+              id="Stroke 2"
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M18.1899 5.3302C19.8799 5.3302 21.2399 6.7002 21.2399 8.3902V11.8302C18.7799 13.2702 15.5299 14.1402 11.9899 14.1402C8.44988 14.1402 5.20988 13.2702 2.74988 11.8302V8.3802C2.74988 6.6902 4.11988 5.3302 5.80988 5.3302H18.1899Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              id="Stroke 4"
+              d="M15.4951 5.32576V4.95976C15.4951 3.73976 14.5051 2.74976 13.2851 2.74976H10.7051C9.48512 2.74976 8.49512 3.73976 8.49512 4.95976V5.32576"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              id="Stroke 6"
+              d="M2.77441 15.4829L2.96341 17.9919C3.09141 19.6829 4.50041 20.9899 6.19541 20.9899H17.7944C19.4894 20.9899 20.8984 19.6829 21.0264 17.9919L21.2154 15.4829"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+        </g>
+      </g>
     </svg>
   ),
 };
