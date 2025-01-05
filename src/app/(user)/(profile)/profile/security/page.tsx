@@ -15,8 +15,8 @@ export default function ProfileSecurityPage() {
           </p>
         </div>
         <div className="grid grid-cols-4 rounded-md border border-input bg-input-background px-6 py-5">
-          <h2 className="col-span-2">Password</h2>
-          <p className="inline-flex items-center justify-end gap-3">
+          <h2 className="col-span-2 font-medium">Password</h2>
+          <p className="inline-flex items-center justify-end gap-3 font-medium">
             ********
             <span className="inline-flex items-center gap-2 text-success">
               <Icons.check className="rounded-full border border-success p-0.5" />
@@ -36,7 +36,7 @@ export default function ProfileSecurityPage() {
         </div>
         <div className="flex justify-between rounded-md border border-input bg-input-background px-6 py-5">
           <div>
-            <h2>Two-step verification</h2>
+            <h2 className="font-medium">Two-step verification</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               We recommend requiring a verification code in addition to your
               password.
