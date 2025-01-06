@@ -14,7 +14,7 @@ export function ArtoaTeamSection() {
   return (
     <section>
       <div className="container mx-auto py-12 lg:py-28">
-        <div className="flex flex-col justify-between gap-20">
+        <div className="flex flex-col justify-between gap-5">
           <div className="flex items-center justify-center md:px-0 lg:justify-between">
             <h1 className="text-center text-3xl font-semibold lg:text-primary">
               Find Your Team Of The Digital Future
@@ -33,8 +33,8 @@ export function ArtoaTeamSection() {
             }}
             className="w-full"
           >
-            <div className="mt-8 flex flex-col gap-12 lg:mt-28 lg:gap-4">
-              <CarouselContent className="ml-4 justify-evenly overflow-y-visible md:-ml-5">
+            <div className="mt-1 flex flex-col gap-6 lg:mt-1 lg:gap-4">
+              <CarouselContent className="ml-4 justify-evenly pt-36 md:-ml-5">
                 {teamMembers.map((member, index) => (
                   <CarouselItem
                     key={index}
