@@ -40,6 +40,7 @@ const config: Config = {
           foreground: "hsl(var(--muted-foreground))",
         },
         destructive: "hsl(var(--destructive))",
+        success: "hsl(var(--success))",
         border: "hsl(var(--border))",
         input: {
           DEFAULT: "hsl(var(--input))",
