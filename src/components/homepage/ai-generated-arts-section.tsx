@@ -71,15 +71,6 @@ export function AiGeneratedArtsSection() {
     );
   };
 
-  const fiveRandomColors = React.useMemo(
-    () =>
-      Array.from(
-        { length: 5 },
-        () => `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-      ),
-    [],
-  );
-
   useEffect(() => {
     const startInterval = () => {
       intervalRef.current = setInterval(() => {
@@ -143,7 +134,9 @@ export function AiGeneratedArtsSection() {
                 variants={cardVariants}
                 transition={{ duration: 0.35 }}
                 style={{
-                  backgroundColor: fiveRandomColors[index % 5],
+                  backgroundColor: ["green", "red", "blue", "yellow", "pink"][
+                    index
+                  ],
                 }}
                 onClick={() => {
                   setCurrentIndex(index);
