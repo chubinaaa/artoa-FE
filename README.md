@@ -20,13 +20,13 @@ Follow these steps to get the project up and running on your local machine:
 1. Clone the repository or download the project ZIP file:
 
    ```bash
-   git clone https://github.com/Doer-Community/artoa-front.git
+   git clone https://github.com/chubinaaa/artoa-FE.git
    ```
 
 2. Navigate into the project directory:
 
    ```bash
-   cd artoa-front
+   cd artoa-FE
    ```
 
 3. Install project dependencies:
