@@ -8,8 +8,8 @@
     "cleandev": "rm -rf .next && pnpm dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "next lint .",
+    "lint:fix": "next lint . --fix",
     "format:check": "prettier --check \"**/*.{ts,tsx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx}\" --cache",
     "typecheck": "tsc --noEmit",
@@ -56,7 +56,7 @@
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
       "prettier --write",
-      "next lint --fix"
+      "next lint . --fix"
     ],
     "*.css": "prettier --write",
     "*.json": "prettier --write"
