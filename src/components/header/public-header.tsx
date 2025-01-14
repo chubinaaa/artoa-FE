@@ -1,11 +1,20 @@
+"use client";
+
+import { useState } from "react";
 import { Icons } from "../icons";
 import { MenuButton } from "./menu-button";
 import { Navigation } from "./navigation";
 import { HeaderButtons } from "./buttons";
 import { LanguageSwitcher } from "./language-switcher";
 import Link from "next/link";
+import { SlideMenu } from "./slide-navigation";
 
 export function PublicHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openMenu = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-22 w-full items-center justify-between">
@@ -19,7 +28,8 @@ export function PublicHeader() {
           <HeaderButtons />
           <LanguageSwitcher />
         </div>
-        <MenuButton />
+        <MenuButton openMenu={openMenu} />
+        <SlideMenu isOpen={isOpen} onClose={onClose} />
       </div>
     </header>
   );
