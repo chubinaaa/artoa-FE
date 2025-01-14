@@ -16,12 +16,13 @@ export function OrderCard({ order }: { order: Order }) {
           alt={order.name}
           className="size-full h-[300px] object-cover"
         />
+        <Icons.buttonMore className="absolute right-4 top-4 cursor-pointer" />
       </CardHeader>
       <CardContent className="gap-4 p-4">
         <div className="flex flex-col gap-4">
           <ul className="flex flex-col items-start gap-4">
             <li className="text-lg font-semibold">{order.name}</li>
-            <li className="inline rounded-md border border-foreground p-2 text-sm font-semibold text-foreground">
+            <li className="inline rounded-md border border-muted-foreground p-2 text-sm font-semibold text-foreground">
               {order.tags}
             </li>
             <li className="flex gap-1 text-base">
@@ -34,7 +35,7 @@ export function OrderCard({ order }: { order: Order }) {
             variant="link"
             className="h-fit w-full justify-center p-4 text-sm"
           >
-            <Link href={`/orders?status=${order.id}`}>
+            <Link href={`/orders?id=${order.id}`}>
               View Details <Icons.arrowRight2 />
             </Link>
           </Button>
