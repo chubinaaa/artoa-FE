@@ -21,7 +21,6 @@ export const signIn = validatedAction(
       | { token: string }
       | { code: string; message: string };
 
-    console.log(json);
     if ("code" in json) {
       if (json.code === "INVALID_PASSWORD") {
         return {
