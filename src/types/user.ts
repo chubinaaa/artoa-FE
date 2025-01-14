@@ -24,3 +24,8 @@ export const signUpSchema = z
   );
 
 export type NewUser = z.infer<typeof signUpSchema>;
+
+export const signInSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});
