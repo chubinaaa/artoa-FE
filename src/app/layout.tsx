@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { firaGo } from "@/config/font";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { firaGo } from "@/config/font";
 
 export const metadata: Metadata = {
   title: "ArtOa",

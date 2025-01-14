@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
-import Image from "next/image";
 
 export function ServiceSection() {
   return (
