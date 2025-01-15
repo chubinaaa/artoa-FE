@@ -5,10 +5,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import Link from "next/link";
-import { Button, buttonVariants } from "../../ui/button";
-import { Icons } from "../../icons";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Icons } from "../../icons";
+import { Button, buttonVariants } from "../../ui/button";
 
 export function SignUpDialog() {
   return (

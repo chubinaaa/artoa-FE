@@ -1,4 +1,3 @@
-import { Artist } from "@/types/artist";
 import {
   Card,
   CardContent,
@@ -7,11 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
+import { Artist } from "@/types/artist";
 import Image from "next/image";
+import Link from "next/link";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
-import Link from "next/link";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 export function WallArtistCard({ artist }: { artist: Artist }) {

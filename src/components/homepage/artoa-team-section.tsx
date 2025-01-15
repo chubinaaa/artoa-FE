@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { teamMembers } from "@/config/team";
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
