@@ -1,9 +1,9 @@
-import { Subscribe } from "./subscribe";
-import { SocialIcons } from "./social-icons";
-import { FooterCopy } from "./footer-copy";
-import { FooterTopMenuGroup } from "./menu-group";
 import { footerConfig } from "@/config/footer";
 import { BottomLinkGroup } from "./bottom-group";
+import { FooterCopy } from "./footer-copy";
+import { FooterTopMenuGroup } from "./menu-group";
+import { SocialIcons } from "./social-icons";
+import { Subscribe } from "./subscribe";
 
 export function PublicFooter() {
   return (

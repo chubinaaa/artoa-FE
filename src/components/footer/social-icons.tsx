@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { FooterConfig } from "@/config/footer";
+import Link from "next/link";
 
 export function SocialIcons({ items }: { items: FooterConfig["socials"] }) {
   return (
