@@ -10,6 +10,7 @@ import { ActionState } from "@/lib/auth/middleware";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useActionState } from "react";
+import { ErrorMessages } from "../../_components/error-messages";
 import { signUp } from "./sign-up.action";
 
 export function SignUpForm() {
@@ -134,16 +135,5 @@ export function SignUpForm() {
         label="Create Account"
       />
     </form>
-  );
-}
-
-function ErrorMessages({ messages }: { messages: string[] | undefined }) {
-  if (!messages) return null;
-  return (
-    <ul className="text-xs text-destructive">
-      {messages.map((message) => (
-        <li key={message}>{message}</li>
-      ))}
-    </ul>
   );
 }

@@ -24,3 +24,20 @@ export const signUpSchema = z
   );
 
 export type NewUser = z.infer<typeof signUpSchema>;
+
+export const signInSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});
+
+export type User = {
+  id: string;
+  email: string;
+  isVerified: boolean;
+  userType: "customer" | "artist" | null;
+  firstName: string | null;
+  lastName: string | null;
+  city: "Tbilisi" | "Rustavi" | "Batumi" | "Kutaisi" | null;
+  nickname: string | null;
+  isSetupComplete: boolean | null;
+};
