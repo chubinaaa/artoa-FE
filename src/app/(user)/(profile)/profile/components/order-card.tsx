@@ -1,14 +1,22 @@
+"use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { Order } from "@/types/order";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import OrderPopover from "./order-popover";
 
 export function OrderCard({ order }: { order: Order }) {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => setIsDialogOpen(true);
+  const handleCloseDialog = () => setIsDialogOpen(false);
+
   return (
-    <Card className="bg-background">
-      <CardHeader className="relative overflow-hidden rounded-t-lg bg-foreground p-0">
+    <Card className="relative bg-background">
+      <CardHeader className="overflow-hidden rounded-t-lg bg-foreground p-0">
         <Image
           width={300}
           height={300}
@@ -16,7 +24,14 @@ export function OrderCard({ order }: { order: Order }) {
           alt={order.name}
           className="size-full h-[300px] object-cover"
         />
-        <Icons.buttonMore className="absolute right-4 top-4 cursor-pointer" />
+        {order.status === "Proposed" && (
+          <div
+            onClick={handleOpenDialog}
+            className="absolute right-4 top-4 cursor-pointer"
+          >
+            <Icons.buttonMore />
+          </div>
+        )}
       </CardHeader>
       <CardContent className="gap-4 p-4">
         <div className="flex flex-col gap-4">
@@ -41,6 +56,11 @@ export function OrderCard({ order }: { order: Order }) {
           </Button>
         </div>
       </CardContent>
+      <OrderPopover
+        order={order}
+        open={isDialogOpen}
+        onClose={handleCloseDialog}
+      />
     </Card>
   );
 }
