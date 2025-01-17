@@ -1,10 +1,11 @@
-import { cn } from "@/lib/utils";
 import { Artist } from "@/types/artist";
-import Image from "next/image";
-import Link from "next/link";
+
 import { Icons } from "../icons";
 import { buttonVariants } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 export function FeaturedArtistCard({ artist }: { artist: Artist }) {

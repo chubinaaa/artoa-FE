@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -7,11 +8,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Artist } from "@/types/artist";
-import * as React from "react";
-import { WallArtistCard } from "../artists/wall-artists-card";
 import { Checkbox } from "../ui/checkbox";
 import { Label } from "../ui/label";
+import { WallArtistCard } from "../artists/wall-artists-card";
+import { Artist } from "@/types/artist";
 
 export const filters = [
   "All",
