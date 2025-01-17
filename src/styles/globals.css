@@ -16,6 +16,11 @@
   -ms-overflow-style: none;
 }
 
+[data-radix-popper-content-wrapper] {
+  position: absolute !important;
+  width: 100%;
+}
+
 @layer base {
   :root {
     --foreground: 0 0% 100%;
