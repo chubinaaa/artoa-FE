@@ -18,11 +18,11 @@ const statusGroups = {
 
 export default function GroupedOrders() {
   return (
-    <div className="flex w-full flex-wrap gap-6">
+    <div className="flex w-full flex-wrap gap-6 md:flex-row">
       {Object.entries(statusGroups).map(([status, orders]) => (
         <div key={status} className="flex w-full flex-col gap-6">
           <div className="flex items-center justify-between md:px-0">
-            <h1 className="text-sm font-semibold text-foreground sm:text-2xl md:text-3xl">
+            <h1 className="text-sm font-semibold text-primary sm:text-2xl md:text-3xl lg:text-foreground">
               {status} Projects
             </h1>
             <Button asChild variant="link" className="h-fit p-0 text-sm">

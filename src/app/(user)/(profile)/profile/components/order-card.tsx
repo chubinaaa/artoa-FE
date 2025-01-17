@@ -15,7 +15,7 @@ export function OrderCard({ order }: { order: Order }) {
   const handleCloseDialog = () => setIsDialogOpen(false);
 
   return (
-    <Card className="relative bg-background">
+    <Card className="relative bg-secondary">
       <CardHeader className="overflow-hidden rounded-t-lg bg-foreground p-0">
         <Image
           width={300}
