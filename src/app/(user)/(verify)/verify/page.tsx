@@ -1,7 +1,12 @@
 import { AuthShell } from "@/components/auth/auth-shell";
+import { getSession } from "@/lib/auth/session";
+import { redirect } from "next/navigation";
 import { VerifyUserForm } from "./_components/verify-user-form.client";
 
-export default function VerifyPage() {
+export default async function VerifyPage() {
+  const user = await getSession();
+  if (user?.isSetupComplete) redirect("/profile");
+
   return (
     <AuthShell>
       <div className="flex flex-col gap-4 md:gap-12">
