@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Icons } from "../icons";
-import { HeaderButtons } from "./buttons";
-import { LanguageSwitcher } from "./language-switcher";
 import { MenuButton } from "./menu-button";
 import { Navigation } from "./navigation";
+import { HeaderButtons } from "./buttons";
+import { LanguageSwitcher } from "./language-switcher";
+import Link from "next/link";
 
 export function PublicHeader() {
   return (

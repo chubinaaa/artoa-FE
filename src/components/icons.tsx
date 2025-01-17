@@ -880,6 +880,7 @@ export const Icons = {
       </g>
     </svg>
   ),
+
    buttonMore: (props: SvgIconProps) => (
     <svg
       width="24"
