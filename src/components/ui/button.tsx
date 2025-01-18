@@ -15,6 +15,9 @@ const buttonVariants = cva(
         outline:
           "border border-input bg-input-background text-foreground hover:bg-input",
         carousel: "bg-secondary text-foreground",
+        jobOrder:
+          "bg-input-background text-foreground hover:bg-secondary-foreground",
+
         // ...other button variants
       },
       size: {
