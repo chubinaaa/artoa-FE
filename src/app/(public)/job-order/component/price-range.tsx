@@ -1,15 +1,16 @@
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
 import { Range } from "react-range";
 
 export default function PriceRange() {
-  const [priceRange, setPriceRange] = useState<number[]>([100, 3000]); // Changed tuple to number[]
+  const [priceRange, setPriceRange] = useState<number[]>([1000, 3000]);
 
   const handlePriceChange = (values: number[]) => {
     setPriceRange(values);
   };
 
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-4">
       <label className="mb-2 block text-base text-current">Price Range:</label>
       <div className="flex w-full flex-col gap-2">
         <Range
@@ -19,7 +20,17 @@ export default function PriceRange() {
           values={priceRange}
           onChange={handlePriceChange}
           renderTrack={({ props, children }) => (
-            <div {...props} className="mb-1.5 h-2 rounded-full bg-foreground">
+            <div
+              {...props}
+              className="relative mb-1.5 h-2 rounded-full bg-foreground"
+            >
+              <div
+                className="absolute h-full rounded-full bg-primary"
+                style={{
+                  left: `${(priceRange[0] / 10000) * 100}%`,
+                  right: `${100 - (priceRange[1] / 10000) * 100}%`,
+                }}
+              />
               {children}
             </div>
           )}
@@ -31,17 +42,17 @@ export default function PriceRange() {
           )}
         />
         <div className="flex w-full justify-between gap-3">
-          <input
+          <Input
             type="text"
-            value={`$${priceRange[0]}`}
+            value={`₾ ${priceRange[0]}`}
             readOnly
-            className="w-1/2 cursor-default rounded-lg border border-secondary-foreground bg-input-background px-2 py-1 text-left text-current outline-none"
+            className="cursor-default outline-none"
           />
-          <input
+          <Input
             type="text"
-            value={`$${priceRange[1]}`}
+            value={`₾ ${priceRange[1]}`}
             readOnly
-            className="w-1/2 cursor-default rounded-lg border border-secondary-foreground bg-input-background px-2 py-1 text-left text-current outline-none"
+            className="cursor-default outline-none"
           />
         </div>
       </div>

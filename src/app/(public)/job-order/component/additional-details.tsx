@@ -80,15 +80,7 @@ export default function AdditionalDetails() {
       <section className="flex flex-col gap-4">
         <div className="w-full">
           <label className="mb-2 block">Size</label>
-          <Select>
-            <SelectTrigger id="">
-              <SelectValue placeholder="Size" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="sm">sm</SelectItem>
-              <SelectItem value="md">md</SelectItem>
-            </SelectContent>
-          </Select>
+          <Input placeholder="Size" />
         </div>
 
         <div className="col-span-1 mt-2 md:col-span-2">
