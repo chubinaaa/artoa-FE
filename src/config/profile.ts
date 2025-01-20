@@ -13,11 +13,6 @@ export const profileConfig = {
       icon: Icons.shieldDone,
     },
     {
-      label: "Personal Finances",
-      href: "/profile/finances",
-      icon: Icons.wallet,
-    },
-    {
       label: "Order History",
       href: "/profile/orders",
       icon: Icons.work,
