@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 import tailwindCssAnimate from "tailwindcss-animate";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -36,7 +37,6 @@ const config: Config = {
         },
         accent: "hsl(var(--accent))",
         muted: {
-          // DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
         destructive: "hsl(var(--destructive))",
@@ -55,7 +55,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       spacing: {
-        22: "5.5rem",
+        "22": "5.5rem",
       },
       fontSize: {
         "2xs": "0.625rem",
@@ -68,6 +68,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [tailwindCssAnimate],
+  plugins: [tailwindCssAnimate, require("tailwindcss-animate")],
 };
 export default config;
