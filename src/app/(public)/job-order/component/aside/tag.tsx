@@ -5,14 +5,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-export default function OrderTag() {
+import FormField from "../field";
+export default function OrderTag({
+  errors,
+  setTag,
+}: {
+  errors: { [key: string]: string };
+  setTag: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const tagsOPtion = ["Graffiti", "3D Art", "Illustration", "Stencil", "Mural"];
 
   return (
     <div className="mb-4">
-      <h3 className="mb-2">Order Type Tags</h3>
-      <div className="flex flex-wrap gap-2">
-        <Select>
+      <FormField label="Order Type Tags" className="flex flex-col gap-3">
+        <Select onValueChange={(value) => setTag(value)}>
           <SelectTrigger id="">
             <SelectValue placeholder="Tags" />
           </SelectTrigger>
@@ -24,7 +30,10 @@ export default function OrderTag() {
             ))}
           </SelectContent>
         </Select>
-      </div>
+        {errors.tag && (
+          <p className="text-base text-destructive">{errors.tag}</p>
+        )}
+      </FormField>
     </div>
   );
 }
