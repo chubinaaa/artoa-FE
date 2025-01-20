@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import AdditionalDetails from "./component/additional/additional-details";
 import OrderAside from "./component/aside/aside";
 import { useState } from "react";
+import ButtotCheck from "./component/button/button-check";
 
 export default function JobOrderPage() {
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
@@ -124,14 +124,7 @@ export default function JobOrderPage() {
             setImages={setImages}
           />
         </div>
-        <div className="m-10 mr-5 flex justify-end gap-x-2 md:col-span-2">
-          <Button type="submit" variant="secondary">
-            Save and Upload
-          </Button>
-          <Button onClick={viewOrder} type="button" variant="default">
-            View Order
-          </Button>
-        </div>
+        <ButtotCheck viewOrder={viewOrder} />
       </div>
     </main>
   );
