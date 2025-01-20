@@ -1,14 +1,15 @@
 "use client";
 
-import { profileConfig } from "@/config/profile";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { profileConfig } from "@/config/profile";
+import { cn } from "@/lib/utils";
 
 export function ProfileSidebar() {
   const pathname = usePathname();
   return (
-    <aside className="h-fit rounded-2xl border border-muted-foreground bg-secondary px-6 py-4">
+    <aside className="h-fit rounded-2xl border border-muted-foreground bg-secondary px-6 py-4 max-lg:hidden">
       <div className="flex flex-col">
         {profileConfig.sidebarItems.map((item) => {
           const Icon = item.icon;

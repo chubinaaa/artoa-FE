@@ -9,47 +9,83 @@ import { Icons } from "@/components/icons";
 
 export default function PersonalInfo() {
   const [edit, setEdit] = useState(false);
+  //   const [name, setName] = useState("");
+  //   const [surName, setSurName] = useState("");
+  //   const [email, setEmail] = useState("");
+  //   const [city, setCity] = useState("");
+  //   const [nickname, setNickname] = useState("");
+  //   const [bio, setBio] = useState("");
+  //   const [iban, setIban] = useState("");
 
   return (
-    <div className="">
+    <div>
       <div className="mt-6 h-fit rounded-2xl border border-muted-foreground bg-secondary px-6 py-4">
         <div className="flex items-center justify-between">
-          <p className="text-4xl font-medium">Personal Information</p>
+          {/* <p className="text-4xl font-medium max-sm:text-xl">Personal Information</p> */}
           <button className="flex items-center" onClick={() => setEdit(!edit)}>
             <Icons.editLine className="me-2" aria-label="edit" />
             <span>Edit</span>
           </button>
         </div>
-        <div className="mt-6 flex gap-7">
+        <div className="mt-6 flex gap-7 max-sm:grid">
           <div className="flex w-full flex-col gap-2.5">
-            <Label className="">Name</Label>
-            <Input disabled={!edit} placeholder="Name" />
+            <Label>Name</Label>
+            <Input
+              //   onChange={(e) => setName(e.target.value)}
+              disabled={!edit}
+              placeholder="Name"
+            />
           </div>
           <div className="flex w-full flex-col gap-2.5">
-            <Label className="">Surname</Label>
-            <Input disabled={!edit} placeholder="Surname" />
+            <Label>Surname</Label>
+            <Input
+              //   onChange={(e) => setSurName(e.target.value)}
+              disabled={!edit}
+              placeholder="Surname"
+            />
           </div>
         </div>
         <div className="mt-4 grid gap-4">
           <div className="flex w-full flex-col gap-2.5">
-            <Label className="">Email address</Label>
-            <Input disabled={!edit} type="email" placeholder="Email address" />
+            <Label>Email address</Label>
+            <Input
+              //   onChange={(e) => setEmail(e.target.value)}
+              disabled={!edit}
+              type="email"
+              placeholder="Email address"
+            />
           </div>
           <div className="flex w-full flex-col gap-2.5">
-            <Label className="">City</Label>
-            <Input disabled={!edit} placeholder="Tbilisi" />
+            <Label>City</Label>
+            <Input
+              //   onChange={(e) => setCity(e.target.value)}
+              disabled={!edit}
+              placeholder="Tbilisi"
+            />
           </div>
           <div className="flex w-full flex-col gap-2.5">
-            <Label className="">Nickname</Label>
-            <Input disabled={!edit} placeholder="Write your Nickname" />
+            <Label>Nickname</Label>
+            <Input
+              //   onChange={(e) => setNickname(e.target.value)}
+              disabled={!edit}
+              placeholder="Write your Nickname"
+            />
           </div>
           <div className="flex w-full flex-col gap-2.5">
-            <Label className="">Bio</Label>
-            <Input disabled={!edit} placeholder="3D Artist" />
+            <Label>Bio</Label>
+            <Input
+              //   onChange={(e) => setBio(e.target.value)}
+              disabled={!edit}
+              placeholder="3D Artist"
+            />
           </div>
           <div className="flex w-full flex-col gap-2.5">
-            <Label className="">Iban</Label>
-            <Input disabled={!edit} placeholder="GE00XX0000000123456789" />
+            <Label>Iban</Label>
+            <Input
+              //   onChange={(e) => setIban(e.target.value)}
+              disabled={!edit}
+              placeholder="GE00XX0000000123456789"
+            />
           </div>
         </div>
       </div>
