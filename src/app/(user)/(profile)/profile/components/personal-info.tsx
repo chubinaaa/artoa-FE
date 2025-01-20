@@ -21,7 +21,9 @@ export default function PersonalInfo() {
     <div>
       <div className="mt-6 h-fit rounded-2xl border border-muted-foreground bg-secondary px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* <p className="text-4xl font-medium max-sm:text-xl">Personal Information</p> */}
+          <p className="text-4xl font-medium max-sm:text-xl">
+            Personal Information
+          </p>
           <button className="flex items-center" onClick={() => setEdit(!edit)}>
             <Icons.editLine className="me-2" aria-label="edit" />
             <span>Edit</span>
