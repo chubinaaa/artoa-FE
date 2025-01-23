@@ -16,7 +16,7 @@ export function ProfileHeader() {
         </div>
         <div className="flex items-center gap-5">
           <Button asChild variant="default">
-            <Link href={"./add-order"}>Share Your Work</Link>
+            <Link href={"portfolio"}>Share Your Work</Link>
           </Button>
           <div className="flex gap-3">
             <Icons.avatarIcon className="size-10 rounded-full bg-secondary-foreground p-1.5" />
