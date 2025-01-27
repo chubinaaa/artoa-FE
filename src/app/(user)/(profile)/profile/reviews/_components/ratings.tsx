@@ -16,17 +16,17 @@ export function Ratings({ ratings }: { ratings: Rating[] }) {
   const average = (totalStars / totalCount).toFixed(1);
 
   return (
-    <div className="grid grid-cols-2 gap-6 rounded-lg bg-background px-2 py-3 md:gap-20">
-      <div className="flex flex-col gap-2">
+    <div className="grid grid-cols-5 gap-6 rounded-lg bg-background px-2 py-3 md:grid-cols-2 md:gap-20">
+      <div className="col-span-3 flex flex-col gap-2 md:col-span-1">
         {ratings.map((rating) => (
           <div key={rating.id} className="flex items-center gap-1">
-            <span className="font-semibold">{rating.star}</span>{" "}
+            <span className="font-semibold">{rating.star}</span>
             <Icons.star className="size-4 text-primary" />
             <Progress value={(100 / mostRatedCount) * rating.count} />
           </div>
         ))}
       </div>
-      <div className="flex w-fit flex-col gap-2 text-right">
+      <div className="flex w-fit flex-col gap-2 md:text-right">
         <p className="text-5xl font-bold">{average}</p>
         <div className="flex items-center gap-1">
           {Array.from({ length: 5 }, (_, i) => i + 1).map((star) => (
