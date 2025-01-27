@@ -1,8 +1,15 @@
 import { Icons } from "../icons";
 
-export function MenuButton() {
+interface MenuButtonProps {
+  openMenu: () => void;
+}
+
+export function MenuButton({ openMenu }: MenuButtonProps) {
   return (
-    <div className="flex cursor-pointer items-center lg:hidden">
+    <div
+      onClick={openMenu}
+      className="flex cursor-pointer items-center lg:hidden"
+    >
       <Icons.menuButton className="md:size-6" />
     </div>
   );
