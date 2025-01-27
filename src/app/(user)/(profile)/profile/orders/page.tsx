@@ -1,4 +1,4 @@
-import GroupedOrders from "../components/grouped-orders";
+import GroupedOrders from "../_components/grouped-orders";
 
 export default function OrdersPage() {
   return (

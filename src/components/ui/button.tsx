@@ -17,7 +17,7 @@ const buttonVariants = cva(
         carousel: "bg-secondary text-foreground",
         jobOrder:
           "bg-input-background text-foreground hover:bg-secondary-foreground",
-
+        destructive: "bg-destructive text-foreground hover:bg-destructive/90",
         // ...other button variants
       },
       size: {
