@@ -3,14 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import Link from "next/link";
-
-import {
-  Sheet,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Sidebar } from "../_components/sidebar.client";
+import { MobileSidebar } from "../_components/mobile-sidebar";
 
 export default function ProfileSettingsPage() {
   return (
@@ -129,24 +122,5 @@ function DeleteAccount() {
         <Icons.delete />
       </Button>
     </div>
-  );
-}
-
-function MobileSidebar() {
-  return (
-    <Sheet>
-      <SheetTrigger>
-        <Icons.arrowLeft className="text-foreground md:hidden" />
-      </SheetTrigger>
-      <SheetContent
-        overlayHidden
-        closeHidden
-        side="left"
-        className="mt-22 w-full"
-      >
-        <SheetTitle className="sr-only">Sidebar</SheetTitle>
-        <Sidebar />
-      </SheetContent>
-    </Sheet>
   );
 }
