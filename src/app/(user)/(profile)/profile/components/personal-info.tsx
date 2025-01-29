@@ -6,6 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Icons } from "@/components/icons";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function PersonalInfo() {
   const [edit, setEdit] = useState(false);
@@ -59,11 +66,18 @@ export default function PersonalInfo() {
           </div>
           <div className="flex w-full flex-col gap-2.5">
             <Label>City</Label>
-            <Input
-              //   onChange={(e) => setCity(e.target.value)}
+            <Select
               disabled={!edit}
-              placeholder="Tbilisi"
-            />
+              //   onChange={(e) => setCity(e.target.value)}
+            >
+              <SelectTrigger id="i-am">
+                <SelectValue placeholder="Choose One" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="artist">Tbilisi</SelectItem>
+                <SelectItem value="customer">Other</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           <div className="flex w-full flex-col gap-2.5">
             <Label>Nickname</Label>
