@@ -77,7 +77,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - run: pnpm format:check
+      - name: Check code formatting
+        run: pnpm format:check
+
+      - name: Fix code style issues
+        run: pnpm prettier --write .
 
   tsc:
     runs-on: ubuntu-latest
