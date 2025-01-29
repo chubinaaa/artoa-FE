@@ -982,4 +982,40 @@ export const Icons = {
       />
     </svg>
   ),
+  plusInCircle: (props: SvgIconProps) => (
+    <svg
+      width="111"
+      height="110"
+      viewBox="0 0 111 110"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect
+        x="0.5"
+        width="110"
+        height="110"
+        rx="55"
+        fill="#FCA311"
+        fillOpacity="0.1"
+      />
+      <circle cx="55.5" cy="55" r="32" fill="#FCA311" />
+      <g clipPath="url(#clip0_2577_6405)">
+        <path
+          d="M54.5 57V51H56.5V57H62.5V59H56.5V65H54.5V59H48.5V57H54.5Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_2577_6405">
+          <rect
+            width="24"
+            height="24"
+            fill="white"
+            transform="translate(43.5 46)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  ),
 };

@@ -35,14 +35,11 @@ function UserInfoCard() {
             placeholder="A 3D artist with 2 years of experience creating detailed and visually stunning designs."
           />
         </div>
-        <div className="flex w-full flex-col gap-2.5">
+        <div className="relative flex w-full flex-col gap-2.5">
           <Label>Rating</Label>
-          <Input
-            className="border-muted-foreground"
-            placeholder="4.0 * * * * *"
-          />
-          <div className="flex">
-            {/* TODO */}
+          <Input disabled className="!cursor-auto border-muted-foreground" />
+          <div className="absolute bottom-4 left-6 flex items-center gap-1">
+            <p className="me-2 text-muted-foreground">4.0</p>
             <Icons.star className="text-primary" />
             <Icons.star className="text-primary" />
             <Icons.star className="text-primary" />
@@ -55,8 +52,8 @@ function UserInfoCard() {
           <Textarea
             name="descriptasdion"
             className="border-muted-foreground bg-input-background"
-            placeholder="Looking For Opportunites? Add our new “Hire” section to your profile to let visitors know that you’re looking for new opportunities."
-            rows={5}
+            placeholder={`Looking For Opportunities?\n\nAdd our new “Hire” section to your profile to let visitors know that you’re looking for new opportunities.`}
+            rows={7}
           />
           <Button
             asChild
