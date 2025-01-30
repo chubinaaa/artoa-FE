@@ -6,9 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import Link from "next/link";
 
-function UserInfoCard() {
+function UserInfoCard({ className }: { className?: string }) {
   return (
-    <div className="w-80">
+    <div className={`w-80 ${className}`}>
       <div className="grid justify-items-center">
         <Image
           src="/user-profile-photo.jpg"
