@@ -8,19 +8,19 @@ export const profileConfig = {
       icon: Icons.avatarIcon,
     },
     {
-      label: "Security",
-      href: "/profile/security",
-      icon: Icons.shieldDone,
+      label: "Reviews & Rating",
+      href: "/profile/reviews",
+      icon: Icons.star,
     },
     {
       label: "Order History",
       href: "/profile/orders",
-      icon: Icons.work,
+      icon: Icons.history,
     },
     {
-      label: "Reviews & Rating",
-      href: "/profile/reviews",
-      icon: Icons.star,
+      label: "Settings",
+      href: "/profile/settings",
+      icon: Icons.settings,
     },
   ],
 };
