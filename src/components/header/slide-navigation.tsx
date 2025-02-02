@@ -33,20 +33,18 @@ export function SlideMenu({ isOpen, onClose }: SlideMenuProps) {
           </SheetClose>
         </SheetHeader>
 
-        <div className="p-0">
-          <nav className="gap-12">
-            <MenuItems items={topItems} pathname={pathname} onClose={onClose} />
-            <div className="flex justify-between border-b border-secondary-foreground px-6 py-4">
-              <span>Language</span>
-              <span>English</span>
-            </div>
-            <MenuItems
-              items={buttonItems}
-              pathname={pathname}
-              onClose={onClose}
-            />
-          </nav>
-        </div>
+        <nav className="gap-12">
+          <MenuItems items={topItems} pathname={pathname} onClose={onClose} />
+          <div className="flex justify-between border-b border-secondary-foreground px-6 py-4">
+            <span>Language</span>
+            <span>English</span>
+          </div>
+          <MenuItems
+            items={buttonItems}
+            pathname={pathname}
+            onClose={onClose}
+          />
+        </nav>
         <SheetFooter className="mt-6 px-6 text-sm text-secondary-foreground">
           VERSION: 1.028
         </SheetFooter>
