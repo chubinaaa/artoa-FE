@@ -17,6 +17,7 @@ export const JobOrderSchema = z.object({
   location: z.enum(["Tbilisi", "Rustavi"], {
     message: "Invalid location selected.",
   }),
+  images: z.array(z.instanceof(File)),
   tag: z.array(z.string()),
   message: z.string().optional(),
 
@@ -35,7 +36,7 @@ export function useOrderForm() {
     size: 0,
     location: "Tbilisi",
     tags: [] as string[],
-    image: [] as File[],
+    images: [] as File[],
     priceRange: { min: 0, max: 0 },
   });
 

@@ -44,8 +44,6 @@ export default function OrderForm() {
           <OrderAside
             setTags={setTags}
             tags={tags}
-            image={[]}
-            setImages={() => {}}
             register={register}
             setValue={setValue}
           />

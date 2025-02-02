@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function PriceRange({ register }: Props) {
-  const [priceType, setPriceType] = useState<"Offer" | "Trade">("Offer");
+  const [priceType, setPriceType] = useState<"Offer" | "Trade">("Trade");
 
   const handlePriceTypeChange = (value: "Offer" | "Trade") => {
     setPriceType(value);
