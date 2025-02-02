@@ -46,7 +46,8 @@ export default function OrderForm() {
             tags={tags}
             image={[]}
             setImages={() => {}}
-            setPriceRange={() => {}}
+            register={register}
+            setValue={setValue}
           />
         </div>
         <SaveUpload onSubmit={onSubmit} />

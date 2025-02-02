@@ -17,6 +17,13 @@ export const JobOrderSchema = z.object({
   location: z.enum(["Tbilisi", "Rustavi"], {
     message: "Invalid location selected.",
   }),
+  tag: z.array(z.string()),
+  message: z.string().optional(),
+
+  priceRange: z.object({
+    min: z.number().min(0, { message: "Min price must be at least 0." }),
+    max: z.number().min(0, { message: "Max price must be at least 0." }),
+  }),
 });
 
 export function useOrderForm() {
@@ -29,6 +36,7 @@ export function useOrderForm() {
     location: "Tbilisi",
     tags: [] as string[],
     image: [] as File[],
+    priceRange: { min: 0, max: 0 },
   });
 
   const setOrderType = (value: "Individual" | "Corporate") => {
@@ -43,5 +51,26 @@ export function useOrderForm() {
     setOrderData((prev) => ({ ...prev, ...newData }));
   };
 
-  return { orderData, setOrderType, setEnvironment, updateOrderData };
+  const validateOrderData = () => {
+    try {
+      JobOrderSchema.parse(orderData);
+      return { isValid: true, errors: null };
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return { isValid: false, errors: error.errors };
+      }
+      return {
+        isValid: false,
+        errors: [{ message: "form field is not valide" }],
+      };
+    }
+  };
+
+  return {
+    orderData,
+    setOrderType,
+    setEnvironment,
+    updateOrderData,
+    validateOrderData,
+  };
 }

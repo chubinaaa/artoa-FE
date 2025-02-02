@@ -43,13 +43,13 @@ export default function AdditionalDetails({
         <ButtonGroup
           label="Order Type"
           options={["Individual", "Corporate"]}
-          selectedOption={orderData.orderType}
+          selectedOption={orderData.orderType as "Individual" | "Corporate"}
           onSelect={handleOrderTypeChange}
         />
         <ButtonGroup
           label="Choose Type"
           options={["Interior", "Exterior"]}
-          selectedOption={orderData.environment}
+          selectedOption={orderData.environment as "Interior" | "Exterior"}
           onSelect={handleEnvironmentChange}
         />
       </div>
