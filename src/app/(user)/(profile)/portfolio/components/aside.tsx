@@ -36,18 +36,18 @@ export default function AddProjectAside() {
           removeVideo={removeVideo}
         />
       </div>
-      <div className="mt-4 flex flex-row gap-4 sm:flex-col">
+      <div className="mt-4 flex flex-col gap-4">
         <Label className="col-span-full text-lg font-semibold">
           Uploaded Files:
         </Label>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 items-center gap-4 md:grid-cols-3 lg:grid-cols-2">
           {uploadedImages
             .slice()
             .reverse()
             .map((img, index) => (
               <div
                 key={index}
-                className="relative flex items-center justify-center rounded-lg border border-secondary-foreground bg-background p-2 shadow-md"
+                className="relative flex max-w-64 items-center justify-center rounded-lg border border-secondary-foreground bg-background p-2 shadow-md"
               >
                 <div className="relative h-24 w-full overflow-hidden rounded-lg">
                   <Image
@@ -71,9 +71,9 @@ export default function AddProjectAside() {
           {uploadedVideos.map((video, index) => (
             <div
               key={index}
-              className="relative flex items-center justify-center rounded-lg border border-secondary-foreground p-3"
+              className="relative flex max-w-80 items-center justify-center rounded-lg border border-secondary-foreground p-3"
             >
-              <div className="relative h-24 w-full overflow-hidden rounded-lg">
+              <div className="relative h-32 w-full overflow-hidden rounded-lg">
                 <video
                   src={URL.createObjectURL(video)}
                   controls

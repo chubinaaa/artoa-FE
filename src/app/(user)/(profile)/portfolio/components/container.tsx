@@ -11,7 +11,7 @@ import {
 
 export default function AddProjectContainet() {
   return (
-    <div className="flex flex-row space-x-6 rounded-2xl border border-muted-foreground bg-secondary p-6">
+    <div className="flex flex-col space-y-6 rounded-2xl lg:border lg:border-muted-foreground lg:bg-secondary lg:p-6">
       <form className="flex w-full flex-col gap-6">
         <div className="flex flex-col gap-2.5">
           <Label>Title</Label>
