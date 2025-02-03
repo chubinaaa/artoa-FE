@@ -1,4 +1,5 @@
 "use client";
+import { memo } from "react";
 import {
   Sheet,
   SheetHeader,
@@ -16,20 +17,22 @@ interface SlideMenuProps {
   onClose: () => void;
 }
 
-export function SlideMenu({ isOpen, onClose }: SlideMenuProps) {
+const SlideMenu = ({ isOpen, onClose }: SlideMenuProps) => {
   const pathname = usePathname();
+
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent
         side="right"
         className="w-full bg-inherit p-0 text-foreground"
+        aria-hidden={!isOpen}
       >
         <SheetHeader className="flex h-20 flex-row justify-between bg-secondary px-7 py-4">
-          <Link href={"/"} onClick={onClose} aria-label="Logo ArtOa">
+          <Link href="/" onClick={onClose} aria-label="Logo ArtOa">
             <Icons.logo />
           </Link>
           <SheetClose>
-            <Icons.menuButtonClose className="md:size-6" />
+            <Icons.menuButtonClose className="size-6" />
           </SheetClose>
         </SheetHeader>
 
@@ -45,6 +48,7 @@ export function SlideMenu({ isOpen, onClose }: SlideMenuProps) {
             onClose={onClose}
           />
         </nav>
+
         <SheetFooter className="mt-6 px-6 text-sm text-secondary-foreground">
           VERSION: 1.028
         </SheetFooter>
@@ -53,4 +57,6 @@ export function SlideMenu({ isOpen, onClose }: SlideMenuProps) {
       </SheetContent>
     </Sheet>
   );
-}
+};
+
+export default memo(SlideMenu);

@@ -1,4 +1,5 @@
 import { Icons } from "../icons";
+import { Button } from "../ui/button";
 
 interface MenuButtonProps {
   openMenu: () => void;
@@ -6,11 +7,8 @@ interface MenuButtonProps {
 
 export function MenuButton({ openMenu }: MenuButtonProps) {
   return (
-    <div
-      onClick={openMenu}
-      className="flex cursor-pointer items-center lg:hidden"
-    >
+    <Button className="p-2 lg:hidden" variant="link" onClick={openMenu}>
       <Icons.menuButton className="md:size-6" />
-    </div>
+    </Button>
   );
 }

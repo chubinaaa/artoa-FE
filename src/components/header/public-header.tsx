@@ -7,10 +7,10 @@ import { Navigation } from "./navigation";
 import { HeaderButtons } from "./buttons";
 import { LanguageSwitcher } from "./language-switcher";
 import Link from "next/link";
-import { SlideMenu } from "./slide-navigation";
+import SlideMenu from "./slide-navigation";
 
 export function PublicHeader() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const openMenu = () => setIsOpen(true);
   const onClose = () => setIsOpen(false);
