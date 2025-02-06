@@ -1,18 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import { Icons } from "@/components/icons";
+import { Input } from "@/components/ui/input";
+import { UseFormSetValue } from "react-hook-form";
+import { JobOrderSchema } from "@/config/jobOrderSchema";
+import { z } from "zod";
+
+type JobOrderType = z.infer<typeof JobOrderSchema>;
 
 interface UploadImageProps {
-  image: File[];
-  setImages: React.Dispatch<React.SetStateAction<File[]>>;
+  setValue: UseFormSetValue<JobOrderType>;
 }
 
-export default function UploadImage({ image, setImages }: UploadImageProps) {
+export default function UploadImage({ setValue }: UploadImageProps) {
+  const [image, setImage] = useState<File[]>([]);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const allowedFormats = ["image/jpeg", "image/png", "image/jpg"];
   const maxImages = 3;
+
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    return () => {
+      image.forEach((img) => {
+        URL.revokeObjectURL(img.name);
+      });
+    };
+  }, [image]);
+
+  useEffect(() => {
+    if (image.length > 0) {
+      setValue("images", image);
+      console.log("Updated form data with images:", image);
+    }
+  }, [image, setValue]);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -31,6 +54,10 @@ export default function UploadImage({ image, setImages }: UploadImageProps) {
     }
 
     startUploadProcess(newImage);
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   const startUploadProcess = (newImage: File) => {
@@ -45,15 +72,16 @@ export default function UploadImage({ image, setImages }: UploadImageProps) {
         setUploadProgress(currentProgress);
         setTimeout(() => increaseProgress(currentProgress + increment), 20);
       } else {
-        setImages((prevImages) => [...prevImages, newImage]);
+        setImage((prevImages) => [...prevImages, newImage]);
         setIsUploading(false);
       }
     };
+
     increaseProgress(0);
   };
 
   const removeImage = (index: number) => {
-    setImages((prevImages) =>
+    setImage((prevImages) =>
       prevImages.filter((_, imgIndex) => imgIndex !== index),
     );
   };
@@ -88,17 +116,15 @@ export default function UploadImage({ image, setImages }: UploadImageProps) {
               </button>
             </div>
           ))}
-
         {isUploading && (
           <div className="col-span-1 flex h-24 flex-col items-center justify-center gap-1 rounded-lg border border-secondary-foreground">
             <samp>Uploading</samp>
             <Progress value={uploadProgress} className="w-22" />
           </div>
         )}
-
         <label
           htmlFor="image-upload"
-          className={`flex h-24 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border border-secondary-foreground bg-background p-4 ${isUploading ? "hidden" : "flex"} ${image.length >= maxImages && "pointer-events-none opacity-50"} `}
+          className={`flex h-24 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border border-secondary-foreground bg-background p-4 ${isUploading ? "hidden" : "flex"} ${image.length >= maxImages && "pointer-events-none opacity-50"}`}
         >
           {image.length >= maxImages ? (
             <samp className="text-center text-sm text-destructive">
@@ -111,12 +137,13 @@ export default function UploadImage({ image, setImages }: UploadImageProps) {
             </>
           )}
         </label>
-        <input
+        <Input
           type="file"
           id="image-upload"
           className="hidden"
           onChange={handleImageUpload}
           disabled={image.length >= maxImages}
+          ref={fileInputRef}
         />
       </div>
     </div>

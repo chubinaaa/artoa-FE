@@ -1,18 +1,21 @@
 import { Button } from "@/components/ui/button";
+
 const buttonStyle = "bg-input-background text-foreground";
 const buttonStyleActive = "bg-accent/10 text-primary  border border-primary";
 
-export function ButtonGroup({
+type ButtonGroupProps<T extends string> = {
+  label: string;
+  options: T[];
+  selectedOption: T;
+  onSelect: (value: T) => void;
+};
+
+export function ButtonGroup<T extends string>({
   label,
   options,
   selectedOption,
   onSelect,
-}: {
-  label: string;
-  options: string[];
-  selectedOption: string;
-  onSelect: (value: string) => void;
-}) {
+}: ButtonGroupProps<T>) {
   return (
     <div className="flex gap-4">
       <label className="flex items-center">{label}:</label>
